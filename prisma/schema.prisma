@@ -1,0 +1,67 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+  output = "./"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model Wedding {
+  id                  String   @id @default(auto()) @map("_id") @db.ObjectId
+  weddingHouse        String
+  weddingHouseAddress String
+  bus                 String?
+  subway              String?
+  description         String
+  date                DateTime
+  createdAt           DateTime @default(now())
+  Groom               Groom?
+  Bridge              Bridge?
+  MetaTag             MetaTag?
+}
+
+model Groom {
+  id                 String  @id @default(auto()) @map("_id") @db.ObjectId
+  wedding            Wedding @relation(fields: [weddingId], references: [id])
+  weddingId          String  @unique @db.ObjectId
+  groom              String
+  groomMother        String
+  groomFather        String
+  groomBank          String
+  groomMotherBank    String
+  groomFatherBank    String
+  groomAccount       String
+  groomMotherAccount String
+  groomFatherAccount String
+}
+
+model Bridge {
+  id                  String  @id @default(auto()) @map("_id") @db.ObjectId
+  wedding             Wedding @relation(fields: [weddingId], references: [id])
+  weddingId           String  @unique @db.ObjectId
+  Bridge              String
+  BridgeMother        String
+  BridgeFather        String
+  BridgeBank          String
+  BridgeMotherBank    String
+  BridgeFatherBank    String
+  BridgeAccount       String
+  BridgeMotherAccount String
+  BridgeFatherAccount String
+}
+
+model MetaTag {
+  id            String  @id @default(auto()) @map("_id") @db.ObjectId
+  wedding       Wedding @relation(fields: [weddingId], references: [id])
+  weddingId     String  @unique @db.ObjectId
+  title         String
+  ogUrl         String
+  ogTitle       String
+  ogImage       String
+  ogDescription String
+}
