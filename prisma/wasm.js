@@ -100,7 +100,7 @@ Prisma.NullTypes = {
  * Enums
  */
 
-exports.Prisma.WeddingScalarFieldEnum = {
+exports.Prisma.InvitationScalarFieldEnum = {
   id: 'id',
   weddingHouse: 'weddingHouse',
   weddingHouseAddress: 'weddingHouseAddress',
@@ -108,12 +108,6 @@ exports.Prisma.WeddingScalarFieldEnum = {
   subway: 'subway',
   description: 'description',
   date: 'date',
-  createdAt: 'createdAt'
-};
-
-exports.Prisma.GroomScalarFieldEnum = {
-  id: 'id',
-  weddingId: 'weddingId',
   groom: 'groom',
   groomMother: 'groomMother',
   groomFather: 'groomFather',
@@ -122,26 +116,22 @@ exports.Prisma.GroomScalarFieldEnum = {
   groomFatherBank: 'groomFatherBank',
   groomAccount: 'groomAccount',
   groomMotherAccount: 'groomMotherAccount',
-  groomFatherAccount: 'groomFatherAccount'
+  groomFatherAccount: 'groomFatherAccount',
+  bridge: 'bridge',
+  bridgeMother: 'bridgeMother',
+  bridgeFather: 'bridgeFather',
+  bridgeBank: 'bridgeBank',
+  bridgeMotherBank: 'bridgeMotherBank',
+  bridgeFatherBank: 'bridgeFatherBank',
+  bridgeAccount: 'bridgeAccount',
+  bridgeMotherAccount: 'bridgeMotherAccount',
+  bridgeFatherAccount: 'bridgeFatherAccount',
+  createdAt: 'createdAt'
 };
 
-exports.Prisma.BridgeScalarFieldEnum = {
+exports.Prisma.MetaScalarFieldEnum = {
   id: 'id',
-  weddingId: 'weddingId',
-  Bridge: 'Bridge',
-  BridgeMother: 'BridgeMother',
-  BridgeFather: 'BridgeFather',
-  BridgeBank: 'BridgeBank',
-  BridgeMotherBank: 'BridgeMotherBank',
-  BridgeFatherBank: 'BridgeFatherBank',
-  BridgeAccount: 'BridgeAccount',
-  BridgeMotherAccount: 'BridgeMotherAccount',
-  BridgeFatherAccount: 'BridgeFatherAccount'
-};
-
-exports.Prisma.MetaTagScalarFieldEnum = {
-  id: 'id',
-  weddingId: 'weddingId',
+  invitationId: 'invitationId',
   title: 'title',
   ogUrl: 'ogUrl',
   ogTitle: 'ogTitle',
@@ -161,10 +151,8 @@ exports.Prisma.QueryMode = {
 
 
 exports.Prisma.ModelName = {
-  Wedding: 'Wedding',
-  Groom: 'Groom',
-  Bridge: 'Bridge',
-  MetaTag: 'MetaTag'
+  Invitation: 'Invitation',
+  Meta: 'Meta'
 };
 
 /**

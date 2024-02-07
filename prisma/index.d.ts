@@ -14,25 +14,15 @@ export type PrismaPromise<T> = $Public.PrismaPromise<T>
 
 
 /**
- * Model Wedding
+ * Model Invitation
  * 
  */
-export type Wedding = $Result.DefaultSelection<Prisma.$WeddingPayload>
+export type Invitation = $Result.DefaultSelection<Prisma.$InvitationPayload>
 /**
- * Model Groom
+ * Model Meta
  * 
  */
-export type Groom = $Result.DefaultSelection<Prisma.$GroomPayload>
-/**
- * Model Bridge
- * 
- */
-export type Bridge = $Result.DefaultSelection<Prisma.$BridgePayload>
-/**
- * Model MetaTag
- * 
- */
-export type MetaTag = $Result.DefaultSelection<Prisma.$MetaTagPayload>
+export type Meta = $Result.DefaultSelection<Prisma.$MetaPayload>
 
 /**
  * ##  Prisma Client ʲˢ
@@ -41,8 +31,8 @@ export type MetaTag = $Result.DefaultSelection<Prisma.$MetaTagPayload>
  * @example
  * ```
  * const prisma = new PrismaClient()
- * // Fetch zero or more Weddings
- * const weddings = await prisma.wedding.findMany()
+ * // Fetch zero or more Invitations
+ * const invitations = await prisma.invitation.findMany()
  * ```
  *
  * 
@@ -62,8 +52,8 @@ export class PrismaClient<
    * @example
    * ```
    * const prisma = new PrismaClient()
-   * // Fetch zero or more Weddings
-   * const weddings = await prisma.wedding.findMany()
+   * // Fetch zero or more Invitations
+   * const invitations = await prisma.invitation.findMany()
    * ```
    *
    * 
@@ -125,44 +115,24 @@ export class PrismaClient<
   $extends: $Extensions.ExtendsHook<'extends', Prisma.TypeMapCb, ExtArgs>
 
       /**
-   * `prisma.wedding`: Exposes CRUD operations for the **Wedding** model.
+   * `prisma.invitation`: Exposes CRUD operations for the **Invitation** model.
     * Example usage:
     * ```ts
-    * // Fetch zero or more Weddings
-    * const weddings = await prisma.wedding.findMany()
+    * // Fetch zero or more Invitations
+    * const invitations = await prisma.invitation.findMany()
     * ```
     */
-  get wedding(): Prisma.WeddingDelegate<ExtArgs>;
+  get invitation(): Prisma.InvitationDelegate<ExtArgs>;
 
   /**
-   * `prisma.groom`: Exposes CRUD operations for the **Groom** model.
+   * `prisma.meta`: Exposes CRUD operations for the **Meta** model.
     * Example usage:
     * ```ts
-    * // Fetch zero or more Grooms
-    * const grooms = await prisma.groom.findMany()
+    * // Fetch zero or more Metas
+    * const metas = await prisma.meta.findMany()
     * ```
     */
-  get groom(): Prisma.GroomDelegate<ExtArgs>;
-
-  /**
-   * `prisma.bridge`: Exposes CRUD operations for the **Bridge** model.
-    * Example usage:
-    * ```ts
-    * // Fetch zero or more Bridges
-    * const bridges = await prisma.bridge.findMany()
-    * ```
-    */
-  get bridge(): Prisma.BridgeDelegate<ExtArgs>;
-
-  /**
-   * `prisma.metaTag`: Exposes CRUD operations for the **MetaTag** model.
-    * Example usage:
-    * ```ts
-    * // Fetch zero or more MetaTags
-    * const metaTags = await prisma.metaTag.findMany()
-    * ```
-    */
-  get metaTag(): Prisma.MetaTagDelegate<ExtArgs>;
+  get meta(): Prisma.MetaDelegate<ExtArgs>;
 }
 
 export namespace Prisma {
@@ -633,10 +603,8 @@ export namespace Prisma {
 
 
   export const ModelName: {
-    Wedding: 'Wedding',
-    Groom: 'Groom',
-    Bridge: 'Bridge',
-    MetaTag: 'MetaTag'
+    Invitation: 'Invitation',
+    Meta: 'Meta'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -653,303 +621,155 @@ export namespace Prisma {
 
   export type TypeMap<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     meta: {
-      modelProps: 'wedding' | 'groom' | 'bridge' | 'metaTag'
+      modelProps: 'invitation' | 'meta'
       txIsolationLevel: never
     },
     model: {
-      Wedding: {
-        payload: Prisma.$WeddingPayload<ExtArgs>
-        fields: Prisma.WeddingFieldRefs
+      Invitation: {
+        payload: Prisma.$InvitationPayload<ExtArgs>
+        fields: Prisma.InvitationFieldRefs
         operations: {
           findUnique: {
-            args: Prisma.WeddingFindUniqueArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$WeddingPayload> | null
+            args: Prisma.InvitationFindUniqueArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$InvitationPayload> | null
           }
           findUniqueOrThrow: {
-            args: Prisma.WeddingFindUniqueOrThrowArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$WeddingPayload>
+            args: Prisma.InvitationFindUniqueOrThrowArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$InvitationPayload>
           }
           findFirst: {
-            args: Prisma.WeddingFindFirstArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$WeddingPayload> | null
+            args: Prisma.InvitationFindFirstArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$InvitationPayload> | null
           }
           findFirstOrThrow: {
-            args: Prisma.WeddingFindFirstOrThrowArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$WeddingPayload>
+            args: Prisma.InvitationFindFirstOrThrowArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$InvitationPayload>
           }
           findMany: {
-            args: Prisma.WeddingFindManyArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$WeddingPayload>[]
+            args: Prisma.InvitationFindManyArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$InvitationPayload>[]
           }
           create: {
-            args: Prisma.WeddingCreateArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$WeddingPayload>
+            args: Prisma.InvitationCreateArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$InvitationPayload>
           }
           createMany: {
-            args: Prisma.WeddingCreateManyArgs<ExtArgs>,
+            args: Prisma.InvitationCreateManyArgs<ExtArgs>,
             result: Prisma.BatchPayload
           }
           delete: {
-            args: Prisma.WeddingDeleteArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$WeddingPayload>
+            args: Prisma.InvitationDeleteArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$InvitationPayload>
           }
           update: {
-            args: Prisma.WeddingUpdateArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$WeddingPayload>
+            args: Prisma.InvitationUpdateArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$InvitationPayload>
           }
           deleteMany: {
-            args: Prisma.WeddingDeleteManyArgs<ExtArgs>,
+            args: Prisma.InvitationDeleteManyArgs<ExtArgs>,
             result: Prisma.BatchPayload
           }
           updateMany: {
-            args: Prisma.WeddingUpdateManyArgs<ExtArgs>,
+            args: Prisma.InvitationUpdateManyArgs<ExtArgs>,
             result: Prisma.BatchPayload
           }
           upsert: {
-            args: Prisma.WeddingUpsertArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$WeddingPayload>
+            args: Prisma.InvitationUpsertArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$InvitationPayload>
           }
           aggregate: {
-            args: Prisma.WeddingAggregateArgs<ExtArgs>,
-            result: $Utils.Optional<AggregateWedding>
+            args: Prisma.InvitationAggregateArgs<ExtArgs>,
+            result: $Utils.Optional<AggregateInvitation>
           }
           groupBy: {
-            args: Prisma.WeddingGroupByArgs<ExtArgs>,
-            result: $Utils.Optional<WeddingGroupByOutputType>[]
+            args: Prisma.InvitationGroupByArgs<ExtArgs>,
+            result: $Utils.Optional<InvitationGroupByOutputType>[]
           }
           findRaw: {
-            args: Prisma.WeddingFindRawArgs<ExtArgs>,
+            args: Prisma.InvitationFindRawArgs<ExtArgs>,
             result: Prisma.JsonObject
           }
           aggregateRaw: {
-            args: Prisma.WeddingAggregateRawArgs<ExtArgs>,
+            args: Prisma.InvitationAggregateRawArgs<ExtArgs>,
             result: Prisma.JsonObject
           }
           count: {
-            args: Prisma.WeddingCountArgs<ExtArgs>,
-            result: $Utils.Optional<WeddingCountAggregateOutputType> | number
+            args: Prisma.InvitationCountArgs<ExtArgs>,
+            result: $Utils.Optional<InvitationCountAggregateOutputType> | number
           }
         }
       }
-      Groom: {
-        payload: Prisma.$GroomPayload<ExtArgs>
-        fields: Prisma.GroomFieldRefs
+      Meta: {
+        payload: Prisma.$MetaPayload<ExtArgs>
+        fields: Prisma.MetaFieldRefs
         operations: {
           findUnique: {
-            args: Prisma.GroomFindUniqueArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$GroomPayload> | null
+            args: Prisma.MetaFindUniqueArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$MetaPayload> | null
           }
           findUniqueOrThrow: {
-            args: Prisma.GroomFindUniqueOrThrowArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$GroomPayload>
+            args: Prisma.MetaFindUniqueOrThrowArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$MetaPayload>
           }
           findFirst: {
-            args: Prisma.GroomFindFirstArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$GroomPayload> | null
+            args: Prisma.MetaFindFirstArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$MetaPayload> | null
           }
           findFirstOrThrow: {
-            args: Prisma.GroomFindFirstOrThrowArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$GroomPayload>
+            args: Prisma.MetaFindFirstOrThrowArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$MetaPayload>
           }
           findMany: {
-            args: Prisma.GroomFindManyArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$GroomPayload>[]
+            args: Prisma.MetaFindManyArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$MetaPayload>[]
           }
           create: {
-            args: Prisma.GroomCreateArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$GroomPayload>
+            args: Prisma.MetaCreateArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$MetaPayload>
           }
           createMany: {
-            args: Prisma.GroomCreateManyArgs<ExtArgs>,
+            args: Prisma.MetaCreateManyArgs<ExtArgs>,
             result: Prisma.BatchPayload
           }
           delete: {
-            args: Prisma.GroomDeleteArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$GroomPayload>
+            args: Prisma.MetaDeleteArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$MetaPayload>
           }
           update: {
-            args: Prisma.GroomUpdateArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$GroomPayload>
+            args: Prisma.MetaUpdateArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$MetaPayload>
           }
           deleteMany: {
-            args: Prisma.GroomDeleteManyArgs<ExtArgs>,
+            args: Prisma.MetaDeleteManyArgs<ExtArgs>,
             result: Prisma.BatchPayload
           }
           updateMany: {
-            args: Prisma.GroomUpdateManyArgs<ExtArgs>,
+            args: Prisma.MetaUpdateManyArgs<ExtArgs>,
             result: Prisma.BatchPayload
           }
           upsert: {
-            args: Prisma.GroomUpsertArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$GroomPayload>
+            args: Prisma.MetaUpsertArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$MetaPayload>
           }
           aggregate: {
-            args: Prisma.GroomAggregateArgs<ExtArgs>,
-            result: $Utils.Optional<AggregateGroom>
+            args: Prisma.MetaAggregateArgs<ExtArgs>,
+            result: $Utils.Optional<AggregateMeta>
           }
           groupBy: {
-            args: Prisma.GroomGroupByArgs<ExtArgs>,
-            result: $Utils.Optional<GroomGroupByOutputType>[]
+            args: Prisma.MetaGroupByArgs<ExtArgs>,
+            result: $Utils.Optional<MetaGroupByOutputType>[]
           }
           findRaw: {
-            args: Prisma.GroomFindRawArgs<ExtArgs>,
+            args: Prisma.MetaFindRawArgs<ExtArgs>,
             result: Prisma.JsonObject
           }
           aggregateRaw: {
-            args: Prisma.GroomAggregateRawArgs<ExtArgs>,
+            args: Prisma.MetaAggregateRawArgs<ExtArgs>,
             result: Prisma.JsonObject
           }
           count: {
-            args: Prisma.GroomCountArgs<ExtArgs>,
-            result: $Utils.Optional<GroomCountAggregateOutputType> | number
-          }
-        }
-      }
-      Bridge: {
-        payload: Prisma.$BridgePayload<ExtArgs>
-        fields: Prisma.BridgeFieldRefs
-        operations: {
-          findUnique: {
-            args: Prisma.BridgeFindUniqueArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$BridgePayload> | null
-          }
-          findUniqueOrThrow: {
-            args: Prisma.BridgeFindUniqueOrThrowArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$BridgePayload>
-          }
-          findFirst: {
-            args: Prisma.BridgeFindFirstArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$BridgePayload> | null
-          }
-          findFirstOrThrow: {
-            args: Prisma.BridgeFindFirstOrThrowArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$BridgePayload>
-          }
-          findMany: {
-            args: Prisma.BridgeFindManyArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$BridgePayload>[]
-          }
-          create: {
-            args: Prisma.BridgeCreateArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$BridgePayload>
-          }
-          createMany: {
-            args: Prisma.BridgeCreateManyArgs<ExtArgs>,
-            result: Prisma.BatchPayload
-          }
-          delete: {
-            args: Prisma.BridgeDeleteArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$BridgePayload>
-          }
-          update: {
-            args: Prisma.BridgeUpdateArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$BridgePayload>
-          }
-          deleteMany: {
-            args: Prisma.BridgeDeleteManyArgs<ExtArgs>,
-            result: Prisma.BatchPayload
-          }
-          updateMany: {
-            args: Prisma.BridgeUpdateManyArgs<ExtArgs>,
-            result: Prisma.BatchPayload
-          }
-          upsert: {
-            args: Prisma.BridgeUpsertArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$BridgePayload>
-          }
-          aggregate: {
-            args: Prisma.BridgeAggregateArgs<ExtArgs>,
-            result: $Utils.Optional<AggregateBridge>
-          }
-          groupBy: {
-            args: Prisma.BridgeGroupByArgs<ExtArgs>,
-            result: $Utils.Optional<BridgeGroupByOutputType>[]
-          }
-          findRaw: {
-            args: Prisma.BridgeFindRawArgs<ExtArgs>,
-            result: Prisma.JsonObject
-          }
-          aggregateRaw: {
-            args: Prisma.BridgeAggregateRawArgs<ExtArgs>,
-            result: Prisma.JsonObject
-          }
-          count: {
-            args: Prisma.BridgeCountArgs<ExtArgs>,
-            result: $Utils.Optional<BridgeCountAggregateOutputType> | number
-          }
-        }
-      }
-      MetaTag: {
-        payload: Prisma.$MetaTagPayload<ExtArgs>
-        fields: Prisma.MetaTagFieldRefs
-        operations: {
-          findUnique: {
-            args: Prisma.MetaTagFindUniqueArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$MetaTagPayload> | null
-          }
-          findUniqueOrThrow: {
-            args: Prisma.MetaTagFindUniqueOrThrowArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$MetaTagPayload>
-          }
-          findFirst: {
-            args: Prisma.MetaTagFindFirstArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$MetaTagPayload> | null
-          }
-          findFirstOrThrow: {
-            args: Prisma.MetaTagFindFirstOrThrowArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$MetaTagPayload>
-          }
-          findMany: {
-            args: Prisma.MetaTagFindManyArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$MetaTagPayload>[]
-          }
-          create: {
-            args: Prisma.MetaTagCreateArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$MetaTagPayload>
-          }
-          createMany: {
-            args: Prisma.MetaTagCreateManyArgs<ExtArgs>,
-            result: Prisma.BatchPayload
-          }
-          delete: {
-            args: Prisma.MetaTagDeleteArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$MetaTagPayload>
-          }
-          update: {
-            args: Prisma.MetaTagUpdateArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$MetaTagPayload>
-          }
-          deleteMany: {
-            args: Prisma.MetaTagDeleteManyArgs<ExtArgs>,
-            result: Prisma.BatchPayload
-          }
-          updateMany: {
-            args: Prisma.MetaTagUpdateManyArgs<ExtArgs>,
-            result: Prisma.BatchPayload
-          }
-          upsert: {
-            args: Prisma.MetaTagUpsertArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$MetaTagPayload>
-          }
-          aggregate: {
-            args: Prisma.MetaTagAggregateArgs<ExtArgs>,
-            result: $Utils.Optional<AggregateMetaTag>
-          }
-          groupBy: {
-            args: Prisma.MetaTagGroupByArgs<ExtArgs>,
-            result: $Utils.Optional<MetaTagGroupByOutputType>[]
-          }
-          findRaw: {
-            args: Prisma.MetaTagFindRawArgs<ExtArgs>,
-            result: Prisma.JsonObject
-          }
-          aggregateRaw: {
-            args: Prisma.MetaTagAggregateRawArgs<ExtArgs>,
-            result: Prisma.JsonObject
-          }
-          count: {
-            args: Prisma.MetaTagCountArgs<ExtArgs>,
-            result: $Utils.Optional<MetaTagCountAggregateOutputType> | number
+            args: Prisma.MetaCountArgs<ExtArgs>,
+            result: $Utils.Optional<MetaCountAggregateOutputType> | number
           }
         }
       }
@@ -1091,16 +911,16 @@ export namespace Prisma {
    */
 
   /**
-   * Model Wedding
+   * Model Invitation
    */
 
-  export type AggregateWedding = {
-    _count: WeddingCountAggregateOutputType | null
-    _min: WeddingMinAggregateOutputType | null
-    _max: WeddingMaxAggregateOutputType | null
+  export type AggregateInvitation = {
+    _count: InvitationCountAggregateOutputType | null
+    _min: InvitationMinAggregateOutputType | null
+    _max: InvitationMaxAggregateOutputType | null
   }
 
-  export type WeddingMinAggregateOutputType = {
+  export type InvitationMinAggregateOutputType = {
     id: string | null
     weddingHouse: string | null
     weddingHouseAddress: string | null
@@ -1108,10 +928,28 @@ export namespace Prisma {
     subway: string | null
     description: string | null
     date: Date | null
+    groom: string | null
+    groomMother: string | null
+    groomFather: string | null
+    groomBank: string | null
+    groomMotherBank: string | null
+    groomFatherBank: string | null
+    groomAccount: string | null
+    groomMotherAccount: string | null
+    groomFatherAccount: string | null
+    bridge: string | null
+    bridgeMother: string | null
+    bridgeFather: string | null
+    bridgeBank: string | null
+    bridgeMotherBank: string | null
+    bridgeFatherBank: string | null
+    bridgeAccount: string | null
+    bridgeMotherAccount: string | null
+    bridgeFatherAccount: string | null
     createdAt: Date | null
   }
 
-  export type WeddingMaxAggregateOutputType = {
+  export type InvitationMaxAggregateOutputType = {
     id: string | null
     weddingHouse: string | null
     weddingHouseAddress: string | null
@@ -1119,10 +957,28 @@ export namespace Prisma {
     subway: string | null
     description: string | null
     date: Date | null
+    groom: string | null
+    groomMother: string | null
+    groomFather: string | null
+    groomBank: string | null
+    groomMotherBank: string | null
+    groomFatherBank: string | null
+    groomAccount: string | null
+    groomMotherAccount: string | null
+    groomFatherAccount: string | null
+    bridge: string | null
+    bridgeMother: string | null
+    bridgeFather: string | null
+    bridgeBank: string | null
+    bridgeMotherBank: string | null
+    bridgeFatherBank: string | null
+    bridgeAccount: string | null
+    bridgeMotherAccount: string | null
+    bridgeFatherAccount: string | null
     createdAt: Date | null
   }
 
-  export type WeddingCountAggregateOutputType = {
+  export type InvitationCountAggregateOutputType = {
     id: number
     weddingHouse: number
     weddingHouseAddress: number
@@ -1130,1072 +986,6 @@ export namespace Prisma {
     subway: number
     description: number
     date: number
-    createdAt: number
-    _all: number
-  }
-
-
-  export type WeddingMinAggregateInputType = {
-    id?: true
-    weddingHouse?: true
-    weddingHouseAddress?: true
-    bus?: true
-    subway?: true
-    description?: true
-    date?: true
-    createdAt?: true
-  }
-
-  export type WeddingMaxAggregateInputType = {
-    id?: true
-    weddingHouse?: true
-    weddingHouseAddress?: true
-    bus?: true
-    subway?: true
-    description?: true
-    date?: true
-    createdAt?: true
-  }
-
-  export type WeddingCountAggregateInputType = {
-    id?: true
-    weddingHouse?: true
-    weddingHouseAddress?: true
-    bus?: true
-    subway?: true
-    description?: true
-    date?: true
-    createdAt?: true
-    _all?: true
-  }
-
-  export type WeddingAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Filter which Wedding to aggregate.
-     */
-    where?: WeddingWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of Weddings to fetch.
-     */
-    orderBy?: WeddingOrderByWithRelationInput | WeddingOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the start position
-     */
-    cursor?: WeddingWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` Weddings from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` Weddings.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Count returned Weddings
-    **/
-    _count?: true | WeddingCountAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to find the minimum value
-    **/
-    _min?: WeddingMinAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to find the maximum value
-    **/
-    _max?: WeddingMaxAggregateInputType
-  }
-
-  export type GetWeddingAggregateType<T extends WeddingAggregateArgs> = {
-        [P in keyof T & keyof AggregateWedding]: P extends '_count' | 'count'
-      ? T[P] extends true
-        ? number
-        : GetScalarType<T[P], AggregateWedding[P]>
-      : GetScalarType<T[P], AggregateWedding[P]>
-  }
-
-
-
-
-  export type WeddingGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: WeddingWhereInput
-    orderBy?: WeddingOrderByWithAggregationInput | WeddingOrderByWithAggregationInput[]
-    by: WeddingScalarFieldEnum[] | WeddingScalarFieldEnum
-    having?: WeddingScalarWhereWithAggregatesInput
-    take?: number
-    skip?: number
-    _count?: WeddingCountAggregateInputType | true
-    _min?: WeddingMinAggregateInputType
-    _max?: WeddingMaxAggregateInputType
-  }
-
-  export type WeddingGroupByOutputType = {
-    id: string
-    weddingHouse: string
-    weddingHouseAddress: string
-    bus: string | null
-    subway: string | null
-    description: string
-    date: Date
-    createdAt: Date
-    _count: WeddingCountAggregateOutputType | null
-    _min: WeddingMinAggregateOutputType | null
-    _max: WeddingMaxAggregateOutputType | null
-  }
-
-  type GetWeddingGroupByPayload<T extends WeddingGroupByArgs> = Prisma.PrismaPromise<
-    Array<
-      PickEnumerable<WeddingGroupByOutputType, T['by']> &
-        {
-          [P in ((keyof T) & (keyof WeddingGroupByOutputType))]: P extends '_count'
-            ? T[P] extends boolean
-              ? number
-              : GetScalarType<T[P], WeddingGroupByOutputType[P]>
-            : GetScalarType<T[P], WeddingGroupByOutputType[P]>
-        }
-      >
-    >
-
-
-  export type WeddingSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
-    weddingHouse?: boolean
-    weddingHouseAddress?: boolean
-    bus?: boolean
-    subway?: boolean
-    description?: boolean
-    date?: boolean
-    createdAt?: boolean
-    Groom?: boolean | Wedding$GroomArgs<ExtArgs>
-    Bridge?: boolean | Wedding$BridgeArgs<ExtArgs>
-    MetaTag?: boolean | Wedding$MetaTagArgs<ExtArgs>
-  }, ExtArgs["result"]["wedding"]>
-
-  export type WeddingSelectScalar = {
-    id?: boolean
-    weddingHouse?: boolean
-    weddingHouseAddress?: boolean
-    bus?: boolean
-    subway?: boolean
-    description?: boolean
-    date?: boolean
-    createdAt?: boolean
-  }
-
-  export type WeddingInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    Groom?: boolean | Wedding$GroomArgs<ExtArgs>
-    Bridge?: boolean | Wedding$BridgeArgs<ExtArgs>
-    MetaTag?: boolean | Wedding$MetaTagArgs<ExtArgs>
-  }
-
-
-  export type $WeddingPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    name: "Wedding"
-    objects: {
-      Groom: Prisma.$GroomPayload<ExtArgs> | null
-      Bridge: Prisma.$BridgePayload<ExtArgs> | null
-      MetaTag: Prisma.$MetaTagPayload<ExtArgs> | null
-    }
-    scalars: $Extensions.GetPayloadResult<{
-      id: string
-      weddingHouse: string
-      weddingHouseAddress: string
-      bus: string | null
-      subway: string | null
-      description: string
-      date: Date
-      createdAt: Date
-    }, ExtArgs["result"]["wedding"]>
-    composites: {}
-  }
-
-
-  type WeddingGetPayload<S extends boolean | null | undefined | WeddingDefaultArgs> = $Result.GetResult<Prisma.$WeddingPayload, S>
-
-  type WeddingCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
-    Omit<WeddingFindManyArgs, 'select' | 'include' | 'distinct'> & {
-      select?: WeddingCountAggregateInputType | true
-    }
-
-  export interface WeddingDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
-    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Wedding'], meta: { name: 'Wedding' } }
-    /**
-     * Find zero or one Wedding that matches the filter.
-     * @param {WeddingFindUniqueArgs} args - Arguments to find a Wedding
-     * @example
-     * // Get one Wedding
-     * const wedding = await prisma.wedding.findUnique({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-    **/
-    findUnique<T extends WeddingFindUniqueArgs<ExtArgs>>(
-      args: SelectSubset<T, WeddingFindUniqueArgs<ExtArgs>>
-    ): Prisma__WeddingClient<$Result.GetResult<Prisma.$WeddingPayload<ExtArgs>, T, 'findUnique'> | null, null, ExtArgs>
-
-    /**
-     * Find one Wedding that matches the filter or throw an error  with `error.code='P2025'` 
-     *     if no matches were found.
-     * @param {WeddingFindUniqueOrThrowArgs} args - Arguments to find a Wedding
-     * @example
-     * // Get one Wedding
-     * const wedding = await prisma.wedding.findUniqueOrThrow({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-    **/
-    findUniqueOrThrow<T extends WeddingFindUniqueOrThrowArgs<ExtArgs>>(
-      args?: SelectSubset<T, WeddingFindUniqueOrThrowArgs<ExtArgs>>
-    ): Prisma__WeddingClient<$Result.GetResult<Prisma.$WeddingPayload<ExtArgs>, T, 'findUniqueOrThrow'>, never, ExtArgs>
-
-    /**
-     * Find the first Wedding that matches the filter.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {WeddingFindFirstArgs} args - Arguments to find a Wedding
-     * @example
-     * // Get one Wedding
-     * const wedding = await prisma.wedding.findFirst({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-    **/
-    findFirst<T extends WeddingFindFirstArgs<ExtArgs>>(
-      args?: SelectSubset<T, WeddingFindFirstArgs<ExtArgs>>
-    ): Prisma__WeddingClient<$Result.GetResult<Prisma.$WeddingPayload<ExtArgs>, T, 'findFirst'> | null, null, ExtArgs>
-
-    /**
-     * Find the first Wedding that matches the filter or
-     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {WeddingFindFirstOrThrowArgs} args - Arguments to find a Wedding
-     * @example
-     * // Get one Wedding
-     * const wedding = await prisma.wedding.findFirstOrThrow({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-    **/
-    findFirstOrThrow<T extends WeddingFindFirstOrThrowArgs<ExtArgs>>(
-      args?: SelectSubset<T, WeddingFindFirstOrThrowArgs<ExtArgs>>
-    ): Prisma__WeddingClient<$Result.GetResult<Prisma.$WeddingPayload<ExtArgs>, T, 'findFirstOrThrow'>, never, ExtArgs>
-
-    /**
-     * Find zero or more Weddings that matches the filter.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {WeddingFindManyArgs=} args - Arguments to filter and select certain fields only.
-     * @example
-     * // Get all Weddings
-     * const weddings = await prisma.wedding.findMany()
-     * 
-     * // Get first 10 Weddings
-     * const weddings = await prisma.wedding.findMany({ take: 10 })
-     * 
-     * // Only select the `id`
-     * const weddingWithIdOnly = await prisma.wedding.findMany({ select: { id: true } })
-     * 
-    **/
-    findMany<T extends WeddingFindManyArgs<ExtArgs>>(
-      args?: SelectSubset<T, WeddingFindManyArgs<ExtArgs>>
-    ): Prisma.PrismaPromise<$Result.GetResult<Prisma.$WeddingPayload<ExtArgs>, T, 'findMany'>>
-
-    /**
-     * Create a Wedding.
-     * @param {WeddingCreateArgs} args - Arguments to create a Wedding.
-     * @example
-     * // Create one Wedding
-     * const Wedding = await prisma.wedding.create({
-     *   data: {
-     *     // ... data to create a Wedding
-     *   }
-     * })
-     * 
-    **/
-    create<T extends WeddingCreateArgs<ExtArgs>>(
-      args: SelectSubset<T, WeddingCreateArgs<ExtArgs>>
-    ): Prisma__WeddingClient<$Result.GetResult<Prisma.$WeddingPayload<ExtArgs>, T, 'create'>, never, ExtArgs>
-
-    /**
-     * Create many Weddings.
-     *     @param {WeddingCreateManyArgs} args - Arguments to create many Weddings.
-     *     @example
-     *     // Create many Weddings
-     *     const wedding = await prisma.wedding.createMany({
-     *       data: {
-     *         // ... provide data here
-     *       }
-     *     })
-     *     
-    **/
-    createMany<T extends WeddingCreateManyArgs<ExtArgs>>(
-      args?: SelectSubset<T, WeddingCreateManyArgs<ExtArgs>>
-    ): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Delete a Wedding.
-     * @param {WeddingDeleteArgs} args - Arguments to delete one Wedding.
-     * @example
-     * // Delete one Wedding
-     * const Wedding = await prisma.wedding.delete({
-     *   where: {
-     *     // ... filter to delete one Wedding
-     *   }
-     * })
-     * 
-    **/
-    delete<T extends WeddingDeleteArgs<ExtArgs>>(
-      args: SelectSubset<T, WeddingDeleteArgs<ExtArgs>>
-    ): Prisma__WeddingClient<$Result.GetResult<Prisma.$WeddingPayload<ExtArgs>, T, 'delete'>, never, ExtArgs>
-
-    /**
-     * Update one Wedding.
-     * @param {WeddingUpdateArgs} args - Arguments to update one Wedding.
-     * @example
-     * // Update one Wedding
-     * const wedding = await prisma.wedding.update({
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: {
-     *     // ... provide data here
-     *   }
-     * })
-     * 
-    **/
-    update<T extends WeddingUpdateArgs<ExtArgs>>(
-      args: SelectSubset<T, WeddingUpdateArgs<ExtArgs>>
-    ): Prisma__WeddingClient<$Result.GetResult<Prisma.$WeddingPayload<ExtArgs>, T, 'update'>, never, ExtArgs>
-
-    /**
-     * Delete zero or more Weddings.
-     * @param {WeddingDeleteManyArgs} args - Arguments to filter Weddings to delete.
-     * @example
-     * // Delete a few Weddings
-     * const { count } = await prisma.wedding.deleteMany({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     * 
-    **/
-    deleteMany<T extends WeddingDeleteManyArgs<ExtArgs>>(
-      args?: SelectSubset<T, WeddingDeleteManyArgs<ExtArgs>>
-    ): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Update zero or more Weddings.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {WeddingUpdateManyArgs} args - Arguments to update one or more rows.
-     * @example
-     * // Update many Weddings
-     * const wedding = await prisma.wedding.updateMany({
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: {
-     *     // ... provide data here
-     *   }
-     * })
-     * 
-    **/
-    updateMany<T extends WeddingUpdateManyArgs<ExtArgs>>(
-      args: SelectSubset<T, WeddingUpdateManyArgs<ExtArgs>>
-    ): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Create or update one Wedding.
-     * @param {WeddingUpsertArgs} args - Arguments to update or create a Wedding.
-     * @example
-     * // Update or create a Wedding
-     * const wedding = await prisma.wedding.upsert({
-     *   create: {
-     *     // ... data to create a Wedding
-     *   },
-     *   update: {
-     *     // ... in case it already exists, update
-     *   },
-     *   where: {
-     *     // ... the filter for the Wedding we want to update
-     *   }
-     * })
-    **/
-    upsert<T extends WeddingUpsertArgs<ExtArgs>>(
-      args: SelectSubset<T, WeddingUpsertArgs<ExtArgs>>
-    ): Prisma__WeddingClient<$Result.GetResult<Prisma.$WeddingPayload<ExtArgs>, T, 'upsert'>, never, ExtArgs>
-
-    /**
-     * Find zero or more Weddings that matches the filter.
-     * @param {WeddingFindRawArgs} args - Select which filters you would like to apply.
-     * @example
-     * const wedding = await prisma.wedding.findRaw({
-     *   filter: { age: { $gt: 25 } } 
-     * })
-    **/
-    findRaw(
-      args?: WeddingFindRawArgs
-    ): Prisma.PrismaPromise<JsonObject>
-
-    /**
-     * Perform aggregation operations on a Wedding.
-     * @param {WeddingAggregateRawArgs} args - Select which aggregations you would like to apply.
-     * @example
-     * const wedding = await prisma.wedding.aggregateRaw({
-     *   pipeline: [
-     *     { $match: { status: "registered" } },
-     *     { $group: { _id: "$country", total: { $sum: 1 } } }
-     *   ]
-     * })
-    **/
-    aggregateRaw(
-      args?: WeddingAggregateRawArgs
-    ): Prisma.PrismaPromise<JsonObject>
-
-    /**
-     * Count the number of Weddings.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {WeddingCountArgs} args - Arguments to filter Weddings to count.
-     * @example
-     * // Count the number of Weddings
-     * const count = await prisma.wedding.count({
-     *   where: {
-     *     // ... the filter for the Weddings we want to count
-     *   }
-     * })
-    **/
-    count<T extends WeddingCountArgs>(
-      args?: Subset<T, WeddingCountArgs>,
-    ): Prisma.PrismaPromise<
-      T extends $Utils.Record<'select', any>
-        ? T['select'] extends true
-          ? number
-          : GetScalarType<T['select'], WeddingCountAggregateOutputType>
-        : number
-    >
-
-    /**
-     * Allows you to perform aggregations operations on a Wedding.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {WeddingAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
-     * @example
-     * // Ordered by age ascending
-     * // Where email contains prisma.io
-     * // Limited to the 10 users
-     * const aggregations = await prisma.user.aggregate({
-     *   _avg: {
-     *     age: true,
-     *   },
-     *   where: {
-     *     email: {
-     *       contains: "prisma.io",
-     *     },
-     *   },
-     *   orderBy: {
-     *     age: "asc",
-     *   },
-     *   take: 10,
-     * })
-    **/
-    aggregate<T extends WeddingAggregateArgs>(args: Subset<T, WeddingAggregateArgs>): Prisma.PrismaPromise<GetWeddingAggregateType<T>>
-
-    /**
-     * Group by Wedding.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {WeddingGroupByArgs} args - Group by arguments.
-     * @example
-     * // Group by city, order by createdAt, get count
-     * const result = await prisma.user.groupBy({
-     *   by: ['city', 'createdAt'],
-     *   orderBy: {
-     *     createdAt: true
-     *   },
-     *   _count: {
-     *     _all: true
-     *   },
-     * })
-     * 
-    **/
-    groupBy<
-      T extends WeddingGroupByArgs,
-      HasSelectOrTake extends Or<
-        Extends<'skip', Keys<T>>,
-        Extends<'take', Keys<T>>
-      >,
-      OrderByArg extends True extends HasSelectOrTake
-        ? { orderBy: WeddingGroupByArgs['orderBy'] }
-        : { orderBy?: WeddingGroupByArgs['orderBy'] },
-      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
-      ByFields extends MaybeTupleToUnion<T['by']>,
-      ByValid extends Has<ByFields, OrderFields>,
-      HavingFields extends GetHavingFields<T['having']>,
-      HavingValid extends Has<ByFields, HavingFields>,
-      ByEmpty extends T['by'] extends never[] ? True : False,
-      InputErrors extends ByEmpty extends True
-      ? `Error: "by" must not be empty.`
-      : HavingValid extends False
-      ? {
-          [P in HavingFields]: P extends ByFields
-            ? never
-            : P extends string
-            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
-            : [
-                Error,
-                'Field ',
-                P,
-                ` in "having" needs to be provided in "by"`,
-              ]
-        }[HavingFields]
-      : 'take' extends Keys<T>
-      ? 'orderBy' extends Keys<T>
-        ? ByValid extends True
-          ? {}
-          : {
-              [P in OrderFields]: P extends ByFields
-                ? never
-                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-            }[OrderFields]
-        : 'Error: If you provide "take", you also need to provide "orderBy"'
-      : 'skip' extends Keys<T>
-      ? 'orderBy' extends Keys<T>
-        ? ByValid extends True
-          ? {}
-          : {
-              [P in OrderFields]: P extends ByFields
-                ? never
-                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-            }[OrderFields]
-        : 'Error: If you provide "skip", you also need to provide "orderBy"'
-      : ByValid extends True
-      ? {}
-      : {
-          [P in OrderFields]: P extends ByFields
-            ? never
-            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-        }[OrderFields]
-    >(args: SubsetIntersection<T, WeddingGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetWeddingGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
-  /**
-   * Fields of the Wedding model
-   */
-  readonly fields: WeddingFieldRefs;
-  }
-
-  /**
-   * The delegate class that acts as a "Promise-like" for Wedding.
-   * Why is this prefixed with `Prisma__`?
-   * Because we want to prevent naming conflicts as mentioned in
-   * https://github.com/prisma/prisma-client-js/issues/707
-   */
-  export interface Prisma__WeddingClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
-    readonly [Symbol.toStringTag]: 'PrismaPromise';
-
-    Groom<T extends Wedding$GroomArgs<ExtArgs> = {}>(args?: Subset<T, Wedding$GroomArgs<ExtArgs>>): Prisma__GroomClient<$Result.GetResult<Prisma.$GroomPayload<ExtArgs>, T, 'findUniqueOrThrow'> | null, null, ExtArgs>;
-
-    Bridge<T extends Wedding$BridgeArgs<ExtArgs> = {}>(args?: Subset<T, Wedding$BridgeArgs<ExtArgs>>): Prisma__BridgeClient<$Result.GetResult<Prisma.$BridgePayload<ExtArgs>, T, 'findUniqueOrThrow'> | null, null, ExtArgs>;
-
-    MetaTag<T extends Wedding$MetaTagArgs<ExtArgs> = {}>(args?: Subset<T, Wedding$MetaTagArgs<ExtArgs>>): Prisma__MetaTagClient<$Result.GetResult<Prisma.$MetaTagPayload<ExtArgs>, T, 'findUniqueOrThrow'> | null, null, ExtArgs>;
-
-    /**
-     * Attaches callbacks for the resolution and/or rejection of the Promise.
-     * @param onfulfilled The callback to execute when the Promise is resolved.
-     * @param onrejected The callback to execute when the Promise is rejected.
-     * @returns A Promise for the completion of which ever callback is executed.
-     */
-    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>;
-    /**
-     * Attaches a callback for only the rejection of the Promise.
-     * @param onrejected The callback to execute when the Promise is rejected.
-     * @returns A Promise for the completion of the callback.
-     */
-    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>;
-    /**
-     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
-     * resolved value cannot be modified from the callback.
-     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
-     * @returns A Promise for the completion of the callback.
-     */
-    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>;
-  }
-
-
-
-  /**
-   * Fields of the Wedding model
-   */ 
-  interface WeddingFieldRefs {
-    readonly id: FieldRef<"Wedding", 'String'>
-    readonly weddingHouse: FieldRef<"Wedding", 'String'>
-    readonly weddingHouseAddress: FieldRef<"Wedding", 'String'>
-    readonly bus: FieldRef<"Wedding", 'String'>
-    readonly subway: FieldRef<"Wedding", 'String'>
-    readonly description: FieldRef<"Wedding", 'String'>
-    readonly date: FieldRef<"Wedding", 'DateTime'>
-    readonly createdAt: FieldRef<"Wedding", 'DateTime'>
-  }
-    
-
-  // Custom InputTypes
-
-  /**
-   * Wedding findUnique
-   */
-  export type WeddingFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Wedding
-     */
-    select?: WeddingSelect<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well.
-     */
-    include?: WeddingInclude<ExtArgs> | null
-    /**
-     * Filter, which Wedding to fetch.
-     */
-    where: WeddingWhereUniqueInput
-  }
-
-
-  /**
-   * Wedding findUniqueOrThrow
-   */
-  export type WeddingFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Wedding
-     */
-    select?: WeddingSelect<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well.
-     */
-    include?: WeddingInclude<ExtArgs> | null
-    /**
-     * Filter, which Wedding to fetch.
-     */
-    where: WeddingWhereUniqueInput
-  }
-
-
-  /**
-   * Wedding findFirst
-   */
-  export type WeddingFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Wedding
-     */
-    select?: WeddingSelect<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well.
-     */
-    include?: WeddingInclude<ExtArgs> | null
-    /**
-     * Filter, which Wedding to fetch.
-     */
-    where?: WeddingWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of Weddings to fetch.
-     */
-    orderBy?: WeddingOrderByWithRelationInput | WeddingOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for searching for Weddings.
-     */
-    cursor?: WeddingWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` Weddings from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` Weddings.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
-     * 
-     * Filter by unique combinations of Weddings.
-     */
-    distinct?: WeddingScalarFieldEnum | WeddingScalarFieldEnum[]
-  }
-
-
-  /**
-   * Wedding findFirstOrThrow
-   */
-  export type WeddingFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Wedding
-     */
-    select?: WeddingSelect<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well.
-     */
-    include?: WeddingInclude<ExtArgs> | null
-    /**
-     * Filter, which Wedding to fetch.
-     */
-    where?: WeddingWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of Weddings to fetch.
-     */
-    orderBy?: WeddingOrderByWithRelationInput | WeddingOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for searching for Weddings.
-     */
-    cursor?: WeddingWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` Weddings from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` Weddings.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
-     * 
-     * Filter by unique combinations of Weddings.
-     */
-    distinct?: WeddingScalarFieldEnum | WeddingScalarFieldEnum[]
-  }
-
-
-  /**
-   * Wedding findMany
-   */
-  export type WeddingFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Wedding
-     */
-    select?: WeddingSelect<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well.
-     */
-    include?: WeddingInclude<ExtArgs> | null
-    /**
-     * Filter, which Weddings to fetch.
-     */
-    where?: WeddingWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of Weddings to fetch.
-     */
-    orderBy?: WeddingOrderByWithRelationInput | WeddingOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for listing Weddings.
-     */
-    cursor?: WeddingWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` Weddings from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` Weddings.
-     */
-    skip?: number
-    distinct?: WeddingScalarFieldEnum | WeddingScalarFieldEnum[]
-  }
-
-
-  /**
-   * Wedding create
-   */
-  export type WeddingCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Wedding
-     */
-    select?: WeddingSelect<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well.
-     */
-    include?: WeddingInclude<ExtArgs> | null
-    /**
-     * The data needed to create a Wedding.
-     */
-    data: XOR<WeddingCreateInput, WeddingUncheckedCreateInput>
-  }
-
-
-  /**
-   * Wedding createMany
-   */
-  export type WeddingCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * The data used to create many Weddings.
-     */
-    data: WeddingCreateManyInput | WeddingCreateManyInput[]
-  }
-
-
-  /**
-   * Wedding update
-   */
-  export type WeddingUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Wedding
-     */
-    select?: WeddingSelect<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well.
-     */
-    include?: WeddingInclude<ExtArgs> | null
-    /**
-     * The data needed to update a Wedding.
-     */
-    data: XOR<WeddingUpdateInput, WeddingUncheckedUpdateInput>
-    /**
-     * Choose, which Wedding to update.
-     */
-    where: WeddingWhereUniqueInput
-  }
-
-
-  /**
-   * Wedding updateMany
-   */
-  export type WeddingUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * The data used to update Weddings.
-     */
-    data: XOR<WeddingUpdateManyMutationInput, WeddingUncheckedUpdateManyInput>
-    /**
-     * Filter which Weddings to update
-     */
-    where?: WeddingWhereInput
-  }
-
-
-  /**
-   * Wedding upsert
-   */
-  export type WeddingUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Wedding
-     */
-    select?: WeddingSelect<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well.
-     */
-    include?: WeddingInclude<ExtArgs> | null
-    /**
-     * The filter to search for the Wedding to update in case it exists.
-     */
-    where: WeddingWhereUniqueInput
-    /**
-     * In case the Wedding found by the `where` argument doesn't exist, create a new Wedding with this data.
-     */
-    create: XOR<WeddingCreateInput, WeddingUncheckedCreateInput>
-    /**
-     * In case the Wedding was found with the provided `where` argument, update it with this data.
-     */
-    update: XOR<WeddingUpdateInput, WeddingUncheckedUpdateInput>
-  }
-
-
-  /**
-   * Wedding delete
-   */
-  export type WeddingDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Wedding
-     */
-    select?: WeddingSelect<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well.
-     */
-    include?: WeddingInclude<ExtArgs> | null
-    /**
-     * Filter which Wedding to delete.
-     */
-    where: WeddingWhereUniqueInput
-  }
-
-
-  /**
-   * Wedding deleteMany
-   */
-  export type WeddingDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Filter which Weddings to delete
-     */
-    where?: WeddingWhereInput
-  }
-
-
-  /**
-   * Wedding findRaw
-   */
-  export type WeddingFindRawArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * The query predicate filter. If unspecified, then all documents in the collection will match the predicate. ${@link https://docs.mongodb.com/manual/reference/operator/query MongoDB Docs}.
-     */
-    filter?: InputJsonValue
-    /**
-     * Additional options to pass to the `find` command ${@link https://docs.mongodb.com/manual/reference/command/find/#command-fields MongoDB Docs}.
-     */
-    options?: InputJsonValue
-  }
-
-
-  /**
-   * Wedding aggregateRaw
-   */
-  export type WeddingAggregateRawArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * An array of aggregation stages to process and transform the document stream via the aggregation pipeline. ${@link https://docs.mongodb.com/manual/reference/operator/aggregation-pipeline MongoDB Docs}.
-     */
-    pipeline?: InputJsonValue[]
-    /**
-     * Additional options to pass to the `aggregate` command ${@link https://docs.mongodb.com/manual/reference/command/aggregate/#command-fields MongoDB Docs}.
-     */
-    options?: InputJsonValue
-  }
-
-
-  /**
-   * Wedding.Groom
-   */
-  export type Wedding$GroomArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Groom
-     */
-    select?: GroomSelect<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well.
-     */
-    include?: GroomInclude<ExtArgs> | null
-    where?: GroomWhereInput
-  }
-
-
-  /**
-   * Wedding.Bridge
-   */
-  export type Wedding$BridgeArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Bridge
-     */
-    select?: BridgeSelect<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well.
-     */
-    include?: BridgeInclude<ExtArgs> | null
-    where?: BridgeWhereInput
-  }
-
-
-  /**
-   * Wedding.MetaTag
-   */
-  export type Wedding$MetaTagArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the MetaTag
-     */
-    select?: MetaTagSelect<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well.
-     */
-    include?: MetaTagInclude<ExtArgs> | null
-    where?: MetaTagWhereInput
-  }
-
-
-  /**
-   * Wedding without action
-   */
-  export type WeddingDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Wedding
-     */
-    select?: WeddingSelect<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well.
-     */
-    include?: WeddingInclude<ExtArgs> | null
-  }
-
-
-
-  /**
-   * Model Groom
-   */
-
-  export type AggregateGroom = {
-    _count: GroomCountAggregateOutputType | null
-    _min: GroomMinAggregateOutputType | null
-    _max: GroomMaxAggregateOutputType | null
-  }
-
-  export type GroomMinAggregateOutputType = {
-    id: string | null
-    weddingId: string | null
-    groom: string | null
-    groomMother: string | null
-    groomFather: string | null
-    groomBank: string | null
-    groomMotherBank: string | null
-    groomFatherBank: string | null
-    groomAccount: string | null
-    groomMotherAccount: string | null
-    groomFatherAccount: string | null
-  }
-
-  export type GroomMaxAggregateOutputType = {
-    id: string | null
-    weddingId: string | null
-    groom: string | null
-    groomMother: string | null
-    groomFather: string | null
-    groomBank: string | null
-    groomMotherBank: string | null
-    groomFatherBank: string | null
-    groomAccount: string | null
-    groomMotherAccount: string | null
-    groomFatherAccount: string | null
-  }
-
-  export type GroomCountAggregateOutputType = {
-    id: number
-    weddingId: number
     groom: number
     groomMother: number
     groomFather: number
@@ -2205,13 +995,28 @@ export namespace Prisma {
     groomAccount: number
     groomMotherAccount: number
     groomFatherAccount: number
+    bridge: number
+    bridgeMother: number
+    bridgeFather: number
+    bridgeBank: number
+    bridgeMotherBank: number
+    bridgeFatherBank: number
+    bridgeAccount: number
+    bridgeMotherAccount: number
+    bridgeFatherAccount: number
+    createdAt: number
     _all: number
   }
 
 
-  export type GroomMinAggregateInputType = {
+  export type InvitationMinAggregateInputType = {
     id?: true
-    weddingId?: true
+    weddingHouse?: true
+    weddingHouseAddress?: true
+    bus?: true
+    subway?: true
+    description?: true
+    date?: true
     groom?: true
     groomMother?: true
     groomFather?: true
@@ -2221,11 +1026,26 @@ export namespace Prisma {
     groomAccount?: true
     groomMotherAccount?: true
     groomFatherAccount?: true
+    bridge?: true
+    bridgeMother?: true
+    bridgeFather?: true
+    bridgeBank?: true
+    bridgeMotherBank?: true
+    bridgeFatherBank?: true
+    bridgeAccount?: true
+    bridgeMotherAccount?: true
+    bridgeFatherAccount?: true
+    createdAt?: true
   }
 
-  export type GroomMaxAggregateInputType = {
+  export type InvitationMaxAggregateInputType = {
     id?: true
-    weddingId?: true
+    weddingHouse?: true
+    weddingHouseAddress?: true
+    bus?: true
+    subway?: true
+    description?: true
+    date?: true
     groom?: true
     groomMother?: true
     groomFather?: true
@@ -2235,11 +1055,26 @@ export namespace Prisma {
     groomAccount?: true
     groomMotherAccount?: true
     groomFatherAccount?: true
+    bridge?: true
+    bridgeMother?: true
+    bridgeFather?: true
+    bridgeBank?: true
+    bridgeMotherBank?: true
+    bridgeFatherBank?: true
+    bridgeAccount?: true
+    bridgeMotherAccount?: true
+    bridgeFatherAccount?: true
+    createdAt?: true
   }
 
-  export type GroomCountAggregateInputType = {
+  export type InvitationCountAggregateInputType = {
     id?: true
-    weddingId?: true
+    weddingHouse?: true
+    weddingHouseAddress?: true
+    bus?: true
+    subway?: true
+    description?: true
+    date?: true
     groom?: true
     groomMother?: true
     groomFather?: true
@@ -2249,115 +1084,145 @@ export namespace Prisma {
     groomAccount?: true
     groomMotherAccount?: true
     groomFatherAccount?: true
+    bridge?: true
+    bridgeMother?: true
+    bridgeFather?: true
+    bridgeBank?: true
+    bridgeMotherBank?: true
+    bridgeFatherBank?: true
+    bridgeAccount?: true
+    bridgeMotherAccount?: true
+    bridgeFatherAccount?: true
+    createdAt?: true
     _all?: true
   }
 
-  export type GroomAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type InvitationAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which Groom to aggregate.
+     * Filter which Invitation to aggregate.
      */
-    where?: GroomWhereInput
+    where?: InvitationWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of Grooms to fetch.
+     * Determine the order of Invitations to fetch.
      */
-    orderBy?: GroomOrderByWithRelationInput | GroomOrderByWithRelationInput[]
+    orderBy?: InvitationOrderByWithRelationInput | InvitationOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
      * Sets the start position
      */
-    cursor?: GroomWhereUniqueInput
+    cursor?: InvitationWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` Grooms from the position of the cursor.
+     * Take `±n` Invitations from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` Grooms.
+     * Skip the first `n` Invitations.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
-     * Count returned Grooms
+     * Count returned Invitations
     **/
-    _count?: true | GroomCountAggregateInputType
+    _count?: true | InvitationCountAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the minimum value
     **/
-    _min?: GroomMinAggregateInputType
+    _min?: InvitationMinAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the maximum value
     **/
-    _max?: GroomMaxAggregateInputType
+    _max?: InvitationMaxAggregateInputType
   }
 
-  export type GetGroomAggregateType<T extends GroomAggregateArgs> = {
-        [P in keyof T & keyof AggregateGroom]: P extends '_count' | 'count'
+  export type GetInvitationAggregateType<T extends InvitationAggregateArgs> = {
+        [P in keyof T & keyof AggregateInvitation]: P extends '_count' | 'count'
       ? T[P] extends true
         ? number
-        : GetScalarType<T[P], AggregateGroom[P]>
-      : GetScalarType<T[P], AggregateGroom[P]>
+        : GetScalarType<T[P], AggregateInvitation[P]>
+      : GetScalarType<T[P], AggregateInvitation[P]>
   }
 
 
 
 
-  export type GroomGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: GroomWhereInput
-    orderBy?: GroomOrderByWithAggregationInput | GroomOrderByWithAggregationInput[]
-    by: GroomScalarFieldEnum[] | GroomScalarFieldEnum
-    having?: GroomScalarWhereWithAggregatesInput
+  export type InvitationGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: InvitationWhereInput
+    orderBy?: InvitationOrderByWithAggregationInput | InvitationOrderByWithAggregationInput[]
+    by: InvitationScalarFieldEnum[] | InvitationScalarFieldEnum
+    having?: InvitationScalarWhereWithAggregatesInput
     take?: number
     skip?: number
-    _count?: GroomCountAggregateInputType | true
-    _min?: GroomMinAggregateInputType
-    _max?: GroomMaxAggregateInputType
+    _count?: InvitationCountAggregateInputType | true
+    _min?: InvitationMinAggregateInputType
+    _max?: InvitationMaxAggregateInputType
   }
 
-  export type GroomGroupByOutputType = {
+  export type InvitationGroupByOutputType = {
     id: string
-    weddingId: string
+    weddingHouse: string
+    weddingHouseAddress: string
+    bus: string | null
+    subway: string | null
+    description: string
+    date: Date
     groom: string
-    groomMother: string
-    groomFather: string
-    groomBank: string
-    groomMotherBank: string
-    groomFatherBank: string
-    groomAccount: string
-    groomMotherAccount: string
-    groomFatherAccount: string
-    _count: GroomCountAggregateOutputType | null
-    _min: GroomMinAggregateOutputType | null
-    _max: GroomMaxAggregateOutputType | null
+    groomMother: string | null
+    groomFather: string | null
+    groomBank: string | null
+    groomMotherBank: string | null
+    groomFatherBank: string | null
+    groomAccount: string | null
+    groomMotherAccount: string | null
+    groomFatherAccount: string | null
+    bridge: string
+    bridgeMother: string | null
+    bridgeFather: string | null
+    bridgeBank: string | null
+    bridgeMotherBank: string | null
+    bridgeFatherBank: string | null
+    bridgeAccount: string | null
+    bridgeMotherAccount: string | null
+    bridgeFatherAccount: string | null
+    createdAt: Date
+    _count: InvitationCountAggregateOutputType | null
+    _min: InvitationMinAggregateOutputType | null
+    _max: InvitationMaxAggregateOutputType | null
   }
 
-  type GetGroomGroupByPayload<T extends GroomGroupByArgs> = Prisma.PrismaPromise<
+  type GetInvitationGroupByPayload<T extends InvitationGroupByArgs> = Prisma.PrismaPromise<
     Array<
-      PickEnumerable<GroomGroupByOutputType, T['by']> &
+      PickEnumerable<InvitationGroupByOutputType, T['by']> &
         {
-          [P in ((keyof T) & (keyof GroomGroupByOutputType))]: P extends '_count'
+          [P in ((keyof T) & (keyof InvitationGroupByOutputType))]: P extends '_count'
             ? T[P] extends boolean
               ? number
-              : GetScalarType<T[P], GroomGroupByOutputType[P]>
-            : GetScalarType<T[P], GroomGroupByOutputType[P]>
+              : GetScalarType<T[P], InvitationGroupByOutputType[P]>
+            : GetScalarType<T[P], InvitationGroupByOutputType[P]>
         }
       >
     >
 
 
-  export type GroomSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type InvitationSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    weddingId?: boolean
+    weddingHouse?: boolean
+    weddingHouseAddress?: boolean
+    bus?: boolean
+    subway?: boolean
+    description?: boolean
+    date?: boolean
     groom?: boolean
     groomMother?: boolean
     groomFather?: boolean
@@ -2367,12 +1232,27 @@ export namespace Prisma {
     groomAccount?: boolean
     groomMotherAccount?: boolean
     groomFatherAccount?: boolean
-    wedding?: boolean | WeddingDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["groom"]>
+    bridge?: boolean
+    bridgeMother?: boolean
+    bridgeFather?: boolean
+    bridgeBank?: boolean
+    bridgeMotherBank?: boolean
+    bridgeFatherBank?: boolean
+    bridgeAccount?: boolean
+    bridgeMotherAccount?: boolean
+    bridgeFatherAccount?: boolean
+    createdAt?: boolean
+    meta?: boolean | Invitation$metaArgs<ExtArgs>
+  }, ExtArgs["result"]["invitation"]>
 
-  export type GroomSelectScalar = {
+  export type InvitationSelectScalar = {
     id?: boolean
-    weddingId?: boolean
+    weddingHouse?: boolean
+    weddingHouseAddress?: boolean
+    bus?: boolean
+    subway?: boolean
+    description?: boolean
+    date?: boolean
     groom?: boolean
     groomMother?: boolean
     groomFather?: boolean
@@ -2382,184 +1262,209 @@ export namespace Prisma {
     groomAccount?: boolean
     groomMotherAccount?: boolean
     groomFatherAccount?: boolean
+    bridge?: boolean
+    bridgeMother?: boolean
+    bridgeFather?: boolean
+    bridgeBank?: boolean
+    bridgeMotherBank?: boolean
+    bridgeFatherBank?: boolean
+    bridgeAccount?: boolean
+    bridgeMotherAccount?: boolean
+    bridgeFatherAccount?: boolean
+    createdAt?: boolean
   }
 
-  export type GroomInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    wedding?: boolean | WeddingDefaultArgs<ExtArgs>
+  export type InvitationInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    meta?: boolean | Invitation$metaArgs<ExtArgs>
   }
 
 
-  export type $GroomPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    name: "Groom"
+  export type $InvitationPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Invitation"
     objects: {
-      wedding: Prisma.$WeddingPayload<ExtArgs>
+      meta: Prisma.$MetaPayload<ExtArgs> | null
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
-      weddingId: string
+      weddingHouse: string
+      weddingHouseAddress: string
+      bus: string | null
+      subway: string | null
+      description: string
+      date: Date
       groom: string
-      groomMother: string
-      groomFather: string
-      groomBank: string
-      groomMotherBank: string
-      groomFatherBank: string
-      groomAccount: string
-      groomMotherAccount: string
-      groomFatherAccount: string
-    }, ExtArgs["result"]["groom"]>
+      groomMother: string | null
+      groomFather: string | null
+      groomBank: string | null
+      groomMotherBank: string | null
+      groomFatherBank: string | null
+      groomAccount: string | null
+      groomMotherAccount: string | null
+      groomFatherAccount: string | null
+      bridge: string
+      bridgeMother: string | null
+      bridgeFather: string | null
+      bridgeBank: string | null
+      bridgeMotherBank: string | null
+      bridgeFatherBank: string | null
+      bridgeAccount: string | null
+      bridgeMotherAccount: string | null
+      bridgeFatherAccount: string | null
+      createdAt: Date
+    }, ExtArgs["result"]["invitation"]>
     composites: {}
   }
 
 
-  type GroomGetPayload<S extends boolean | null | undefined | GroomDefaultArgs> = $Result.GetResult<Prisma.$GroomPayload, S>
+  type InvitationGetPayload<S extends boolean | null | undefined | InvitationDefaultArgs> = $Result.GetResult<Prisma.$InvitationPayload, S>
 
-  type GroomCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
-    Omit<GroomFindManyArgs, 'select' | 'include' | 'distinct'> & {
-      select?: GroomCountAggregateInputType | true
+  type InvitationCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
+    Omit<InvitationFindManyArgs, 'select' | 'include' | 'distinct'> & {
+      select?: InvitationCountAggregateInputType | true
     }
 
-  export interface GroomDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
-    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Groom'], meta: { name: 'Groom' } }
+  export interface InvitationDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Invitation'], meta: { name: 'Invitation' } }
     /**
-     * Find zero or one Groom that matches the filter.
-     * @param {GroomFindUniqueArgs} args - Arguments to find a Groom
+     * Find zero or one Invitation that matches the filter.
+     * @param {InvitationFindUniqueArgs} args - Arguments to find a Invitation
      * @example
-     * // Get one Groom
-     * const groom = await prisma.groom.findUnique({
+     * // Get one Invitation
+     * const invitation = await prisma.invitation.findUnique({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
     **/
-    findUnique<T extends GroomFindUniqueArgs<ExtArgs>>(
-      args: SelectSubset<T, GroomFindUniqueArgs<ExtArgs>>
-    ): Prisma__GroomClient<$Result.GetResult<Prisma.$GroomPayload<ExtArgs>, T, 'findUnique'> | null, null, ExtArgs>
+    findUnique<T extends InvitationFindUniqueArgs<ExtArgs>>(
+      args: SelectSubset<T, InvitationFindUniqueArgs<ExtArgs>>
+    ): Prisma__InvitationClient<$Result.GetResult<Prisma.$InvitationPayload<ExtArgs>, T, 'findUnique'> | null, null, ExtArgs>
 
     /**
-     * Find one Groom that matches the filter or throw an error  with `error.code='P2025'` 
+     * Find one Invitation that matches the filter or throw an error  with `error.code='P2025'` 
      *     if no matches were found.
-     * @param {GroomFindUniqueOrThrowArgs} args - Arguments to find a Groom
+     * @param {InvitationFindUniqueOrThrowArgs} args - Arguments to find a Invitation
      * @example
-     * // Get one Groom
-     * const groom = await prisma.groom.findUniqueOrThrow({
+     * // Get one Invitation
+     * const invitation = await prisma.invitation.findUniqueOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
     **/
-    findUniqueOrThrow<T extends GroomFindUniqueOrThrowArgs<ExtArgs>>(
-      args?: SelectSubset<T, GroomFindUniqueOrThrowArgs<ExtArgs>>
-    ): Prisma__GroomClient<$Result.GetResult<Prisma.$GroomPayload<ExtArgs>, T, 'findUniqueOrThrow'>, never, ExtArgs>
+    findUniqueOrThrow<T extends InvitationFindUniqueOrThrowArgs<ExtArgs>>(
+      args?: SelectSubset<T, InvitationFindUniqueOrThrowArgs<ExtArgs>>
+    ): Prisma__InvitationClient<$Result.GetResult<Prisma.$InvitationPayload<ExtArgs>, T, 'findUniqueOrThrow'>, never, ExtArgs>
 
     /**
-     * Find the first Groom that matches the filter.
+     * Find the first Invitation that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {GroomFindFirstArgs} args - Arguments to find a Groom
+     * @param {InvitationFindFirstArgs} args - Arguments to find a Invitation
      * @example
-     * // Get one Groom
-     * const groom = await prisma.groom.findFirst({
+     * // Get one Invitation
+     * const invitation = await prisma.invitation.findFirst({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
     **/
-    findFirst<T extends GroomFindFirstArgs<ExtArgs>>(
-      args?: SelectSubset<T, GroomFindFirstArgs<ExtArgs>>
-    ): Prisma__GroomClient<$Result.GetResult<Prisma.$GroomPayload<ExtArgs>, T, 'findFirst'> | null, null, ExtArgs>
+    findFirst<T extends InvitationFindFirstArgs<ExtArgs>>(
+      args?: SelectSubset<T, InvitationFindFirstArgs<ExtArgs>>
+    ): Prisma__InvitationClient<$Result.GetResult<Prisma.$InvitationPayload<ExtArgs>, T, 'findFirst'> | null, null, ExtArgs>
 
     /**
-     * Find the first Groom that matches the filter or
+     * Find the first Invitation that matches the filter or
      * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {GroomFindFirstOrThrowArgs} args - Arguments to find a Groom
+     * @param {InvitationFindFirstOrThrowArgs} args - Arguments to find a Invitation
      * @example
-     * // Get one Groom
-     * const groom = await prisma.groom.findFirstOrThrow({
+     * // Get one Invitation
+     * const invitation = await prisma.invitation.findFirstOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
     **/
-    findFirstOrThrow<T extends GroomFindFirstOrThrowArgs<ExtArgs>>(
-      args?: SelectSubset<T, GroomFindFirstOrThrowArgs<ExtArgs>>
-    ): Prisma__GroomClient<$Result.GetResult<Prisma.$GroomPayload<ExtArgs>, T, 'findFirstOrThrow'>, never, ExtArgs>
+    findFirstOrThrow<T extends InvitationFindFirstOrThrowArgs<ExtArgs>>(
+      args?: SelectSubset<T, InvitationFindFirstOrThrowArgs<ExtArgs>>
+    ): Prisma__InvitationClient<$Result.GetResult<Prisma.$InvitationPayload<ExtArgs>, T, 'findFirstOrThrow'>, never, ExtArgs>
 
     /**
-     * Find zero or more Grooms that matches the filter.
+     * Find zero or more Invitations that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {GroomFindManyArgs=} args - Arguments to filter and select certain fields only.
+     * @param {InvitationFindManyArgs=} args - Arguments to filter and select certain fields only.
      * @example
-     * // Get all Grooms
-     * const grooms = await prisma.groom.findMany()
+     * // Get all Invitations
+     * const invitations = await prisma.invitation.findMany()
      * 
-     * // Get first 10 Grooms
-     * const grooms = await prisma.groom.findMany({ take: 10 })
+     * // Get first 10 Invitations
+     * const invitations = await prisma.invitation.findMany({ take: 10 })
      * 
      * // Only select the `id`
-     * const groomWithIdOnly = await prisma.groom.findMany({ select: { id: true } })
+     * const invitationWithIdOnly = await prisma.invitation.findMany({ select: { id: true } })
      * 
     **/
-    findMany<T extends GroomFindManyArgs<ExtArgs>>(
-      args?: SelectSubset<T, GroomFindManyArgs<ExtArgs>>
-    ): Prisma.PrismaPromise<$Result.GetResult<Prisma.$GroomPayload<ExtArgs>, T, 'findMany'>>
+    findMany<T extends InvitationFindManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, InvitationFindManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<$Result.GetResult<Prisma.$InvitationPayload<ExtArgs>, T, 'findMany'>>
 
     /**
-     * Create a Groom.
-     * @param {GroomCreateArgs} args - Arguments to create a Groom.
+     * Create a Invitation.
+     * @param {InvitationCreateArgs} args - Arguments to create a Invitation.
      * @example
-     * // Create one Groom
-     * const Groom = await prisma.groom.create({
+     * // Create one Invitation
+     * const Invitation = await prisma.invitation.create({
      *   data: {
-     *     // ... data to create a Groom
+     *     // ... data to create a Invitation
      *   }
      * })
      * 
     **/
-    create<T extends GroomCreateArgs<ExtArgs>>(
-      args: SelectSubset<T, GroomCreateArgs<ExtArgs>>
-    ): Prisma__GroomClient<$Result.GetResult<Prisma.$GroomPayload<ExtArgs>, T, 'create'>, never, ExtArgs>
+    create<T extends InvitationCreateArgs<ExtArgs>>(
+      args: SelectSubset<T, InvitationCreateArgs<ExtArgs>>
+    ): Prisma__InvitationClient<$Result.GetResult<Prisma.$InvitationPayload<ExtArgs>, T, 'create'>, never, ExtArgs>
 
     /**
-     * Create many Grooms.
-     *     @param {GroomCreateManyArgs} args - Arguments to create many Grooms.
+     * Create many Invitations.
+     *     @param {InvitationCreateManyArgs} args - Arguments to create many Invitations.
      *     @example
-     *     // Create many Grooms
-     *     const groom = await prisma.groom.createMany({
+     *     // Create many Invitations
+     *     const invitation = await prisma.invitation.createMany({
      *       data: {
      *         // ... provide data here
      *       }
      *     })
      *     
     **/
-    createMany<T extends GroomCreateManyArgs<ExtArgs>>(
-      args?: SelectSubset<T, GroomCreateManyArgs<ExtArgs>>
+    createMany<T extends InvitationCreateManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, InvitationCreateManyArgs<ExtArgs>>
     ): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Delete a Groom.
-     * @param {GroomDeleteArgs} args - Arguments to delete one Groom.
+     * Delete a Invitation.
+     * @param {InvitationDeleteArgs} args - Arguments to delete one Invitation.
      * @example
-     * // Delete one Groom
-     * const Groom = await prisma.groom.delete({
+     * // Delete one Invitation
+     * const Invitation = await prisma.invitation.delete({
      *   where: {
-     *     // ... filter to delete one Groom
+     *     // ... filter to delete one Invitation
      *   }
      * })
      * 
     **/
-    delete<T extends GroomDeleteArgs<ExtArgs>>(
-      args: SelectSubset<T, GroomDeleteArgs<ExtArgs>>
-    ): Prisma__GroomClient<$Result.GetResult<Prisma.$GroomPayload<ExtArgs>, T, 'delete'>, never, ExtArgs>
+    delete<T extends InvitationDeleteArgs<ExtArgs>>(
+      args: SelectSubset<T, InvitationDeleteArgs<ExtArgs>>
+    ): Prisma__InvitationClient<$Result.GetResult<Prisma.$InvitationPayload<ExtArgs>, T, 'delete'>, never, ExtArgs>
 
     /**
-     * Update one Groom.
-     * @param {GroomUpdateArgs} args - Arguments to update one Groom.
+     * Update one Invitation.
+     * @param {InvitationUpdateArgs} args - Arguments to update one Invitation.
      * @example
-     * // Update one Groom
-     * const groom = await prisma.groom.update({
+     * // Update one Invitation
+     * const invitation = await prisma.invitation.update({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -2569,34 +1474,34 @@ export namespace Prisma {
      * })
      * 
     **/
-    update<T extends GroomUpdateArgs<ExtArgs>>(
-      args: SelectSubset<T, GroomUpdateArgs<ExtArgs>>
-    ): Prisma__GroomClient<$Result.GetResult<Prisma.$GroomPayload<ExtArgs>, T, 'update'>, never, ExtArgs>
+    update<T extends InvitationUpdateArgs<ExtArgs>>(
+      args: SelectSubset<T, InvitationUpdateArgs<ExtArgs>>
+    ): Prisma__InvitationClient<$Result.GetResult<Prisma.$InvitationPayload<ExtArgs>, T, 'update'>, never, ExtArgs>
 
     /**
-     * Delete zero or more Grooms.
-     * @param {GroomDeleteManyArgs} args - Arguments to filter Grooms to delete.
+     * Delete zero or more Invitations.
+     * @param {InvitationDeleteManyArgs} args - Arguments to filter Invitations to delete.
      * @example
-     * // Delete a few Grooms
-     * const { count } = await prisma.groom.deleteMany({
+     * // Delete a few Invitations
+     * const { count } = await prisma.invitation.deleteMany({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      * 
     **/
-    deleteMany<T extends GroomDeleteManyArgs<ExtArgs>>(
-      args?: SelectSubset<T, GroomDeleteManyArgs<ExtArgs>>
+    deleteMany<T extends InvitationDeleteManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, InvitationDeleteManyArgs<ExtArgs>>
     ): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Update zero or more Grooms.
+     * Update zero or more Invitations.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {GroomUpdateManyArgs} args - Arguments to update one or more rows.
+     * @param {InvitationUpdateManyArgs} args - Arguments to update one or more rows.
      * @example
-     * // Update many Grooms
-     * const groom = await prisma.groom.updateMany({
+     * // Update many Invitations
+     * const invitation = await prisma.invitation.updateMany({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -2606,48 +1511,48 @@ export namespace Prisma {
      * })
      * 
     **/
-    updateMany<T extends GroomUpdateManyArgs<ExtArgs>>(
-      args: SelectSubset<T, GroomUpdateManyArgs<ExtArgs>>
+    updateMany<T extends InvitationUpdateManyArgs<ExtArgs>>(
+      args: SelectSubset<T, InvitationUpdateManyArgs<ExtArgs>>
     ): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Create or update one Groom.
-     * @param {GroomUpsertArgs} args - Arguments to update or create a Groom.
+     * Create or update one Invitation.
+     * @param {InvitationUpsertArgs} args - Arguments to update or create a Invitation.
      * @example
-     * // Update or create a Groom
-     * const groom = await prisma.groom.upsert({
+     * // Update or create a Invitation
+     * const invitation = await prisma.invitation.upsert({
      *   create: {
-     *     // ... data to create a Groom
+     *     // ... data to create a Invitation
      *   },
      *   update: {
      *     // ... in case it already exists, update
      *   },
      *   where: {
-     *     // ... the filter for the Groom we want to update
+     *     // ... the filter for the Invitation we want to update
      *   }
      * })
     **/
-    upsert<T extends GroomUpsertArgs<ExtArgs>>(
-      args: SelectSubset<T, GroomUpsertArgs<ExtArgs>>
-    ): Prisma__GroomClient<$Result.GetResult<Prisma.$GroomPayload<ExtArgs>, T, 'upsert'>, never, ExtArgs>
+    upsert<T extends InvitationUpsertArgs<ExtArgs>>(
+      args: SelectSubset<T, InvitationUpsertArgs<ExtArgs>>
+    ): Prisma__InvitationClient<$Result.GetResult<Prisma.$InvitationPayload<ExtArgs>, T, 'upsert'>, never, ExtArgs>
 
     /**
-     * Find zero or more Grooms that matches the filter.
-     * @param {GroomFindRawArgs} args - Select which filters you would like to apply.
+     * Find zero or more Invitations that matches the filter.
+     * @param {InvitationFindRawArgs} args - Select which filters you would like to apply.
      * @example
-     * const groom = await prisma.groom.findRaw({
+     * const invitation = await prisma.invitation.findRaw({
      *   filter: { age: { $gt: 25 } } 
      * })
     **/
     findRaw(
-      args?: GroomFindRawArgs
+      args?: InvitationFindRawArgs
     ): Prisma.PrismaPromise<JsonObject>
 
     /**
-     * Perform aggregation operations on a Groom.
-     * @param {GroomAggregateRawArgs} args - Select which aggregations you would like to apply.
+     * Perform aggregation operations on a Invitation.
+     * @param {InvitationAggregateRawArgs} args - Select which aggregations you would like to apply.
      * @example
-     * const groom = await prisma.groom.aggregateRaw({
+     * const invitation = await prisma.invitation.aggregateRaw({
      *   pipeline: [
      *     { $match: { status: "registered" } },
      *     { $group: { _id: "$country", total: { $sum: 1 } } }
@@ -2655,37 +1560,37 @@ export namespace Prisma {
      * })
     **/
     aggregateRaw(
-      args?: GroomAggregateRawArgs
+      args?: InvitationAggregateRawArgs
     ): Prisma.PrismaPromise<JsonObject>
 
     /**
-     * Count the number of Grooms.
+     * Count the number of Invitations.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {GroomCountArgs} args - Arguments to filter Grooms to count.
+     * @param {InvitationCountArgs} args - Arguments to filter Invitations to count.
      * @example
-     * // Count the number of Grooms
-     * const count = await prisma.groom.count({
+     * // Count the number of Invitations
+     * const count = await prisma.invitation.count({
      *   where: {
-     *     // ... the filter for the Grooms we want to count
+     *     // ... the filter for the Invitations we want to count
      *   }
      * })
     **/
-    count<T extends GroomCountArgs>(
-      args?: Subset<T, GroomCountArgs>,
+    count<T extends InvitationCountArgs>(
+      args?: Subset<T, InvitationCountArgs>,
     ): Prisma.PrismaPromise<
       T extends $Utils.Record<'select', any>
         ? T['select'] extends true
           ? number
-          : GetScalarType<T['select'], GroomCountAggregateOutputType>
+          : GetScalarType<T['select'], InvitationCountAggregateOutputType>
         : number
     >
 
     /**
-     * Allows you to perform aggregations operations on a Groom.
+     * Allows you to perform aggregations operations on a Invitation.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {GroomAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @param {InvitationAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
      * @example
      * // Ordered by age ascending
      * // Where email contains prisma.io
@@ -2705,13 +1610,13 @@ export namespace Prisma {
      *   take: 10,
      * })
     **/
-    aggregate<T extends GroomAggregateArgs>(args: Subset<T, GroomAggregateArgs>): Prisma.PrismaPromise<GetGroomAggregateType<T>>
+    aggregate<T extends InvitationAggregateArgs>(args: Subset<T, InvitationAggregateArgs>): Prisma.PrismaPromise<GetInvitationAggregateType<T>>
 
     /**
-     * Group by Groom.
+     * Group by Invitation.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {GroomGroupByArgs} args - Group by arguments.
+     * @param {InvitationGroupByArgs} args - Group by arguments.
      * @example
      * // Group by city, order by createdAt, get count
      * const result = await prisma.user.groupBy({
@@ -2726,14 +1631,14 @@ export namespace Prisma {
      * 
     **/
     groupBy<
-      T extends GroomGroupByArgs,
+      T extends InvitationGroupByArgs,
       HasSelectOrTake extends Or<
         Extends<'skip', Keys<T>>,
         Extends<'take', Keys<T>>
       >,
       OrderByArg extends True extends HasSelectOrTake
-        ? { orderBy: GroomGroupByArgs['orderBy'] }
-        : { orderBy?: GroomGroupByArgs['orderBy'] },
+        ? { orderBy: InvitationGroupByArgs['orderBy'] }
+        : { orderBy?: InvitationGroupByArgs['orderBy'] },
       OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
       ByFields extends MaybeTupleToUnion<T['by']>,
       ByValid extends Has<ByFields, OrderFields>,
@@ -2782,23 +1687,23 @@ export namespace Prisma {
             ? never
             : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
         }[OrderFields]
-    >(args: SubsetIntersection<T, GroomGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetGroomGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+    >(args: SubsetIntersection<T, InvitationGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetInvitationGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
   /**
-   * Fields of the Groom model
+   * Fields of the Invitation model
    */
-  readonly fields: GroomFieldRefs;
+  readonly fields: InvitationFieldRefs;
   }
 
   /**
-   * The delegate class that acts as a "Promise-like" for Groom.
+   * The delegate class that acts as a "Promise-like" for Invitation.
    * Why is this prefixed with `Prisma__`?
    * Because we want to prevent naming conflicts as mentioned in
    * https://github.com/prisma/prisma-client-js/issues/707
    */
-  export interface Prisma__GroomClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
+  export interface Prisma__InvitationClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: 'PrismaPromise';
 
-    wedding<T extends WeddingDefaultArgs<ExtArgs> = {}>(args?: Subset<T, WeddingDefaultArgs<ExtArgs>>): Prisma__WeddingClient<$Result.GetResult<Prisma.$WeddingPayload<ExtArgs>, T, 'findUniqueOrThrow'> | Null, Null, ExtArgs>;
+    meta<T extends Invitation$metaArgs<ExtArgs> = {}>(args?: Subset<T, Invitation$metaArgs<ExtArgs>>): Prisma__MetaClient<$Result.GetResult<Prisma.$MetaPayload<ExtArgs>, T, 'findUniqueOrThrow'> | null, null, ExtArgs>;
 
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
@@ -2825,334 +1730,349 @@ export namespace Prisma {
 
 
   /**
-   * Fields of the Groom model
+   * Fields of the Invitation model
    */ 
-  interface GroomFieldRefs {
-    readonly id: FieldRef<"Groom", 'String'>
-    readonly weddingId: FieldRef<"Groom", 'String'>
-    readonly groom: FieldRef<"Groom", 'String'>
-    readonly groomMother: FieldRef<"Groom", 'String'>
-    readonly groomFather: FieldRef<"Groom", 'String'>
-    readonly groomBank: FieldRef<"Groom", 'String'>
-    readonly groomMotherBank: FieldRef<"Groom", 'String'>
-    readonly groomFatherBank: FieldRef<"Groom", 'String'>
-    readonly groomAccount: FieldRef<"Groom", 'String'>
-    readonly groomMotherAccount: FieldRef<"Groom", 'String'>
-    readonly groomFatherAccount: FieldRef<"Groom", 'String'>
+  interface InvitationFieldRefs {
+    readonly id: FieldRef<"Invitation", 'String'>
+    readonly weddingHouse: FieldRef<"Invitation", 'String'>
+    readonly weddingHouseAddress: FieldRef<"Invitation", 'String'>
+    readonly bus: FieldRef<"Invitation", 'String'>
+    readonly subway: FieldRef<"Invitation", 'String'>
+    readonly description: FieldRef<"Invitation", 'String'>
+    readonly date: FieldRef<"Invitation", 'DateTime'>
+    readonly groom: FieldRef<"Invitation", 'String'>
+    readonly groomMother: FieldRef<"Invitation", 'String'>
+    readonly groomFather: FieldRef<"Invitation", 'String'>
+    readonly groomBank: FieldRef<"Invitation", 'String'>
+    readonly groomMotherBank: FieldRef<"Invitation", 'String'>
+    readonly groomFatherBank: FieldRef<"Invitation", 'String'>
+    readonly groomAccount: FieldRef<"Invitation", 'String'>
+    readonly groomMotherAccount: FieldRef<"Invitation", 'String'>
+    readonly groomFatherAccount: FieldRef<"Invitation", 'String'>
+    readonly bridge: FieldRef<"Invitation", 'String'>
+    readonly bridgeMother: FieldRef<"Invitation", 'String'>
+    readonly bridgeFather: FieldRef<"Invitation", 'String'>
+    readonly bridgeBank: FieldRef<"Invitation", 'String'>
+    readonly bridgeMotherBank: FieldRef<"Invitation", 'String'>
+    readonly bridgeFatherBank: FieldRef<"Invitation", 'String'>
+    readonly bridgeAccount: FieldRef<"Invitation", 'String'>
+    readonly bridgeMotherAccount: FieldRef<"Invitation", 'String'>
+    readonly bridgeFatherAccount: FieldRef<"Invitation", 'String'>
+    readonly createdAt: FieldRef<"Invitation", 'DateTime'>
   }
     
 
   // Custom InputTypes
 
   /**
-   * Groom findUnique
+   * Invitation findUnique
    */
-  export type GroomFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type InvitationFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Groom
+     * Select specific fields to fetch from the Invitation
      */
-    select?: GroomSelect<ExtArgs> | null
+    select?: InvitationSelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well.
      */
-    include?: GroomInclude<ExtArgs> | null
+    include?: InvitationInclude<ExtArgs> | null
     /**
-     * Filter, which Groom to fetch.
+     * Filter, which Invitation to fetch.
      */
-    where: GroomWhereUniqueInput
+    where: InvitationWhereUniqueInput
   }
 
 
   /**
-   * Groom findUniqueOrThrow
+   * Invitation findUniqueOrThrow
    */
-  export type GroomFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type InvitationFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Groom
+     * Select specific fields to fetch from the Invitation
      */
-    select?: GroomSelect<ExtArgs> | null
+    select?: InvitationSelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well.
      */
-    include?: GroomInclude<ExtArgs> | null
+    include?: InvitationInclude<ExtArgs> | null
     /**
-     * Filter, which Groom to fetch.
+     * Filter, which Invitation to fetch.
      */
-    where: GroomWhereUniqueInput
+    where: InvitationWhereUniqueInput
   }
 
 
   /**
-   * Groom findFirst
+   * Invitation findFirst
    */
-  export type GroomFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type InvitationFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Groom
+     * Select specific fields to fetch from the Invitation
      */
-    select?: GroomSelect<ExtArgs> | null
+    select?: InvitationSelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well.
      */
-    include?: GroomInclude<ExtArgs> | null
+    include?: InvitationInclude<ExtArgs> | null
     /**
-     * Filter, which Groom to fetch.
+     * Filter, which Invitation to fetch.
      */
-    where?: GroomWhereInput
+    where?: InvitationWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of Grooms to fetch.
+     * Determine the order of Invitations to fetch.
      */
-    orderBy?: GroomOrderByWithRelationInput | GroomOrderByWithRelationInput[]
+    orderBy?: InvitationOrderByWithRelationInput | InvitationOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for Grooms.
+     * Sets the position for searching for Invitations.
      */
-    cursor?: GroomWhereUniqueInput
+    cursor?: InvitationWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` Grooms from the position of the cursor.
+     * Take `±n` Invitations from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` Grooms.
+     * Skip the first `n` Invitations.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of Grooms.
+     * Filter by unique combinations of Invitations.
      */
-    distinct?: GroomScalarFieldEnum | GroomScalarFieldEnum[]
+    distinct?: InvitationScalarFieldEnum | InvitationScalarFieldEnum[]
   }
 
 
   /**
-   * Groom findFirstOrThrow
+   * Invitation findFirstOrThrow
    */
-  export type GroomFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type InvitationFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Groom
+     * Select specific fields to fetch from the Invitation
      */
-    select?: GroomSelect<ExtArgs> | null
+    select?: InvitationSelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well.
      */
-    include?: GroomInclude<ExtArgs> | null
+    include?: InvitationInclude<ExtArgs> | null
     /**
-     * Filter, which Groom to fetch.
+     * Filter, which Invitation to fetch.
      */
-    where?: GroomWhereInput
+    where?: InvitationWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of Grooms to fetch.
+     * Determine the order of Invitations to fetch.
      */
-    orderBy?: GroomOrderByWithRelationInput | GroomOrderByWithRelationInput[]
+    orderBy?: InvitationOrderByWithRelationInput | InvitationOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for Grooms.
+     * Sets the position for searching for Invitations.
      */
-    cursor?: GroomWhereUniqueInput
+    cursor?: InvitationWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` Grooms from the position of the cursor.
+     * Take `±n` Invitations from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` Grooms.
+     * Skip the first `n` Invitations.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of Grooms.
+     * Filter by unique combinations of Invitations.
      */
-    distinct?: GroomScalarFieldEnum | GroomScalarFieldEnum[]
+    distinct?: InvitationScalarFieldEnum | InvitationScalarFieldEnum[]
   }
 
 
   /**
-   * Groom findMany
+   * Invitation findMany
    */
-  export type GroomFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type InvitationFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Groom
+     * Select specific fields to fetch from the Invitation
      */
-    select?: GroomSelect<ExtArgs> | null
+    select?: InvitationSelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well.
      */
-    include?: GroomInclude<ExtArgs> | null
+    include?: InvitationInclude<ExtArgs> | null
     /**
-     * Filter, which Grooms to fetch.
+     * Filter, which Invitations to fetch.
      */
-    where?: GroomWhereInput
+    where?: InvitationWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of Grooms to fetch.
+     * Determine the order of Invitations to fetch.
      */
-    orderBy?: GroomOrderByWithRelationInput | GroomOrderByWithRelationInput[]
+    orderBy?: InvitationOrderByWithRelationInput | InvitationOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for listing Grooms.
+     * Sets the position for listing Invitations.
      */
-    cursor?: GroomWhereUniqueInput
+    cursor?: InvitationWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` Grooms from the position of the cursor.
+     * Take `±n` Invitations from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` Grooms.
+     * Skip the first `n` Invitations.
      */
     skip?: number
-    distinct?: GroomScalarFieldEnum | GroomScalarFieldEnum[]
+    distinct?: InvitationScalarFieldEnum | InvitationScalarFieldEnum[]
   }
 
 
   /**
-   * Groom create
+   * Invitation create
    */
-  export type GroomCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type InvitationCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Groom
+     * Select specific fields to fetch from the Invitation
      */
-    select?: GroomSelect<ExtArgs> | null
+    select?: InvitationSelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well.
      */
-    include?: GroomInclude<ExtArgs> | null
+    include?: InvitationInclude<ExtArgs> | null
     /**
-     * The data needed to create a Groom.
+     * The data needed to create a Invitation.
      */
-    data: XOR<GroomCreateInput, GroomUncheckedCreateInput>
+    data: XOR<InvitationCreateInput, InvitationUncheckedCreateInput>
   }
 
 
   /**
-   * Groom createMany
+   * Invitation createMany
    */
-  export type GroomCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type InvitationCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to create many Grooms.
+     * The data used to create many Invitations.
      */
-    data: GroomCreateManyInput | GroomCreateManyInput[]
+    data: InvitationCreateManyInput | InvitationCreateManyInput[]
   }
 
 
   /**
-   * Groom update
+   * Invitation update
    */
-  export type GroomUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type InvitationUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Groom
+     * Select specific fields to fetch from the Invitation
      */
-    select?: GroomSelect<ExtArgs> | null
+    select?: InvitationSelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well.
      */
-    include?: GroomInclude<ExtArgs> | null
+    include?: InvitationInclude<ExtArgs> | null
     /**
-     * The data needed to update a Groom.
+     * The data needed to update a Invitation.
      */
-    data: XOR<GroomUpdateInput, GroomUncheckedUpdateInput>
+    data: XOR<InvitationUpdateInput, InvitationUncheckedUpdateInput>
     /**
-     * Choose, which Groom to update.
+     * Choose, which Invitation to update.
      */
-    where: GroomWhereUniqueInput
+    where: InvitationWhereUniqueInput
   }
 
 
   /**
-   * Groom updateMany
+   * Invitation updateMany
    */
-  export type GroomUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type InvitationUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to update Grooms.
+     * The data used to update Invitations.
      */
-    data: XOR<GroomUpdateManyMutationInput, GroomUncheckedUpdateManyInput>
+    data: XOR<InvitationUpdateManyMutationInput, InvitationUncheckedUpdateManyInput>
     /**
-     * Filter which Grooms to update
+     * Filter which Invitations to update
      */
-    where?: GroomWhereInput
+    where?: InvitationWhereInput
   }
 
 
   /**
-   * Groom upsert
+   * Invitation upsert
    */
-  export type GroomUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type InvitationUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Groom
+     * Select specific fields to fetch from the Invitation
      */
-    select?: GroomSelect<ExtArgs> | null
+    select?: InvitationSelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well.
      */
-    include?: GroomInclude<ExtArgs> | null
+    include?: InvitationInclude<ExtArgs> | null
     /**
-     * The filter to search for the Groom to update in case it exists.
+     * The filter to search for the Invitation to update in case it exists.
      */
-    where: GroomWhereUniqueInput
+    where: InvitationWhereUniqueInput
     /**
-     * In case the Groom found by the `where` argument doesn't exist, create a new Groom with this data.
+     * In case the Invitation found by the `where` argument doesn't exist, create a new Invitation with this data.
      */
-    create: XOR<GroomCreateInput, GroomUncheckedCreateInput>
+    create: XOR<InvitationCreateInput, InvitationUncheckedCreateInput>
     /**
-     * In case the Groom was found with the provided `where` argument, update it with this data.
+     * In case the Invitation was found with the provided `where` argument, update it with this data.
      */
-    update: XOR<GroomUpdateInput, GroomUncheckedUpdateInput>
+    update: XOR<InvitationUpdateInput, InvitationUncheckedUpdateInput>
   }
 
 
   /**
-   * Groom delete
+   * Invitation delete
    */
-  export type GroomDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type InvitationDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Groom
+     * Select specific fields to fetch from the Invitation
      */
-    select?: GroomSelect<ExtArgs> | null
+    select?: InvitationSelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well.
      */
-    include?: GroomInclude<ExtArgs> | null
+    include?: InvitationInclude<ExtArgs> | null
     /**
-     * Filter which Groom to delete.
+     * Filter which Invitation to delete.
      */
-    where: GroomWhereUniqueInput
+    where: InvitationWhereUniqueInput
   }
 
 
   /**
-   * Groom deleteMany
+   * Invitation deleteMany
    */
-  export type GroomDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type InvitationDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which Grooms to delete
+     * Filter which Invitations to delete
      */
-    where?: GroomWhereInput
+    where?: InvitationWhereInput
   }
 
 
   /**
-   * Groom findRaw
+   * Invitation findRaw
    */
-  export type GroomFindRawArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type InvitationFindRawArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * The query predicate filter. If unspecified, then all documents in the collection will match the predicate. ${@link https://docs.mongodb.com/manual/reference/operator/query MongoDB Docs}.
      */
@@ -3165,9 +2085,9 @@ export namespace Prisma {
 
 
   /**
-   * Groom aggregateRaw
+   * Invitation aggregateRaw
    */
-  export type GroomAggregateRawArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type InvitationAggregateRawArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * An array of aggregation stages to process and transform the document stream via the aggregation pipeline. ${@link https://docs.mongodb.com/manual/reference/operator/aggregation-pipeline MongoDB Docs}.
      */
@@ -3180,1074 +2100,50 @@ export namespace Prisma {
 
 
   /**
-   * Groom without action
+   * Invitation.meta
    */
-  export type GroomDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type Invitation$metaArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Groom
+     * Select specific fields to fetch from the Meta
      */
-    select?: GroomSelect<ExtArgs> | null
+    select?: MetaSelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well.
      */
-    include?: GroomInclude<ExtArgs> | null
+    include?: MetaInclude<ExtArgs> | null
+    where?: MetaWhereInput
+  }
+
+
+  /**
+   * Invitation without action
+   */
+  export type InvitationDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Invitation
+     */
+    select?: InvitationSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: InvitationInclude<ExtArgs> | null
   }
 
 
 
   /**
-   * Model Bridge
+   * Model Meta
    */
 
-  export type AggregateBridge = {
-    _count: BridgeCountAggregateOutputType | null
-    _min: BridgeMinAggregateOutputType | null
-    _max: BridgeMaxAggregateOutputType | null
+  export type AggregateMeta = {
+    _count: MetaCountAggregateOutputType | null
+    _min: MetaMinAggregateOutputType | null
+    _max: MetaMaxAggregateOutputType | null
   }
 
-  export type BridgeMinAggregateOutputType = {
+  export type MetaMinAggregateOutputType = {
     id: string | null
-    weddingId: string | null
-    Bridge: string | null
-    BridgeMother: string | null
-    BridgeFather: string | null
-    BridgeBank: string | null
-    BridgeMotherBank: string | null
-    BridgeFatherBank: string | null
-    BridgeAccount: string | null
-    BridgeMotherAccount: string | null
-    BridgeFatherAccount: string | null
-  }
-
-  export type BridgeMaxAggregateOutputType = {
-    id: string | null
-    weddingId: string | null
-    Bridge: string | null
-    BridgeMother: string | null
-    BridgeFather: string | null
-    BridgeBank: string | null
-    BridgeMotherBank: string | null
-    BridgeFatherBank: string | null
-    BridgeAccount: string | null
-    BridgeMotherAccount: string | null
-    BridgeFatherAccount: string | null
-  }
-
-  export type BridgeCountAggregateOutputType = {
-    id: number
-    weddingId: number
-    Bridge: number
-    BridgeMother: number
-    BridgeFather: number
-    BridgeBank: number
-    BridgeMotherBank: number
-    BridgeFatherBank: number
-    BridgeAccount: number
-    BridgeMotherAccount: number
-    BridgeFatherAccount: number
-    _all: number
-  }
-
-
-  export type BridgeMinAggregateInputType = {
-    id?: true
-    weddingId?: true
-    Bridge?: true
-    BridgeMother?: true
-    BridgeFather?: true
-    BridgeBank?: true
-    BridgeMotherBank?: true
-    BridgeFatherBank?: true
-    BridgeAccount?: true
-    BridgeMotherAccount?: true
-    BridgeFatherAccount?: true
-  }
-
-  export type BridgeMaxAggregateInputType = {
-    id?: true
-    weddingId?: true
-    Bridge?: true
-    BridgeMother?: true
-    BridgeFather?: true
-    BridgeBank?: true
-    BridgeMotherBank?: true
-    BridgeFatherBank?: true
-    BridgeAccount?: true
-    BridgeMotherAccount?: true
-    BridgeFatherAccount?: true
-  }
-
-  export type BridgeCountAggregateInputType = {
-    id?: true
-    weddingId?: true
-    Bridge?: true
-    BridgeMother?: true
-    BridgeFather?: true
-    BridgeBank?: true
-    BridgeMotherBank?: true
-    BridgeFatherBank?: true
-    BridgeAccount?: true
-    BridgeMotherAccount?: true
-    BridgeFatherAccount?: true
-    _all?: true
-  }
-
-  export type BridgeAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Filter which Bridge to aggregate.
-     */
-    where?: BridgeWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of Bridges to fetch.
-     */
-    orderBy?: BridgeOrderByWithRelationInput | BridgeOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the start position
-     */
-    cursor?: BridgeWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` Bridges from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` Bridges.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Count returned Bridges
-    **/
-    _count?: true | BridgeCountAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to find the minimum value
-    **/
-    _min?: BridgeMinAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to find the maximum value
-    **/
-    _max?: BridgeMaxAggregateInputType
-  }
-
-  export type GetBridgeAggregateType<T extends BridgeAggregateArgs> = {
-        [P in keyof T & keyof AggregateBridge]: P extends '_count' | 'count'
-      ? T[P] extends true
-        ? number
-        : GetScalarType<T[P], AggregateBridge[P]>
-      : GetScalarType<T[P], AggregateBridge[P]>
-  }
-
-
-
-
-  export type BridgeGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: BridgeWhereInput
-    orderBy?: BridgeOrderByWithAggregationInput | BridgeOrderByWithAggregationInput[]
-    by: BridgeScalarFieldEnum[] | BridgeScalarFieldEnum
-    having?: BridgeScalarWhereWithAggregatesInput
-    take?: number
-    skip?: number
-    _count?: BridgeCountAggregateInputType | true
-    _min?: BridgeMinAggregateInputType
-    _max?: BridgeMaxAggregateInputType
-  }
-
-  export type BridgeGroupByOutputType = {
-    id: string
-    weddingId: string
-    Bridge: string
-    BridgeMother: string
-    BridgeFather: string
-    BridgeBank: string
-    BridgeMotherBank: string
-    BridgeFatherBank: string
-    BridgeAccount: string
-    BridgeMotherAccount: string
-    BridgeFatherAccount: string
-    _count: BridgeCountAggregateOutputType | null
-    _min: BridgeMinAggregateOutputType | null
-    _max: BridgeMaxAggregateOutputType | null
-  }
-
-  type GetBridgeGroupByPayload<T extends BridgeGroupByArgs> = Prisma.PrismaPromise<
-    Array<
-      PickEnumerable<BridgeGroupByOutputType, T['by']> &
-        {
-          [P in ((keyof T) & (keyof BridgeGroupByOutputType))]: P extends '_count'
-            ? T[P] extends boolean
-              ? number
-              : GetScalarType<T[P], BridgeGroupByOutputType[P]>
-            : GetScalarType<T[P], BridgeGroupByOutputType[P]>
-        }
-      >
-    >
-
-
-  export type BridgeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
-    weddingId?: boolean
-    Bridge?: boolean
-    BridgeMother?: boolean
-    BridgeFather?: boolean
-    BridgeBank?: boolean
-    BridgeMotherBank?: boolean
-    BridgeFatherBank?: boolean
-    BridgeAccount?: boolean
-    BridgeMotherAccount?: boolean
-    BridgeFatherAccount?: boolean
-    wedding?: boolean | WeddingDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["bridge"]>
-
-  export type BridgeSelectScalar = {
-    id?: boolean
-    weddingId?: boolean
-    Bridge?: boolean
-    BridgeMother?: boolean
-    BridgeFather?: boolean
-    BridgeBank?: boolean
-    BridgeMotherBank?: boolean
-    BridgeFatherBank?: boolean
-    BridgeAccount?: boolean
-    BridgeMotherAccount?: boolean
-    BridgeFatherAccount?: boolean
-  }
-
-  export type BridgeInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    wedding?: boolean | WeddingDefaultArgs<ExtArgs>
-  }
-
-
-  export type $BridgePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    name: "Bridge"
-    objects: {
-      wedding: Prisma.$WeddingPayload<ExtArgs>
-    }
-    scalars: $Extensions.GetPayloadResult<{
-      id: string
-      weddingId: string
-      Bridge: string
-      BridgeMother: string
-      BridgeFather: string
-      BridgeBank: string
-      BridgeMotherBank: string
-      BridgeFatherBank: string
-      BridgeAccount: string
-      BridgeMotherAccount: string
-      BridgeFatherAccount: string
-    }, ExtArgs["result"]["bridge"]>
-    composites: {}
-  }
-
-
-  type BridgeGetPayload<S extends boolean | null | undefined | BridgeDefaultArgs> = $Result.GetResult<Prisma.$BridgePayload, S>
-
-  type BridgeCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
-    Omit<BridgeFindManyArgs, 'select' | 'include' | 'distinct'> & {
-      select?: BridgeCountAggregateInputType | true
-    }
-
-  export interface BridgeDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
-    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Bridge'], meta: { name: 'Bridge' } }
-    /**
-     * Find zero or one Bridge that matches the filter.
-     * @param {BridgeFindUniqueArgs} args - Arguments to find a Bridge
-     * @example
-     * // Get one Bridge
-     * const bridge = await prisma.bridge.findUnique({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-    **/
-    findUnique<T extends BridgeFindUniqueArgs<ExtArgs>>(
-      args: SelectSubset<T, BridgeFindUniqueArgs<ExtArgs>>
-    ): Prisma__BridgeClient<$Result.GetResult<Prisma.$BridgePayload<ExtArgs>, T, 'findUnique'> | null, null, ExtArgs>
-
-    /**
-     * Find one Bridge that matches the filter or throw an error  with `error.code='P2025'` 
-     *     if no matches were found.
-     * @param {BridgeFindUniqueOrThrowArgs} args - Arguments to find a Bridge
-     * @example
-     * // Get one Bridge
-     * const bridge = await prisma.bridge.findUniqueOrThrow({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-    **/
-    findUniqueOrThrow<T extends BridgeFindUniqueOrThrowArgs<ExtArgs>>(
-      args?: SelectSubset<T, BridgeFindUniqueOrThrowArgs<ExtArgs>>
-    ): Prisma__BridgeClient<$Result.GetResult<Prisma.$BridgePayload<ExtArgs>, T, 'findUniqueOrThrow'>, never, ExtArgs>
-
-    /**
-     * Find the first Bridge that matches the filter.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {BridgeFindFirstArgs} args - Arguments to find a Bridge
-     * @example
-     * // Get one Bridge
-     * const bridge = await prisma.bridge.findFirst({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-    **/
-    findFirst<T extends BridgeFindFirstArgs<ExtArgs>>(
-      args?: SelectSubset<T, BridgeFindFirstArgs<ExtArgs>>
-    ): Prisma__BridgeClient<$Result.GetResult<Prisma.$BridgePayload<ExtArgs>, T, 'findFirst'> | null, null, ExtArgs>
-
-    /**
-     * Find the first Bridge that matches the filter or
-     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {BridgeFindFirstOrThrowArgs} args - Arguments to find a Bridge
-     * @example
-     * // Get one Bridge
-     * const bridge = await prisma.bridge.findFirstOrThrow({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-    **/
-    findFirstOrThrow<T extends BridgeFindFirstOrThrowArgs<ExtArgs>>(
-      args?: SelectSubset<T, BridgeFindFirstOrThrowArgs<ExtArgs>>
-    ): Prisma__BridgeClient<$Result.GetResult<Prisma.$BridgePayload<ExtArgs>, T, 'findFirstOrThrow'>, never, ExtArgs>
-
-    /**
-     * Find zero or more Bridges that matches the filter.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {BridgeFindManyArgs=} args - Arguments to filter and select certain fields only.
-     * @example
-     * // Get all Bridges
-     * const bridges = await prisma.bridge.findMany()
-     * 
-     * // Get first 10 Bridges
-     * const bridges = await prisma.bridge.findMany({ take: 10 })
-     * 
-     * // Only select the `id`
-     * const bridgeWithIdOnly = await prisma.bridge.findMany({ select: { id: true } })
-     * 
-    **/
-    findMany<T extends BridgeFindManyArgs<ExtArgs>>(
-      args?: SelectSubset<T, BridgeFindManyArgs<ExtArgs>>
-    ): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BridgePayload<ExtArgs>, T, 'findMany'>>
-
-    /**
-     * Create a Bridge.
-     * @param {BridgeCreateArgs} args - Arguments to create a Bridge.
-     * @example
-     * // Create one Bridge
-     * const Bridge = await prisma.bridge.create({
-     *   data: {
-     *     // ... data to create a Bridge
-     *   }
-     * })
-     * 
-    **/
-    create<T extends BridgeCreateArgs<ExtArgs>>(
-      args: SelectSubset<T, BridgeCreateArgs<ExtArgs>>
-    ): Prisma__BridgeClient<$Result.GetResult<Prisma.$BridgePayload<ExtArgs>, T, 'create'>, never, ExtArgs>
-
-    /**
-     * Create many Bridges.
-     *     @param {BridgeCreateManyArgs} args - Arguments to create many Bridges.
-     *     @example
-     *     // Create many Bridges
-     *     const bridge = await prisma.bridge.createMany({
-     *       data: {
-     *         // ... provide data here
-     *       }
-     *     })
-     *     
-    **/
-    createMany<T extends BridgeCreateManyArgs<ExtArgs>>(
-      args?: SelectSubset<T, BridgeCreateManyArgs<ExtArgs>>
-    ): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Delete a Bridge.
-     * @param {BridgeDeleteArgs} args - Arguments to delete one Bridge.
-     * @example
-     * // Delete one Bridge
-     * const Bridge = await prisma.bridge.delete({
-     *   where: {
-     *     // ... filter to delete one Bridge
-     *   }
-     * })
-     * 
-    **/
-    delete<T extends BridgeDeleteArgs<ExtArgs>>(
-      args: SelectSubset<T, BridgeDeleteArgs<ExtArgs>>
-    ): Prisma__BridgeClient<$Result.GetResult<Prisma.$BridgePayload<ExtArgs>, T, 'delete'>, never, ExtArgs>
-
-    /**
-     * Update one Bridge.
-     * @param {BridgeUpdateArgs} args - Arguments to update one Bridge.
-     * @example
-     * // Update one Bridge
-     * const bridge = await prisma.bridge.update({
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: {
-     *     // ... provide data here
-     *   }
-     * })
-     * 
-    **/
-    update<T extends BridgeUpdateArgs<ExtArgs>>(
-      args: SelectSubset<T, BridgeUpdateArgs<ExtArgs>>
-    ): Prisma__BridgeClient<$Result.GetResult<Prisma.$BridgePayload<ExtArgs>, T, 'update'>, never, ExtArgs>
-
-    /**
-     * Delete zero or more Bridges.
-     * @param {BridgeDeleteManyArgs} args - Arguments to filter Bridges to delete.
-     * @example
-     * // Delete a few Bridges
-     * const { count } = await prisma.bridge.deleteMany({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     * 
-    **/
-    deleteMany<T extends BridgeDeleteManyArgs<ExtArgs>>(
-      args?: SelectSubset<T, BridgeDeleteManyArgs<ExtArgs>>
-    ): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Update zero or more Bridges.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {BridgeUpdateManyArgs} args - Arguments to update one or more rows.
-     * @example
-     * // Update many Bridges
-     * const bridge = await prisma.bridge.updateMany({
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: {
-     *     // ... provide data here
-     *   }
-     * })
-     * 
-    **/
-    updateMany<T extends BridgeUpdateManyArgs<ExtArgs>>(
-      args: SelectSubset<T, BridgeUpdateManyArgs<ExtArgs>>
-    ): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Create or update one Bridge.
-     * @param {BridgeUpsertArgs} args - Arguments to update or create a Bridge.
-     * @example
-     * // Update or create a Bridge
-     * const bridge = await prisma.bridge.upsert({
-     *   create: {
-     *     // ... data to create a Bridge
-     *   },
-     *   update: {
-     *     // ... in case it already exists, update
-     *   },
-     *   where: {
-     *     // ... the filter for the Bridge we want to update
-     *   }
-     * })
-    **/
-    upsert<T extends BridgeUpsertArgs<ExtArgs>>(
-      args: SelectSubset<T, BridgeUpsertArgs<ExtArgs>>
-    ): Prisma__BridgeClient<$Result.GetResult<Prisma.$BridgePayload<ExtArgs>, T, 'upsert'>, never, ExtArgs>
-
-    /**
-     * Find zero or more Bridges that matches the filter.
-     * @param {BridgeFindRawArgs} args - Select which filters you would like to apply.
-     * @example
-     * const bridge = await prisma.bridge.findRaw({
-     *   filter: { age: { $gt: 25 } } 
-     * })
-    **/
-    findRaw(
-      args?: BridgeFindRawArgs
-    ): Prisma.PrismaPromise<JsonObject>
-
-    /**
-     * Perform aggregation operations on a Bridge.
-     * @param {BridgeAggregateRawArgs} args - Select which aggregations you would like to apply.
-     * @example
-     * const bridge = await prisma.bridge.aggregateRaw({
-     *   pipeline: [
-     *     { $match: { status: "registered" } },
-     *     { $group: { _id: "$country", total: { $sum: 1 } } }
-     *   ]
-     * })
-    **/
-    aggregateRaw(
-      args?: BridgeAggregateRawArgs
-    ): Prisma.PrismaPromise<JsonObject>
-
-    /**
-     * Count the number of Bridges.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {BridgeCountArgs} args - Arguments to filter Bridges to count.
-     * @example
-     * // Count the number of Bridges
-     * const count = await prisma.bridge.count({
-     *   where: {
-     *     // ... the filter for the Bridges we want to count
-     *   }
-     * })
-    **/
-    count<T extends BridgeCountArgs>(
-      args?: Subset<T, BridgeCountArgs>,
-    ): Prisma.PrismaPromise<
-      T extends $Utils.Record<'select', any>
-        ? T['select'] extends true
-          ? number
-          : GetScalarType<T['select'], BridgeCountAggregateOutputType>
-        : number
-    >
-
-    /**
-     * Allows you to perform aggregations operations on a Bridge.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {BridgeAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
-     * @example
-     * // Ordered by age ascending
-     * // Where email contains prisma.io
-     * // Limited to the 10 users
-     * const aggregations = await prisma.user.aggregate({
-     *   _avg: {
-     *     age: true,
-     *   },
-     *   where: {
-     *     email: {
-     *       contains: "prisma.io",
-     *     },
-     *   },
-     *   orderBy: {
-     *     age: "asc",
-     *   },
-     *   take: 10,
-     * })
-    **/
-    aggregate<T extends BridgeAggregateArgs>(args: Subset<T, BridgeAggregateArgs>): Prisma.PrismaPromise<GetBridgeAggregateType<T>>
-
-    /**
-     * Group by Bridge.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {BridgeGroupByArgs} args - Group by arguments.
-     * @example
-     * // Group by city, order by createdAt, get count
-     * const result = await prisma.user.groupBy({
-     *   by: ['city', 'createdAt'],
-     *   orderBy: {
-     *     createdAt: true
-     *   },
-     *   _count: {
-     *     _all: true
-     *   },
-     * })
-     * 
-    **/
-    groupBy<
-      T extends BridgeGroupByArgs,
-      HasSelectOrTake extends Or<
-        Extends<'skip', Keys<T>>,
-        Extends<'take', Keys<T>>
-      >,
-      OrderByArg extends True extends HasSelectOrTake
-        ? { orderBy: BridgeGroupByArgs['orderBy'] }
-        : { orderBy?: BridgeGroupByArgs['orderBy'] },
-      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
-      ByFields extends MaybeTupleToUnion<T['by']>,
-      ByValid extends Has<ByFields, OrderFields>,
-      HavingFields extends GetHavingFields<T['having']>,
-      HavingValid extends Has<ByFields, HavingFields>,
-      ByEmpty extends T['by'] extends never[] ? True : False,
-      InputErrors extends ByEmpty extends True
-      ? `Error: "by" must not be empty.`
-      : HavingValid extends False
-      ? {
-          [P in HavingFields]: P extends ByFields
-            ? never
-            : P extends string
-            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
-            : [
-                Error,
-                'Field ',
-                P,
-                ` in "having" needs to be provided in "by"`,
-              ]
-        }[HavingFields]
-      : 'take' extends Keys<T>
-      ? 'orderBy' extends Keys<T>
-        ? ByValid extends True
-          ? {}
-          : {
-              [P in OrderFields]: P extends ByFields
-                ? never
-                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-            }[OrderFields]
-        : 'Error: If you provide "take", you also need to provide "orderBy"'
-      : 'skip' extends Keys<T>
-      ? 'orderBy' extends Keys<T>
-        ? ByValid extends True
-          ? {}
-          : {
-              [P in OrderFields]: P extends ByFields
-                ? never
-                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-            }[OrderFields]
-        : 'Error: If you provide "skip", you also need to provide "orderBy"'
-      : ByValid extends True
-      ? {}
-      : {
-          [P in OrderFields]: P extends ByFields
-            ? never
-            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-        }[OrderFields]
-    >(args: SubsetIntersection<T, BridgeGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetBridgeGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
-  /**
-   * Fields of the Bridge model
-   */
-  readonly fields: BridgeFieldRefs;
-  }
-
-  /**
-   * The delegate class that acts as a "Promise-like" for Bridge.
-   * Why is this prefixed with `Prisma__`?
-   * Because we want to prevent naming conflicts as mentioned in
-   * https://github.com/prisma/prisma-client-js/issues/707
-   */
-  export interface Prisma__BridgeClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
-    readonly [Symbol.toStringTag]: 'PrismaPromise';
-
-    wedding<T extends WeddingDefaultArgs<ExtArgs> = {}>(args?: Subset<T, WeddingDefaultArgs<ExtArgs>>): Prisma__WeddingClient<$Result.GetResult<Prisma.$WeddingPayload<ExtArgs>, T, 'findUniqueOrThrow'> | Null, Null, ExtArgs>;
-
-    /**
-     * Attaches callbacks for the resolution and/or rejection of the Promise.
-     * @param onfulfilled The callback to execute when the Promise is resolved.
-     * @param onrejected The callback to execute when the Promise is rejected.
-     * @returns A Promise for the completion of which ever callback is executed.
-     */
-    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>;
-    /**
-     * Attaches a callback for only the rejection of the Promise.
-     * @param onrejected The callback to execute when the Promise is rejected.
-     * @returns A Promise for the completion of the callback.
-     */
-    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>;
-    /**
-     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
-     * resolved value cannot be modified from the callback.
-     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
-     * @returns A Promise for the completion of the callback.
-     */
-    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>;
-  }
-
-
-
-  /**
-   * Fields of the Bridge model
-   */ 
-  interface BridgeFieldRefs {
-    readonly id: FieldRef<"Bridge", 'String'>
-    readonly weddingId: FieldRef<"Bridge", 'String'>
-    readonly Bridge: FieldRef<"Bridge", 'String'>
-    readonly BridgeMother: FieldRef<"Bridge", 'String'>
-    readonly BridgeFather: FieldRef<"Bridge", 'String'>
-    readonly BridgeBank: FieldRef<"Bridge", 'String'>
-    readonly BridgeMotherBank: FieldRef<"Bridge", 'String'>
-    readonly BridgeFatherBank: FieldRef<"Bridge", 'String'>
-    readonly BridgeAccount: FieldRef<"Bridge", 'String'>
-    readonly BridgeMotherAccount: FieldRef<"Bridge", 'String'>
-    readonly BridgeFatherAccount: FieldRef<"Bridge", 'String'>
-  }
-    
-
-  // Custom InputTypes
-
-  /**
-   * Bridge findUnique
-   */
-  export type BridgeFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Bridge
-     */
-    select?: BridgeSelect<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well.
-     */
-    include?: BridgeInclude<ExtArgs> | null
-    /**
-     * Filter, which Bridge to fetch.
-     */
-    where: BridgeWhereUniqueInput
-  }
-
-
-  /**
-   * Bridge findUniqueOrThrow
-   */
-  export type BridgeFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Bridge
-     */
-    select?: BridgeSelect<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well.
-     */
-    include?: BridgeInclude<ExtArgs> | null
-    /**
-     * Filter, which Bridge to fetch.
-     */
-    where: BridgeWhereUniqueInput
-  }
-
-
-  /**
-   * Bridge findFirst
-   */
-  export type BridgeFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Bridge
-     */
-    select?: BridgeSelect<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well.
-     */
-    include?: BridgeInclude<ExtArgs> | null
-    /**
-     * Filter, which Bridge to fetch.
-     */
-    where?: BridgeWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of Bridges to fetch.
-     */
-    orderBy?: BridgeOrderByWithRelationInput | BridgeOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for searching for Bridges.
-     */
-    cursor?: BridgeWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` Bridges from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` Bridges.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
-     * 
-     * Filter by unique combinations of Bridges.
-     */
-    distinct?: BridgeScalarFieldEnum | BridgeScalarFieldEnum[]
-  }
-
-
-  /**
-   * Bridge findFirstOrThrow
-   */
-  export type BridgeFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Bridge
-     */
-    select?: BridgeSelect<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well.
-     */
-    include?: BridgeInclude<ExtArgs> | null
-    /**
-     * Filter, which Bridge to fetch.
-     */
-    where?: BridgeWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of Bridges to fetch.
-     */
-    orderBy?: BridgeOrderByWithRelationInput | BridgeOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for searching for Bridges.
-     */
-    cursor?: BridgeWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` Bridges from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` Bridges.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
-     * 
-     * Filter by unique combinations of Bridges.
-     */
-    distinct?: BridgeScalarFieldEnum | BridgeScalarFieldEnum[]
-  }
-
-
-  /**
-   * Bridge findMany
-   */
-  export type BridgeFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Bridge
-     */
-    select?: BridgeSelect<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well.
-     */
-    include?: BridgeInclude<ExtArgs> | null
-    /**
-     * Filter, which Bridges to fetch.
-     */
-    where?: BridgeWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of Bridges to fetch.
-     */
-    orderBy?: BridgeOrderByWithRelationInput | BridgeOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for listing Bridges.
-     */
-    cursor?: BridgeWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` Bridges from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` Bridges.
-     */
-    skip?: number
-    distinct?: BridgeScalarFieldEnum | BridgeScalarFieldEnum[]
-  }
-
-
-  /**
-   * Bridge create
-   */
-  export type BridgeCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Bridge
-     */
-    select?: BridgeSelect<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well.
-     */
-    include?: BridgeInclude<ExtArgs> | null
-    /**
-     * The data needed to create a Bridge.
-     */
-    data: XOR<BridgeCreateInput, BridgeUncheckedCreateInput>
-  }
-
-
-  /**
-   * Bridge createMany
-   */
-  export type BridgeCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * The data used to create many Bridges.
-     */
-    data: BridgeCreateManyInput | BridgeCreateManyInput[]
-  }
-
-
-  /**
-   * Bridge update
-   */
-  export type BridgeUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Bridge
-     */
-    select?: BridgeSelect<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well.
-     */
-    include?: BridgeInclude<ExtArgs> | null
-    /**
-     * The data needed to update a Bridge.
-     */
-    data: XOR<BridgeUpdateInput, BridgeUncheckedUpdateInput>
-    /**
-     * Choose, which Bridge to update.
-     */
-    where: BridgeWhereUniqueInput
-  }
-
-
-  /**
-   * Bridge updateMany
-   */
-  export type BridgeUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * The data used to update Bridges.
-     */
-    data: XOR<BridgeUpdateManyMutationInput, BridgeUncheckedUpdateManyInput>
-    /**
-     * Filter which Bridges to update
-     */
-    where?: BridgeWhereInput
-  }
-
-
-  /**
-   * Bridge upsert
-   */
-  export type BridgeUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Bridge
-     */
-    select?: BridgeSelect<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well.
-     */
-    include?: BridgeInclude<ExtArgs> | null
-    /**
-     * The filter to search for the Bridge to update in case it exists.
-     */
-    where: BridgeWhereUniqueInput
-    /**
-     * In case the Bridge found by the `where` argument doesn't exist, create a new Bridge with this data.
-     */
-    create: XOR<BridgeCreateInput, BridgeUncheckedCreateInput>
-    /**
-     * In case the Bridge was found with the provided `where` argument, update it with this data.
-     */
-    update: XOR<BridgeUpdateInput, BridgeUncheckedUpdateInput>
-  }
-
-
-  /**
-   * Bridge delete
-   */
-  export type BridgeDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Bridge
-     */
-    select?: BridgeSelect<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well.
-     */
-    include?: BridgeInclude<ExtArgs> | null
-    /**
-     * Filter which Bridge to delete.
-     */
-    where: BridgeWhereUniqueInput
-  }
-
-
-  /**
-   * Bridge deleteMany
-   */
-  export type BridgeDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Filter which Bridges to delete
-     */
-    where?: BridgeWhereInput
-  }
-
-
-  /**
-   * Bridge findRaw
-   */
-  export type BridgeFindRawArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * The query predicate filter. If unspecified, then all documents in the collection will match the predicate. ${@link https://docs.mongodb.com/manual/reference/operator/query MongoDB Docs}.
-     */
-    filter?: InputJsonValue
-    /**
-     * Additional options to pass to the `find` command ${@link https://docs.mongodb.com/manual/reference/command/find/#command-fields MongoDB Docs}.
-     */
-    options?: InputJsonValue
-  }
-
-
-  /**
-   * Bridge aggregateRaw
-   */
-  export type BridgeAggregateRawArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * An array of aggregation stages to process and transform the document stream via the aggregation pipeline. ${@link https://docs.mongodb.com/manual/reference/operator/aggregation-pipeline MongoDB Docs}.
-     */
-    pipeline?: InputJsonValue[]
-    /**
-     * Additional options to pass to the `aggregate` command ${@link https://docs.mongodb.com/manual/reference/command/aggregate/#command-fields MongoDB Docs}.
-     */
-    options?: InputJsonValue
-  }
-
-
-  /**
-   * Bridge without action
-   */
-  export type BridgeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Bridge
-     */
-    select?: BridgeSelect<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well.
-     */
-    include?: BridgeInclude<ExtArgs> | null
-  }
-
-
-
-  /**
-   * Model MetaTag
-   */
-
-  export type AggregateMetaTag = {
-    _count: MetaTagCountAggregateOutputType | null
-    _min: MetaTagMinAggregateOutputType | null
-    _max: MetaTagMaxAggregateOutputType | null
-  }
-
-  export type MetaTagMinAggregateOutputType = {
-    id: string | null
-    weddingId: string | null
+    invitationId: string | null
     title: string | null
     ogUrl: string | null
     ogTitle: string | null
@@ -4255,9 +2151,9 @@ export namespace Prisma {
     ogDescription: string | null
   }
 
-  export type MetaTagMaxAggregateOutputType = {
+  export type MetaMaxAggregateOutputType = {
     id: string | null
-    weddingId: string | null
+    invitationId: string | null
     title: string | null
     ogUrl: string | null
     ogTitle: string | null
@@ -4265,9 +2161,9 @@ export namespace Prisma {
     ogDescription: string | null
   }
 
-  export type MetaTagCountAggregateOutputType = {
+  export type MetaCountAggregateOutputType = {
     id: number
-    weddingId: number
+    invitationId: number
     title: number
     ogUrl: number
     ogTitle: number
@@ -4277,9 +2173,9 @@ export namespace Prisma {
   }
 
 
-  export type MetaTagMinAggregateInputType = {
+  export type MetaMinAggregateInputType = {
     id?: true
-    weddingId?: true
+    invitationId?: true
     title?: true
     ogUrl?: true
     ogTitle?: true
@@ -4287,9 +2183,9 @@ export namespace Prisma {
     ogDescription?: true
   }
 
-  export type MetaTagMaxAggregateInputType = {
+  export type MetaMaxAggregateInputType = {
     id?: true
-    weddingId?: true
+    invitationId?: true
     title?: true
     ogUrl?: true
     ogTitle?: true
@@ -4297,9 +2193,9 @@ export namespace Prisma {
     ogDescription?: true
   }
 
-  export type MetaTagCountAggregateInputType = {
+  export type MetaCountAggregateInputType = {
     id?: true
-    weddingId?: true
+    invitationId?: true
     title?: true
     ogUrl?: true
     ogTitle?: true
@@ -4308,119 +2204,119 @@ export namespace Prisma {
     _all?: true
   }
 
-  export type MetaTagAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type MetaAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which MetaTag to aggregate.
+     * Filter which Meta to aggregate.
      */
-    where?: MetaTagWhereInput
+    where?: MetaWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of MetaTags to fetch.
+     * Determine the order of Metas to fetch.
      */
-    orderBy?: MetaTagOrderByWithRelationInput | MetaTagOrderByWithRelationInput[]
+    orderBy?: MetaOrderByWithRelationInput | MetaOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
      * Sets the start position
      */
-    cursor?: MetaTagWhereUniqueInput
+    cursor?: MetaWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` MetaTags from the position of the cursor.
+     * Take `±n` Metas from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` MetaTags.
+     * Skip the first `n` Metas.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
-     * Count returned MetaTags
+     * Count returned Metas
     **/
-    _count?: true | MetaTagCountAggregateInputType
+    _count?: true | MetaCountAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the minimum value
     **/
-    _min?: MetaTagMinAggregateInputType
+    _min?: MetaMinAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the maximum value
     **/
-    _max?: MetaTagMaxAggregateInputType
+    _max?: MetaMaxAggregateInputType
   }
 
-  export type GetMetaTagAggregateType<T extends MetaTagAggregateArgs> = {
-        [P in keyof T & keyof AggregateMetaTag]: P extends '_count' | 'count'
+  export type GetMetaAggregateType<T extends MetaAggregateArgs> = {
+        [P in keyof T & keyof AggregateMeta]: P extends '_count' | 'count'
       ? T[P] extends true
         ? number
-        : GetScalarType<T[P], AggregateMetaTag[P]>
-      : GetScalarType<T[P], AggregateMetaTag[P]>
+        : GetScalarType<T[P], AggregateMeta[P]>
+      : GetScalarType<T[P], AggregateMeta[P]>
   }
 
 
 
 
-  export type MetaTagGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: MetaTagWhereInput
-    orderBy?: MetaTagOrderByWithAggregationInput | MetaTagOrderByWithAggregationInput[]
-    by: MetaTagScalarFieldEnum[] | MetaTagScalarFieldEnum
-    having?: MetaTagScalarWhereWithAggregatesInput
+  export type MetaGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: MetaWhereInput
+    orderBy?: MetaOrderByWithAggregationInput | MetaOrderByWithAggregationInput[]
+    by: MetaScalarFieldEnum[] | MetaScalarFieldEnum
+    having?: MetaScalarWhereWithAggregatesInput
     take?: number
     skip?: number
-    _count?: MetaTagCountAggregateInputType | true
-    _min?: MetaTagMinAggregateInputType
-    _max?: MetaTagMaxAggregateInputType
+    _count?: MetaCountAggregateInputType | true
+    _min?: MetaMinAggregateInputType
+    _max?: MetaMaxAggregateInputType
   }
 
-  export type MetaTagGroupByOutputType = {
+  export type MetaGroupByOutputType = {
     id: string
-    weddingId: string
+    invitationId: string
     title: string
     ogUrl: string
     ogTitle: string
     ogImage: string
     ogDescription: string
-    _count: MetaTagCountAggregateOutputType | null
-    _min: MetaTagMinAggregateOutputType | null
-    _max: MetaTagMaxAggregateOutputType | null
+    _count: MetaCountAggregateOutputType | null
+    _min: MetaMinAggregateOutputType | null
+    _max: MetaMaxAggregateOutputType | null
   }
 
-  type GetMetaTagGroupByPayload<T extends MetaTagGroupByArgs> = Prisma.PrismaPromise<
+  type GetMetaGroupByPayload<T extends MetaGroupByArgs> = Prisma.PrismaPromise<
     Array<
-      PickEnumerable<MetaTagGroupByOutputType, T['by']> &
+      PickEnumerable<MetaGroupByOutputType, T['by']> &
         {
-          [P in ((keyof T) & (keyof MetaTagGroupByOutputType))]: P extends '_count'
+          [P in ((keyof T) & (keyof MetaGroupByOutputType))]: P extends '_count'
             ? T[P] extends boolean
               ? number
-              : GetScalarType<T[P], MetaTagGroupByOutputType[P]>
-            : GetScalarType<T[P], MetaTagGroupByOutputType[P]>
+              : GetScalarType<T[P], MetaGroupByOutputType[P]>
+            : GetScalarType<T[P], MetaGroupByOutputType[P]>
         }
       >
     >
 
 
-  export type MetaTagSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type MetaSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    weddingId?: boolean
+    invitationId?: boolean
     title?: boolean
     ogUrl?: boolean
     ogTitle?: boolean
     ogImage?: boolean
     ogDescription?: boolean
-    wedding?: boolean | WeddingDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["metaTag"]>
+    invitation?: boolean | InvitationDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["meta"]>
 
-  export type MetaTagSelectScalar = {
+  export type MetaSelectScalar = {
     id?: boolean
-    weddingId?: boolean
+    invitationId?: boolean
     title?: boolean
     ogUrl?: boolean
     ogTitle?: boolean
@@ -4428,178 +2324,178 @@ export namespace Prisma {
     ogDescription?: boolean
   }
 
-  export type MetaTagInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    wedding?: boolean | WeddingDefaultArgs<ExtArgs>
+  export type MetaInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    invitation?: boolean | InvitationDefaultArgs<ExtArgs>
   }
 
 
-  export type $MetaTagPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    name: "MetaTag"
+  export type $MetaPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Meta"
     objects: {
-      wedding: Prisma.$WeddingPayload<ExtArgs>
+      invitation: Prisma.$InvitationPayload<ExtArgs>
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
-      weddingId: string
+      invitationId: string
       title: string
       ogUrl: string
       ogTitle: string
       ogImage: string
       ogDescription: string
-    }, ExtArgs["result"]["metaTag"]>
+    }, ExtArgs["result"]["meta"]>
     composites: {}
   }
 
 
-  type MetaTagGetPayload<S extends boolean | null | undefined | MetaTagDefaultArgs> = $Result.GetResult<Prisma.$MetaTagPayload, S>
+  type MetaGetPayload<S extends boolean | null | undefined | MetaDefaultArgs> = $Result.GetResult<Prisma.$MetaPayload, S>
 
-  type MetaTagCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
-    Omit<MetaTagFindManyArgs, 'select' | 'include' | 'distinct'> & {
-      select?: MetaTagCountAggregateInputType | true
+  type MetaCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
+    Omit<MetaFindManyArgs, 'select' | 'include' | 'distinct'> & {
+      select?: MetaCountAggregateInputType | true
     }
 
-  export interface MetaTagDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
-    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['MetaTag'], meta: { name: 'MetaTag' } }
+  export interface MetaDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Meta'], meta: { name: 'Meta' } }
     /**
-     * Find zero or one MetaTag that matches the filter.
-     * @param {MetaTagFindUniqueArgs} args - Arguments to find a MetaTag
+     * Find zero or one Meta that matches the filter.
+     * @param {MetaFindUniqueArgs} args - Arguments to find a Meta
      * @example
-     * // Get one MetaTag
-     * const metaTag = await prisma.metaTag.findUnique({
+     * // Get one Meta
+     * const meta = await prisma.meta.findUnique({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
     **/
-    findUnique<T extends MetaTagFindUniqueArgs<ExtArgs>>(
-      args: SelectSubset<T, MetaTagFindUniqueArgs<ExtArgs>>
-    ): Prisma__MetaTagClient<$Result.GetResult<Prisma.$MetaTagPayload<ExtArgs>, T, 'findUnique'> | null, null, ExtArgs>
+    findUnique<T extends MetaFindUniqueArgs<ExtArgs>>(
+      args: SelectSubset<T, MetaFindUniqueArgs<ExtArgs>>
+    ): Prisma__MetaClient<$Result.GetResult<Prisma.$MetaPayload<ExtArgs>, T, 'findUnique'> | null, null, ExtArgs>
 
     /**
-     * Find one MetaTag that matches the filter or throw an error  with `error.code='P2025'` 
+     * Find one Meta that matches the filter or throw an error  with `error.code='P2025'` 
      *     if no matches were found.
-     * @param {MetaTagFindUniqueOrThrowArgs} args - Arguments to find a MetaTag
+     * @param {MetaFindUniqueOrThrowArgs} args - Arguments to find a Meta
      * @example
-     * // Get one MetaTag
-     * const metaTag = await prisma.metaTag.findUniqueOrThrow({
+     * // Get one Meta
+     * const meta = await prisma.meta.findUniqueOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
     **/
-    findUniqueOrThrow<T extends MetaTagFindUniqueOrThrowArgs<ExtArgs>>(
-      args?: SelectSubset<T, MetaTagFindUniqueOrThrowArgs<ExtArgs>>
-    ): Prisma__MetaTagClient<$Result.GetResult<Prisma.$MetaTagPayload<ExtArgs>, T, 'findUniqueOrThrow'>, never, ExtArgs>
+    findUniqueOrThrow<T extends MetaFindUniqueOrThrowArgs<ExtArgs>>(
+      args?: SelectSubset<T, MetaFindUniqueOrThrowArgs<ExtArgs>>
+    ): Prisma__MetaClient<$Result.GetResult<Prisma.$MetaPayload<ExtArgs>, T, 'findUniqueOrThrow'>, never, ExtArgs>
 
     /**
-     * Find the first MetaTag that matches the filter.
+     * Find the first Meta that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {MetaTagFindFirstArgs} args - Arguments to find a MetaTag
+     * @param {MetaFindFirstArgs} args - Arguments to find a Meta
      * @example
-     * // Get one MetaTag
-     * const metaTag = await prisma.metaTag.findFirst({
+     * // Get one Meta
+     * const meta = await prisma.meta.findFirst({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
     **/
-    findFirst<T extends MetaTagFindFirstArgs<ExtArgs>>(
-      args?: SelectSubset<T, MetaTagFindFirstArgs<ExtArgs>>
-    ): Prisma__MetaTagClient<$Result.GetResult<Prisma.$MetaTagPayload<ExtArgs>, T, 'findFirst'> | null, null, ExtArgs>
+    findFirst<T extends MetaFindFirstArgs<ExtArgs>>(
+      args?: SelectSubset<T, MetaFindFirstArgs<ExtArgs>>
+    ): Prisma__MetaClient<$Result.GetResult<Prisma.$MetaPayload<ExtArgs>, T, 'findFirst'> | null, null, ExtArgs>
 
     /**
-     * Find the first MetaTag that matches the filter or
+     * Find the first Meta that matches the filter or
      * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {MetaTagFindFirstOrThrowArgs} args - Arguments to find a MetaTag
+     * @param {MetaFindFirstOrThrowArgs} args - Arguments to find a Meta
      * @example
-     * // Get one MetaTag
-     * const metaTag = await prisma.metaTag.findFirstOrThrow({
+     * // Get one Meta
+     * const meta = await prisma.meta.findFirstOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
     **/
-    findFirstOrThrow<T extends MetaTagFindFirstOrThrowArgs<ExtArgs>>(
-      args?: SelectSubset<T, MetaTagFindFirstOrThrowArgs<ExtArgs>>
-    ): Prisma__MetaTagClient<$Result.GetResult<Prisma.$MetaTagPayload<ExtArgs>, T, 'findFirstOrThrow'>, never, ExtArgs>
+    findFirstOrThrow<T extends MetaFindFirstOrThrowArgs<ExtArgs>>(
+      args?: SelectSubset<T, MetaFindFirstOrThrowArgs<ExtArgs>>
+    ): Prisma__MetaClient<$Result.GetResult<Prisma.$MetaPayload<ExtArgs>, T, 'findFirstOrThrow'>, never, ExtArgs>
 
     /**
-     * Find zero or more MetaTags that matches the filter.
+     * Find zero or more Metas that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {MetaTagFindManyArgs=} args - Arguments to filter and select certain fields only.
+     * @param {MetaFindManyArgs=} args - Arguments to filter and select certain fields only.
      * @example
-     * // Get all MetaTags
-     * const metaTags = await prisma.metaTag.findMany()
+     * // Get all Metas
+     * const metas = await prisma.meta.findMany()
      * 
-     * // Get first 10 MetaTags
-     * const metaTags = await prisma.metaTag.findMany({ take: 10 })
+     * // Get first 10 Metas
+     * const metas = await prisma.meta.findMany({ take: 10 })
      * 
      * // Only select the `id`
-     * const metaTagWithIdOnly = await prisma.metaTag.findMany({ select: { id: true } })
+     * const metaWithIdOnly = await prisma.meta.findMany({ select: { id: true } })
      * 
     **/
-    findMany<T extends MetaTagFindManyArgs<ExtArgs>>(
-      args?: SelectSubset<T, MetaTagFindManyArgs<ExtArgs>>
-    ): Prisma.PrismaPromise<$Result.GetResult<Prisma.$MetaTagPayload<ExtArgs>, T, 'findMany'>>
+    findMany<T extends MetaFindManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, MetaFindManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<$Result.GetResult<Prisma.$MetaPayload<ExtArgs>, T, 'findMany'>>
 
     /**
-     * Create a MetaTag.
-     * @param {MetaTagCreateArgs} args - Arguments to create a MetaTag.
+     * Create a Meta.
+     * @param {MetaCreateArgs} args - Arguments to create a Meta.
      * @example
-     * // Create one MetaTag
-     * const MetaTag = await prisma.metaTag.create({
+     * // Create one Meta
+     * const Meta = await prisma.meta.create({
      *   data: {
-     *     // ... data to create a MetaTag
+     *     // ... data to create a Meta
      *   }
      * })
      * 
     **/
-    create<T extends MetaTagCreateArgs<ExtArgs>>(
-      args: SelectSubset<T, MetaTagCreateArgs<ExtArgs>>
-    ): Prisma__MetaTagClient<$Result.GetResult<Prisma.$MetaTagPayload<ExtArgs>, T, 'create'>, never, ExtArgs>
+    create<T extends MetaCreateArgs<ExtArgs>>(
+      args: SelectSubset<T, MetaCreateArgs<ExtArgs>>
+    ): Prisma__MetaClient<$Result.GetResult<Prisma.$MetaPayload<ExtArgs>, T, 'create'>, never, ExtArgs>
 
     /**
-     * Create many MetaTags.
-     *     @param {MetaTagCreateManyArgs} args - Arguments to create many MetaTags.
+     * Create many Metas.
+     *     @param {MetaCreateManyArgs} args - Arguments to create many Metas.
      *     @example
-     *     // Create many MetaTags
-     *     const metaTag = await prisma.metaTag.createMany({
+     *     // Create many Metas
+     *     const meta = await prisma.meta.createMany({
      *       data: {
      *         // ... provide data here
      *       }
      *     })
      *     
     **/
-    createMany<T extends MetaTagCreateManyArgs<ExtArgs>>(
-      args?: SelectSubset<T, MetaTagCreateManyArgs<ExtArgs>>
+    createMany<T extends MetaCreateManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, MetaCreateManyArgs<ExtArgs>>
     ): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Delete a MetaTag.
-     * @param {MetaTagDeleteArgs} args - Arguments to delete one MetaTag.
+     * Delete a Meta.
+     * @param {MetaDeleteArgs} args - Arguments to delete one Meta.
      * @example
-     * // Delete one MetaTag
-     * const MetaTag = await prisma.metaTag.delete({
+     * // Delete one Meta
+     * const Meta = await prisma.meta.delete({
      *   where: {
-     *     // ... filter to delete one MetaTag
+     *     // ... filter to delete one Meta
      *   }
      * })
      * 
     **/
-    delete<T extends MetaTagDeleteArgs<ExtArgs>>(
-      args: SelectSubset<T, MetaTagDeleteArgs<ExtArgs>>
-    ): Prisma__MetaTagClient<$Result.GetResult<Prisma.$MetaTagPayload<ExtArgs>, T, 'delete'>, never, ExtArgs>
+    delete<T extends MetaDeleteArgs<ExtArgs>>(
+      args: SelectSubset<T, MetaDeleteArgs<ExtArgs>>
+    ): Prisma__MetaClient<$Result.GetResult<Prisma.$MetaPayload<ExtArgs>, T, 'delete'>, never, ExtArgs>
 
     /**
-     * Update one MetaTag.
-     * @param {MetaTagUpdateArgs} args - Arguments to update one MetaTag.
+     * Update one Meta.
+     * @param {MetaUpdateArgs} args - Arguments to update one Meta.
      * @example
-     * // Update one MetaTag
-     * const metaTag = await prisma.metaTag.update({
+     * // Update one Meta
+     * const meta = await prisma.meta.update({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -4609,34 +2505,34 @@ export namespace Prisma {
      * })
      * 
     **/
-    update<T extends MetaTagUpdateArgs<ExtArgs>>(
-      args: SelectSubset<T, MetaTagUpdateArgs<ExtArgs>>
-    ): Prisma__MetaTagClient<$Result.GetResult<Prisma.$MetaTagPayload<ExtArgs>, T, 'update'>, never, ExtArgs>
+    update<T extends MetaUpdateArgs<ExtArgs>>(
+      args: SelectSubset<T, MetaUpdateArgs<ExtArgs>>
+    ): Prisma__MetaClient<$Result.GetResult<Prisma.$MetaPayload<ExtArgs>, T, 'update'>, never, ExtArgs>
 
     /**
-     * Delete zero or more MetaTags.
-     * @param {MetaTagDeleteManyArgs} args - Arguments to filter MetaTags to delete.
+     * Delete zero or more Metas.
+     * @param {MetaDeleteManyArgs} args - Arguments to filter Metas to delete.
      * @example
-     * // Delete a few MetaTags
-     * const { count } = await prisma.metaTag.deleteMany({
+     * // Delete a few Metas
+     * const { count } = await prisma.meta.deleteMany({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      * 
     **/
-    deleteMany<T extends MetaTagDeleteManyArgs<ExtArgs>>(
-      args?: SelectSubset<T, MetaTagDeleteManyArgs<ExtArgs>>
+    deleteMany<T extends MetaDeleteManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, MetaDeleteManyArgs<ExtArgs>>
     ): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Update zero or more MetaTags.
+     * Update zero or more Metas.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {MetaTagUpdateManyArgs} args - Arguments to update one or more rows.
+     * @param {MetaUpdateManyArgs} args - Arguments to update one or more rows.
      * @example
-     * // Update many MetaTags
-     * const metaTag = await prisma.metaTag.updateMany({
+     * // Update many Metas
+     * const meta = await prisma.meta.updateMany({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -4646,48 +2542,48 @@ export namespace Prisma {
      * })
      * 
     **/
-    updateMany<T extends MetaTagUpdateManyArgs<ExtArgs>>(
-      args: SelectSubset<T, MetaTagUpdateManyArgs<ExtArgs>>
+    updateMany<T extends MetaUpdateManyArgs<ExtArgs>>(
+      args: SelectSubset<T, MetaUpdateManyArgs<ExtArgs>>
     ): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Create or update one MetaTag.
-     * @param {MetaTagUpsertArgs} args - Arguments to update or create a MetaTag.
+     * Create or update one Meta.
+     * @param {MetaUpsertArgs} args - Arguments to update or create a Meta.
      * @example
-     * // Update or create a MetaTag
-     * const metaTag = await prisma.metaTag.upsert({
+     * // Update or create a Meta
+     * const meta = await prisma.meta.upsert({
      *   create: {
-     *     // ... data to create a MetaTag
+     *     // ... data to create a Meta
      *   },
      *   update: {
      *     // ... in case it already exists, update
      *   },
      *   where: {
-     *     // ... the filter for the MetaTag we want to update
+     *     // ... the filter for the Meta we want to update
      *   }
      * })
     **/
-    upsert<T extends MetaTagUpsertArgs<ExtArgs>>(
-      args: SelectSubset<T, MetaTagUpsertArgs<ExtArgs>>
-    ): Prisma__MetaTagClient<$Result.GetResult<Prisma.$MetaTagPayload<ExtArgs>, T, 'upsert'>, never, ExtArgs>
+    upsert<T extends MetaUpsertArgs<ExtArgs>>(
+      args: SelectSubset<T, MetaUpsertArgs<ExtArgs>>
+    ): Prisma__MetaClient<$Result.GetResult<Prisma.$MetaPayload<ExtArgs>, T, 'upsert'>, never, ExtArgs>
 
     /**
-     * Find zero or more MetaTags that matches the filter.
-     * @param {MetaTagFindRawArgs} args - Select which filters you would like to apply.
+     * Find zero or more Metas that matches the filter.
+     * @param {MetaFindRawArgs} args - Select which filters you would like to apply.
      * @example
-     * const metaTag = await prisma.metaTag.findRaw({
+     * const meta = await prisma.meta.findRaw({
      *   filter: { age: { $gt: 25 } } 
      * })
     **/
     findRaw(
-      args?: MetaTagFindRawArgs
+      args?: MetaFindRawArgs
     ): Prisma.PrismaPromise<JsonObject>
 
     /**
-     * Perform aggregation operations on a MetaTag.
-     * @param {MetaTagAggregateRawArgs} args - Select which aggregations you would like to apply.
+     * Perform aggregation operations on a Meta.
+     * @param {MetaAggregateRawArgs} args - Select which aggregations you would like to apply.
      * @example
-     * const metaTag = await prisma.metaTag.aggregateRaw({
+     * const meta = await prisma.meta.aggregateRaw({
      *   pipeline: [
      *     { $match: { status: "registered" } },
      *     { $group: { _id: "$country", total: { $sum: 1 } } }
@@ -4695,37 +2591,37 @@ export namespace Prisma {
      * })
     **/
     aggregateRaw(
-      args?: MetaTagAggregateRawArgs
+      args?: MetaAggregateRawArgs
     ): Prisma.PrismaPromise<JsonObject>
 
     /**
-     * Count the number of MetaTags.
+     * Count the number of Metas.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {MetaTagCountArgs} args - Arguments to filter MetaTags to count.
+     * @param {MetaCountArgs} args - Arguments to filter Metas to count.
      * @example
-     * // Count the number of MetaTags
-     * const count = await prisma.metaTag.count({
+     * // Count the number of Metas
+     * const count = await prisma.meta.count({
      *   where: {
-     *     // ... the filter for the MetaTags we want to count
+     *     // ... the filter for the Metas we want to count
      *   }
      * })
     **/
-    count<T extends MetaTagCountArgs>(
-      args?: Subset<T, MetaTagCountArgs>,
+    count<T extends MetaCountArgs>(
+      args?: Subset<T, MetaCountArgs>,
     ): Prisma.PrismaPromise<
       T extends $Utils.Record<'select', any>
         ? T['select'] extends true
           ? number
-          : GetScalarType<T['select'], MetaTagCountAggregateOutputType>
+          : GetScalarType<T['select'], MetaCountAggregateOutputType>
         : number
     >
 
     /**
-     * Allows you to perform aggregations operations on a MetaTag.
+     * Allows you to perform aggregations operations on a Meta.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {MetaTagAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @param {MetaAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
      * @example
      * // Ordered by age ascending
      * // Where email contains prisma.io
@@ -4745,13 +2641,13 @@ export namespace Prisma {
      *   take: 10,
      * })
     **/
-    aggregate<T extends MetaTagAggregateArgs>(args: Subset<T, MetaTagAggregateArgs>): Prisma.PrismaPromise<GetMetaTagAggregateType<T>>
+    aggregate<T extends MetaAggregateArgs>(args: Subset<T, MetaAggregateArgs>): Prisma.PrismaPromise<GetMetaAggregateType<T>>
 
     /**
-     * Group by MetaTag.
+     * Group by Meta.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {MetaTagGroupByArgs} args - Group by arguments.
+     * @param {MetaGroupByArgs} args - Group by arguments.
      * @example
      * // Group by city, order by createdAt, get count
      * const result = await prisma.user.groupBy({
@@ -4766,14 +2662,14 @@ export namespace Prisma {
      * 
     **/
     groupBy<
-      T extends MetaTagGroupByArgs,
+      T extends MetaGroupByArgs,
       HasSelectOrTake extends Or<
         Extends<'skip', Keys<T>>,
         Extends<'take', Keys<T>>
       >,
       OrderByArg extends True extends HasSelectOrTake
-        ? { orderBy: MetaTagGroupByArgs['orderBy'] }
-        : { orderBy?: MetaTagGroupByArgs['orderBy'] },
+        ? { orderBy: MetaGroupByArgs['orderBy'] }
+        : { orderBy?: MetaGroupByArgs['orderBy'] },
       OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
       ByFields extends MaybeTupleToUnion<T['by']>,
       ByValid extends Has<ByFields, OrderFields>,
@@ -4822,23 +2718,23 @@ export namespace Prisma {
             ? never
             : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
         }[OrderFields]
-    >(args: SubsetIntersection<T, MetaTagGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetMetaTagGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+    >(args: SubsetIntersection<T, MetaGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetMetaGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
   /**
-   * Fields of the MetaTag model
+   * Fields of the Meta model
    */
-  readonly fields: MetaTagFieldRefs;
+  readonly fields: MetaFieldRefs;
   }
 
   /**
-   * The delegate class that acts as a "Promise-like" for MetaTag.
+   * The delegate class that acts as a "Promise-like" for Meta.
    * Why is this prefixed with `Prisma__`?
    * Because we want to prevent naming conflicts as mentioned in
    * https://github.com/prisma/prisma-client-js/issues/707
    */
-  export interface Prisma__MetaTagClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
+  export interface Prisma__MetaClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: 'PrismaPromise';
 
-    wedding<T extends WeddingDefaultArgs<ExtArgs> = {}>(args?: Subset<T, WeddingDefaultArgs<ExtArgs>>): Prisma__WeddingClient<$Result.GetResult<Prisma.$WeddingPayload<ExtArgs>, T, 'findUniqueOrThrow'> | Null, Null, ExtArgs>;
+    invitation<T extends InvitationDefaultArgs<ExtArgs> = {}>(args?: Subset<T, InvitationDefaultArgs<ExtArgs>>): Prisma__InvitationClient<$Result.GetResult<Prisma.$InvitationPayload<ExtArgs>, T, 'findUniqueOrThrow'> | Null, Null, ExtArgs>;
 
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
@@ -4865,330 +2761,330 @@ export namespace Prisma {
 
 
   /**
-   * Fields of the MetaTag model
+   * Fields of the Meta model
    */ 
-  interface MetaTagFieldRefs {
-    readonly id: FieldRef<"MetaTag", 'String'>
-    readonly weddingId: FieldRef<"MetaTag", 'String'>
-    readonly title: FieldRef<"MetaTag", 'String'>
-    readonly ogUrl: FieldRef<"MetaTag", 'String'>
-    readonly ogTitle: FieldRef<"MetaTag", 'String'>
-    readonly ogImage: FieldRef<"MetaTag", 'String'>
-    readonly ogDescription: FieldRef<"MetaTag", 'String'>
+  interface MetaFieldRefs {
+    readonly id: FieldRef<"Meta", 'String'>
+    readonly invitationId: FieldRef<"Meta", 'String'>
+    readonly title: FieldRef<"Meta", 'String'>
+    readonly ogUrl: FieldRef<"Meta", 'String'>
+    readonly ogTitle: FieldRef<"Meta", 'String'>
+    readonly ogImage: FieldRef<"Meta", 'String'>
+    readonly ogDescription: FieldRef<"Meta", 'String'>
   }
     
 
   // Custom InputTypes
 
   /**
-   * MetaTag findUnique
+   * Meta findUnique
    */
-  export type MetaTagFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type MetaFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the MetaTag
+     * Select specific fields to fetch from the Meta
      */
-    select?: MetaTagSelect<ExtArgs> | null
+    select?: MetaSelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well.
      */
-    include?: MetaTagInclude<ExtArgs> | null
+    include?: MetaInclude<ExtArgs> | null
     /**
-     * Filter, which MetaTag to fetch.
+     * Filter, which Meta to fetch.
      */
-    where: MetaTagWhereUniqueInput
+    where: MetaWhereUniqueInput
   }
 
 
   /**
-   * MetaTag findUniqueOrThrow
+   * Meta findUniqueOrThrow
    */
-  export type MetaTagFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type MetaFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the MetaTag
+     * Select specific fields to fetch from the Meta
      */
-    select?: MetaTagSelect<ExtArgs> | null
+    select?: MetaSelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well.
      */
-    include?: MetaTagInclude<ExtArgs> | null
+    include?: MetaInclude<ExtArgs> | null
     /**
-     * Filter, which MetaTag to fetch.
+     * Filter, which Meta to fetch.
      */
-    where: MetaTagWhereUniqueInput
+    where: MetaWhereUniqueInput
   }
 
 
   /**
-   * MetaTag findFirst
+   * Meta findFirst
    */
-  export type MetaTagFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type MetaFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the MetaTag
+     * Select specific fields to fetch from the Meta
      */
-    select?: MetaTagSelect<ExtArgs> | null
+    select?: MetaSelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well.
      */
-    include?: MetaTagInclude<ExtArgs> | null
+    include?: MetaInclude<ExtArgs> | null
     /**
-     * Filter, which MetaTag to fetch.
+     * Filter, which Meta to fetch.
      */
-    where?: MetaTagWhereInput
+    where?: MetaWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of MetaTags to fetch.
+     * Determine the order of Metas to fetch.
      */
-    orderBy?: MetaTagOrderByWithRelationInput | MetaTagOrderByWithRelationInput[]
+    orderBy?: MetaOrderByWithRelationInput | MetaOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for MetaTags.
+     * Sets the position for searching for Metas.
      */
-    cursor?: MetaTagWhereUniqueInput
+    cursor?: MetaWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` MetaTags from the position of the cursor.
+     * Take `±n` Metas from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` MetaTags.
+     * Skip the first `n` Metas.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of MetaTags.
+     * Filter by unique combinations of Metas.
      */
-    distinct?: MetaTagScalarFieldEnum | MetaTagScalarFieldEnum[]
+    distinct?: MetaScalarFieldEnum | MetaScalarFieldEnum[]
   }
 
 
   /**
-   * MetaTag findFirstOrThrow
+   * Meta findFirstOrThrow
    */
-  export type MetaTagFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type MetaFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the MetaTag
+     * Select specific fields to fetch from the Meta
      */
-    select?: MetaTagSelect<ExtArgs> | null
+    select?: MetaSelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well.
      */
-    include?: MetaTagInclude<ExtArgs> | null
+    include?: MetaInclude<ExtArgs> | null
     /**
-     * Filter, which MetaTag to fetch.
+     * Filter, which Meta to fetch.
      */
-    where?: MetaTagWhereInput
+    where?: MetaWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of MetaTags to fetch.
+     * Determine the order of Metas to fetch.
      */
-    orderBy?: MetaTagOrderByWithRelationInput | MetaTagOrderByWithRelationInput[]
+    orderBy?: MetaOrderByWithRelationInput | MetaOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for MetaTags.
+     * Sets the position for searching for Metas.
      */
-    cursor?: MetaTagWhereUniqueInput
+    cursor?: MetaWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` MetaTags from the position of the cursor.
+     * Take `±n` Metas from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` MetaTags.
+     * Skip the first `n` Metas.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of MetaTags.
+     * Filter by unique combinations of Metas.
      */
-    distinct?: MetaTagScalarFieldEnum | MetaTagScalarFieldEnum[]
+    distinct?: MetaScalarFieldEnum | MetaScalarFieldEnum[]
   }
 
 
   /**
-   * MetaTag findMany
+   * Meta findMany
    */
-  export type MetaTagFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type MetaFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the MetaTag
+     * Select specific fields to fetch from the Meta
      */
-    select?: MetaTagSelect<ExtArgs> | null
+    select?: MetaSelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well.
      */
-    include?: MetaTagInclude<ExtArgs> | null
+    include?: MetaInclude<ExtArgs> | null
     /**
-     * Filter, which MetaTags to fetch.
+     * Filter, which Metas to fetch.
      */
-    where?: MetaTagWhereInput
+    where?: MetaWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of MetaTags to fetch.
+     * Determine the order of Metas to fetch.
      */
-    orderBy?: MetaTagOrderByWithRelationInput | MetaTagOrderByWithRelationInput[]
+    orderBy?: MetaOrderByWithRelationInput | MetaOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for listing MetaTags.
+     * Sets the position for listing Metas.
      */
-    cursor?: MetaTagWhereUniqueInput
+    cursor?: MetaWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` MetaTags from the position of the cursor.
+     * Take `±n` Metas from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` MetaTags.
+     * Skip the first `n` Metas.
      */
     skip?: number
-    distinct?: MetaTagScalarFieldEnum | MetaTagScalarFieldEnum[]
+    distinct?: MetaScalarFieldEnum | MetaScalarFieldEnum[]
   }
 
 
   /**
-   * MetaTag create
+   * Meta create
    */
-  export type MetaTagCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type MetaCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the MetaTag
+     * Select specific fields to fetch from the Meta
      */
-    select?: MetaTagSelect<ExtArgs> | null
+    select?: MetaSelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well.
      */
-    include?: MetaTagInclude<ExtArgs> | null
+    include?: MetaInclude<ExtArgs> | null
     /**
-     * The data needed to create a MetaTag.
+     * The data needed to create a Meta.
      */
-    data: XOR<MetaTagCreateInput, MetaTagUncheckedCreateInput>
+    data: XOR<MetaCreateInput, MetaUncheckedCreateInput>
   }
 
 
   /**
-   * MetaTag createMany
+   * Meta createMany
    */
-  export type MetaTagCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type MetaCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to create many MetaTags.
+     * The data used to create many Metas.
      */
-    data: MetaTagCreateManyInput | MetaTagCreateManyInput[]
+    data: MetaCreateManyInput | MetaCreateManyInput[]
   }
 
 
   /**
-   * MetaTag update
+   * Meta update
    */
-  export type MetaTagUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type MetaUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the MetaTag
+     * Select specific fields to fetch from the Meta
      */
-    select?: MetaTagSelect<ExtArgs> | null
+    select?: MetaSelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well.
      */
-    include?: MetaTagInclude<ExtArgs> | null
+    include?: MetaInclude<ExtArgs> | null
     /**
-     * The data needed to update a MetaTag.
+     * The data needed to update a Meta.
      */
-    data: XOR<MetaTagUpdateInput, MetaTagUncheckedUpdateInput>
+    data: XOR<MetaUpdateInput, MetaUncheckedUpdateInput>
     /**
-     * Choose, which MetaTag to update.
+     * Choose, which Meta to update.
      */
-    where: MetaTagWhereUniqueInput
+    where: MetaWhereUniqueInput
   }
 
 
   /**
-   * MetaTag updateMany
+   * Meta updateMany
    */
-  export type MetaTagUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type MetaUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to update MetaTags.
+     * The data used to update Metas.
      */
-    data: XOR<MetaTagUpdateManyMutationInput, MetaTagUncheckedUpdateManyInput>
+    data: XOR<MetaUpdateManyMutationInput, MetaUncheckedUpdateManyInput>
     /**
-     * Filter which MetaTags to update
+     * Filter which Metas to update
      */
-    where?: MetaTagWhereInput
+    where?: MetaWhereInput
   }
 
 
   /**
-   * MetaTag upsert
+   * Meta upsert
    */
-  export type MetaTagUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type MetaUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the MetaTag
+     * Select specific fields to fetch from the Meta
      */
-    select?: MetaTagSelect<ExtArgs> | null
+    select?: MetaSelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well.
      */
-    include?: MetaTagInclude<ExtArgs> | null
+    include?: MetaInclude<ExtArgs> | null
     /**
-     * The filter to search for the MetaTag to update in case it exists.
+     * The filter to search for the Meta to update in case it exists.
      */
-    where: MetaTagWhereUniqueInput
+    where: MetaWhereUniqueInput
     /**
-     * In case the MetaTag found by the `where` argument doesn't exist, create a new MetaTag with this data.
+     * In case the Meta found by the `where` argument doesn't exist, create a new Meta with this data.
      */
-    create: XOR<MetaTagCreateInput, MetaTagUncheckedCreateInput>
+    create: XOR<MetaCreateInput, MetaUncheckedCreateInput>
     /**
-     * In case the MetaTag was found with the provided `where` argument, update it with this data.
+     * In case the Meta was found with the provided `where` argument, update it with this data.
      */
-    update: XOR<MetaTagUpdateInput, MetaTagUncheckedUpdateInput>
+    update: XOR<MetaUpdateInput, MetaUncheckedUpdateInput>
   }
 
 
   /**
-   * MetaTag delete
+   * Meta delete
    */
-  export type MetaTagDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type MetaDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the MetaTag
+     * Select specific fields to fetch from the Meta
      */
-    select?: MetaTagSelect<ExtArgs> | null
+    select?: MetaSelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well.
      */
-    include?: MetaTagInclude<ExtArgs> | null
+    include?: MetaInclude<ExtArgs> | null
     /**
-     * Filter which MetaTag to delete.
+     * Filter which Meta to delete.
      */
-    where: MetaTagWhereUniqueInput
+    where: MetaWhereUniqueInput
   }
 
 
   /**
-   * MetaTag deleteMany
+   * Meta deleteMany
    */
-  export type MetaTagDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type MetaDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which MetaTags to delete
+     * Filter which Metas to delete
      */
-    where?: MetaTagWhereInput
+    where?: MetaWhereInput
   }
 
 
   /**
-   * MetaTag findRaw
+   * Meta findRaw
    */
-  export type MetaTagFindRawArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type MetaFindRawArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * The query predicate filter. If unspecified, then all documents in the collection will match the predicate. ${@link https://docs.mongodb.com/manual/reference/operator/query MongoDB Docs}.
      */
@@ -5201,9 +3097,9 @@ export namespace Prisma {
 
 
   /**
-   * MetaTag aggregateRaw
+   * Meta aggregateRaw
    */
-  export type MetaTagAggregateRawArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type MetaAggregateRawArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * An array of aggregation stages to process and transform the document stream via the aggregation pipeline. ${@link https://docs.mongodb.com/manual/reference/operator/aggregation-pipeline MongoDB Docs}.
      */
@@ -5216,17 +3112,17 @@ export namespace Prisma {
 
 
   /**
-   * MetaTag without action
+   * Meta without action
    */
-  export type MetaTagDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type MetaDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the MetaTag
+     * Select specific fields to fetch from the Meta
      */
-    select?: MetaTagSelect<ExtArgs> | null
+    select?: MetaSelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well.
      */
-    include?: MetaTagInclude<ExtArgs> | null
+    include?: MetaInclude<ExtArgs> | null
   }
 
 
@@ -5235,7 +3131,7 @@ export namespace Prisma {
    * Enums
    */
 
-  export const WeddingScalarFieldEnum: {
+  export const InvitationScalarFieldEnum: {
     id: 'id',
     weddingHouse: 'weddingHouse',
     weddingHouseAddress: 'weddingHouseAddress',
@@ -5243,15 +3139,6 @@ export namespace Prisma {
     subway: 'subway',
     description: 'description',
     date: 'date',
-    createdAt: 'createdAt'
-  };
-
-  export type WeddingScalarFieldEnum = (typeof WeddingScalarFieldEnum)[keyof typeof WeddingScalarFieldEnum]
-
-
-  export const GroomScalarFieldEnum: {
-    id: 'id',
-    weddingId: 'weddingId',
     groom: 'groom',
     groomMother: 'groomMother',
     groomFather: 'groomFather',
@@ -5260,32 +3147,25 @@ export namespace Prisma {
     groomFatherBank: 'groomFatherBank',
     groomAccount: 'groomAccount',
     groomMotherAccount: 'groomMotherAccount',
-    groomFatherAccount: 'groomFatherAccount'
+    groomFatherAccount: 'groomFatherAccount',
+    bridge: 'bridge',
+    bridgeMother: 'bridgeMother',
+    bridgeFather: 'bridgeFather',
+    bridgeBank: 'bridgeBank',
+    bridgeMotherBank: 'bridgeMotherBank',
+    bridgeFatherBank: 'bridgeFatherBank',
+    bridgeAccount: 'bridgeAccount',
+    bridgeMotherAccount: 'bridgeMotherAccount',
+    bridgeFatherAccount: 'bridgeFatherAccount',
+    createdAt: 'createdAt'
   };
 
-  export type GroomScalarFieldEnum = (typeof GroomScalarFieldEnum)[keyof typeof GroomScalarFieldEnum]
+  export type InvitationScalarFieldEnum = (typeof InvitationScalarFieldEnum)[keyof typeof InvitationScalarFieldEnum]
 
 
-  export const BridgeScalarFieldEnum: {
+  export const MetaScalarFieldEnum: {
     id: 'id',
-    weddingId: 'weddingId',
-    Bridge: 'Bridge',
-    BridgeMother: 'BridgeMother',
-    BridgeFather: 'BridgeFather',
-    BridgeBank: 'BridgeBank',
-    BridgeMotherBank: 'BridgeMotherBank',
-    BridgeFatherBank: 'BridgeFatherBank',
-    BridgeAccount: 'BridgeAccount',
-    BridgeMotherAccount: 'BridgeMotherAccount',
-    BridgeFatherAccount: 'BridgeFatherAccount'
-  };
-
-  export type BridgeScalarFieldEnum = (typeof BridgeScalarFieldEnum)[keyof typeof BridgeScalarFieldEnum]
-
-
-  export const MetaTagScalarFieldEnum: {
-    id: 'id',
-    weddingId: 'weddingId',
+    invitationId: 'invitationId',
     title: 'title',
     ogUrl: 'ogUrl',
     ogTitle: 'ogTitle',
@@ -5293,7 +3173,7 @@ export namespace Prisma {
     ogDescription: 'ogDescription'
   };
 
-  export type MetaTagScalarFieldEnum = (typeof MetaTagScalarFieldEnum)[keyof typeof MetaTagScalarFieldEnum]
+  export type MetaScalarFieldEnum = (typeof MetaScalarFieldEnum)[keyof typeof MetaScalarFieldEnum]
 
 
   export const SortOrder: {
@@ -5362,24 +3242,40 @@ export namespace Prisma {
    */
 
 
-  export type WeddingWhereInput = {
-    AND?: WeddingWhereInput | WeddingWhereInput[]
-    OR?: WeddingWhereInput[]
-    NOT?: WeddingWhereInput | WeddingWhereInput[]
-    id?: StringFilter<"Wedding"> | string
-    weddingHouse?: StringFilter<"Wedding"> | string
-    weddingHouseAddress?: StringFilter<"Wedding"> | string
-    bus?: StringNullableFilter<"Wedding"> | string | null
-    subway?: StringNullableFilter<"Wedding"> | string | null
-    description?: StringFilter<"Wedding"> | string
-    date?: DateTimeFilter<"Wedding"> | Date | string
-    createdAt?: DateTimeFilter<"Wedding"> | Date | string
-    Groom?: XOR<GroomNullableRelationFilter, GroomWhereInput> | null
-    Bridge?: XOR<BridgeNullableRelationFilter, BridgeWhereInput> | null
-    MetaTag?: XOR<MetaTagNullableRelationFilter, MetaTagWhereInput> | null
+  export type InvitationWhereInput = {
+    AND?: InvitationWhereInput | InvitationWhereInput[]
+    OR?: InvitationWhereInput[]
+    NOT?: InvitationWhereInput | InvitationWhereInput[]
+    id?: StringFilter<"Invitation"> | string
+    weddingHouse?: StringFilter<"Invitation"> | string
+    weddingHouseAddress?: StringFilter<"Invitation"> | string
+    bus?: StringNullableFilter<"Invitation"> | string | null
+    subway?: StringNullableFilter<"Invitation"> | string | null
+    description?: StringFilter<"Invitation"> | string
+    date?: DateTimeFilter<"Invitation"> | Date | string
+    groom?: StringFilter<"Invitation"> | string
+    groomMother?: StringNullableFilter<"Invitation"> | string | null
+    groomFather?: StringNullableFilter<"Invitation"> | string | null
+    groomBank?: StringNullableFilter<"Invitation"> | string | null
+    groomMotherBank?: StringNullableFilter<"Invitation"> | string | null
+    groomFatherBank?: StringNullableFilter<"Invitation"> | string | null
+    groomAccount?: StringNullableFilter<"Invitation"> | string | null
+    groomMotherAccount?: StringNullableFilter<"Invitation"> | string | null
+    groomFatherAccount?: StringNullableFilter<"Invitation"> | string | null
+    bridge?: StringFilter<"Invitation"> | string
+    bridgeMother?: StringNullableFilter<"Invitation"> | string | null
+    bridgeFather?: StringNullableFilter<"Invitation"> | string | null
+    bridgeBank?: StringNullableFilter<"Invitation"> | string | null
+    bridgeMotherBank?: StringNullableFilter<"Invitation"> | string | null
+    bridgeFatherBank?: StringNullableFilter<"Invitation"> | string | null
+    bridgeAccount?: StringNullableFilter<"Invitation"> | string | null
+    bridgeMotherAccount?: StringNullableFilter<"Invitation"> | string | null
+    bridgeFatherAccount?: StringNullableFilter<"Invitation"> | string | null
+    createdAt?: DateTimeFilter<"Invitation"> | Date | string
+    meta?: XOR<MetaNullableRelationFilter, MetaWhereInput> | null
   }
 
-  export type WeddingOrderByWithRelationInput = {
+  export type InvitationOrderByWithRelationInput = {
     id?: SortOrder
     weddingHouse?: SortOrder
     weddingHouseAddress?: SortOrder
@@ -5387,30 +3283,62 @@ export namespace Prisma {
     subway?: SortOrder
     description?: SortOrder
     date?: SortOrder
+    groom?: SortOrder
+    groomMother?: SortOrder
+    groomFather?: SortOrder
+    groomBank?: SortOrder
+    groomMotherBank?: SortOrder
+    groomFatherBank?: SortOrder
+    groomAccount?: SortOrder
+    groomMotherAccount?: SortOrder
+    groomFatherAccount?: SortOrder
+    bridge?: SortOrder
+    bridgeMother?: SortOrder
+    bridgeFather?: SortOrder
+    bridgeBank?: SortOrder
+    bridgeMotherBank?: SortOrder
+    bridgeFatherBank?: SortOrder
+    bridgeAccount?: SortOrder
+    bridgeMotherAccount?: SortOrder
+    bridgeFatherAccount?: SortOrder
     createdAt?: SortOrder
-    Groom?: GroomOrderByWithRelationInput
-    Bridge?: BridgeOrderByWithRelationInput
-    MetaTag?: MetaTagOrderByWithRelationInput
+    meta?: MetaOrderByWithRelationInput
   }
 
-  export type WeddingWhereUniqueInput = Prisma.AtLeast<{
+  export type InvitationWhereUniqueInput = Prisma.AtLeast<{
     id?: string
-    AND?: WeddingWhereInput | WeddingWhereInput[]
-    OR?: WeddingWhereInput[]
-    NOT?: WeddingWhereInput | WeddingWhereInput[]
-    weddingHouse?: StringFilter<"Wedding"> | string
-    weddingHouseAddress?: StringFilter<"Wedding"> | string
-    bus?: StringNullableFilter<"Wedding"> | string | null
-    subway?: StringNullableFilter<"Wedding"> | string | null
-    description?: StringFilter<"Wedding"> | string
-    date?: DateTimeFilter<"Wedding"> | Date | string
-    createdAt?: DateTimeFilter<"Wedding"> | Date | string
-    Groom?: XOR<GroomNullableRelationFilter, GroomWhereInput> | null
-    Bridge?: XOR<BridgeNullableRelationFilter, BridgeWhereInput> | null
-    MetaTag?: XOR<MetaTagNullableRelationFilter, MetaTagWhereInput> | null
+    AND?: InvitationWhereInput | InvitationWhereInput[]
+    OR?: InvitationWhereInput[]
+    NOT?: InvitationWhereInput | InvitationWhereInput[]
+    weddingHouse?: StringFilter<"Invitation"> | string
+    weddingHouseAddress?: StringFilter<"Invitation"> | string
+    bus?: StringNullableFilter<"Invitation"> | string | null
+    subway?: StringNullableFilter<"Invitation"> | string | null
+    description?: StringFilter<"Invitation"> | string
+    date?: DateTimeFilter<"Invitation"> | Date | string
+    groom?: StringFilter<"Invitation"> | string
+    groomMother?: StringNullableFilter<"Invitation"> | string | null
+    groomFather?: StringNullableFilter<"Invitation"> | string | null
+    groomBank?: StringNullableFilter<"Invitation"> | string | null
+    groomMotherBank?: StringNullableFilter<"Invitation"> | string | null
+    groomFatherBank?: StringNullableFilter<"Invitation"> | string | null
+    groomAccount?: StringNullableFilter<"Invitation"> | string | null
+    groomMotherAccount?: StringNullableFilter<"Invitation"> | string | null
+    groomFatherAccount?: StringNullableFilter<"Invitation"> | string | null
+    bridge?: StringFilter<"Invitation"> | string
+    bridgeMother?: StringNullableFilter<"Invitation"> | string | null
+    bridgeFather?: StringNullableFilter<"Invitation"> | string | null
+    bridgeBank?: StringNullableFilter<"Invitation"> | string | null
+    bridgeMotherBank?: StringNullableFilter<"Invitation"> | string | null
+    bridgeFatherBank?: StringNullableFilter<"Invitation"> | string | null
+    bridgeAccount?: StringNullableFilter<"Invitation"> | string | null
+    bridgeMotherAccount?: StringNullableFilter<"Invitation"> | string | null
+    bridgeFatherAccount?: StringNullableFilter<"Invitation"> | string | null
+    createdAt?: DateTimeFilter<"Invitation"> | Date | string
+    meta?: XOR<MetaNullableRelationFilter, MetaWhereInput> | null
   }, "id">
 
-  export type WeddingOrderByWithAggregationInput = {
+  export type InvitationOrderByWithAggregationInput = {
     id?: SortOrder
     weddingHouse?: SortOrder
     weddingHouseAddress?: SortOrder
@@ -5418,262 +3346,128 @@ export namespace Prisma {
     subway?: SortOrder
     description?: SortOrder
     date?: SortOrder
+    groom?: SortOrder
+    groomMother?: SortOrder
+    groomFather?: SortOrder
+    groomBank?: SortOrder
+    groomMotherBank?: SortOrder
+    groomFatherBank?: SortOrder
+    groomAccount?: SortOrder
+    groomMotherAccount?: SortOrder
+    groomFatherAccount?: SortOrder
+    bridge?: SortOrder
+    bridgeMother?: SortOrder
+    bridgeFather?: SortOrder
+    bridgeBank?: SortOrder
+    bridgeMotherBank?: SortOrder
+    bridgeFatherBank?: SortOrder
+    bridgeAccount?: SortOrder
+    bridgeMotherAccount?: SortOrder
+    bridgeFatherAccount?: SortOrder
     createdAt?: SortOrder
-    _count?: WeddingCountOrderByAggregateInput
-    _max?: WeddingMaxOrderByAggregateInput
-    _min?: WeddingMinOrderByAggregateInput
+    _count?: InvitationCountOrderByAggregateInput
+    _max?: InvitationMaxOrderByAggregateInput
+    _min?: InvitationMinOrderByAggregateInput
   }
 
-  export type WeddingScalarWhereWithAggregatesInput = {
-    AND?: WeddingScalarWhereWithAggregatesInput | WeddingScalarWhereWithAggregatesInput[]
-    OR?: WeddingScalarWhereWithAggregatesInput[]
-    NOT?: WeddingScalarWhereWithAggregatesInput | WeddingScalarWhereWithAggregatesInput[]
-    id?: StringWithAggregatesFilter<"Wedding"> | string
-    weddingHouse?: StringWithAggregatesFilter<"Wedding"> | string
-    weddingHouseAddress?: StringWithAggregatesFilter<"Wedding"> | string
-    bus?: StringNullableWithAggregatesFilter<"Wedding"> | string | null
-    subway?: StringNullableWithAggregatesFilter<"Wedding"> | string | null
-    description?: StringWithAggregatesFilter<"Wedding"> | string
-    date?: DateTimeWithAggregatesFilter<"Wedding"> | Date | string
-    createdAt?: DateTimeWithAggregatesFilter<"Wedding"> | Date | string
+  export type InvitationScalarWhereWithAggregatesInput = {
+    AND?: InvitationScalarWhereWithAggregatesInput | InvitationScalarWhereWithAggregatesInput[]
+    OR?: InvitationScalarWhereWithAggregatesInput[]
+    NOT?: InvitationScalarWhereWithAggregatesInput | InvitationScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"Invitation"> | string
+    weddingHouse?: StringWithAggregatesFilter<"Invitation"> | string
+    weddingHouseAddress?: StringWithAggregatesFilter<"Invitation"> | string
+    bus?: StringNullableWithAggregatesFilter<"Invitation"> | string | null
+    subway?: StringNullableWithAggregatesFilter<"Invitation"> | string | null
+    description?: StringWithAggregatesFilter<"Invitation"> | string
+    date?: DateTimeWithAggregatesFilter<"Invitation"> | Date | string
+    groom?: StringWithAggregatesFilter<"Invitation"> | string
+    groomMother?: StringNullableWithAggregatesFilter<"Invitation"> | string | null
+    groomFather?: StringNullableWithAggregatesFilter<"Invitation"> | string | null
+    groomBank?: StringNullableWithAggregatesFilter<"Invitation"> | string | null
+    groomMotherBank?: StringNullableWithAggregatesFilter<"Invitation"> | string | null
+    groomFatherBank?: StringNullableWithAggregatesFilter<"Invitation"> | string | null
+    groomAccount?: StringNullableWithAggregatesFilter<"Invitation"> | string | null
+    groomMotherAccount?: StringNullableWithAggregatesFilter<"Invitation"> | string | null
+    groomFatherAccount?: StringNullableWithAggregatesFilter<"Invitation"> | string | null
+    bridge?: StringWithAggregatesFilter<"Invitation"> | string
+    bridgeMother?: StringNullableWithAggregatesFilter<"Invitation"> | string | null
+    bridgeFather?: StringNullableWithAggregatesFilter<"Invitation"> | string | null
+    bridgeBank?: StringNullableWithAggregatesFilter<"Invitation"> | string | null
+    bridgeMotherBank?: StringNullableWithAggregatesFilter<"Invitation"> | string | null
+    bridgeFatherBank?: StringNullableWithAggregatesFilter<"Invitation"> | string | null
+    bridgeAccount?: StringNullableWithAggregatesFilter<"Invitation"> | string | null
+    bridgeMotherAccount?: StringNullableWithAggregatesFilter<"Invitation"> | string | null
+    bridgeFatherAccount?: StringNullableWithAggregatesFilter<"Invitation"> | string | null
+    createdAt?: DateTimeWithAggregatesFilter<"Invitation"> | Date | string
   }
 
-  export type GroomWhereInput = {
-    AND?: GroomWhereInput | GroomWhereInput[]
-    OR?: GroomWhereInput[]
-    NOT?: GroomWhereInput | GroomWhereInput[]
-    id?: StringFilter<"Groom"> | string
-    weddingId?: StringFilter<"Groom"> | string
-    groom?: StringFilter<"Groom"> | string
-    groomMother?: StringFilter<"Groom"> | string
-    groomFather?: StringFilter<"Groom"> | string
-    groomBank?: StringFilter<"Groom"> | string
-    groomMotherBank?: StringFilter<"Groom"> | string
-    groomFatherBank?: StringFilter<"Groom"> | string
-    groomAccount?: StringFilter<"Groom"> | string
-    groomMotherAccount?: StringFilter<"Groom"> | string
-    groomFatherAccount?: StringFilter<"Groom"> | string
-    wedding?: XOR<WeddingRelationFilter, WeddingWhereInput>
+  export type MetaWhereInput = {
+    AND?: MetaWhereInput | MetaWhereInput[]
+    OR?: MetaWhereInput[]
+    NOT?: MetaWhereInput | MetaWhereInput[]
+    id?: StringFilter<"Meta"> | string
+    invitationId?: StringFilter<"Meta"> | string
+    title?: StringFilter<"Meta"> | string
+    ogUrl?: StringFilter<"Meta"> | string
+    ogTitle?: StringFilter<"Meta"> | string
+    ogImage?: StringFilter<"Meta"> | string
+    ogDescription?: StringFilter<"Meta"> | string
+    invitation?: XOR<InvitationRelationFilter, InvitationWhereInput>
   }
 
-  export type GroomOrderByWithRelationInput = {
+  export type MetaOrderByWithRelationInput = {
     id?: SortOrder
-    weddingId?: SortOrder
-    groom?: SortOrder
-    groomMother?: SortOrder
-    groomFather?: SortOrder
-    groomBank?: SortOrder
-    groomMotherBank?: SortOrder
-    groomFatherBank?: SortOrder
-    groomAccount?: SortOrder
-    groomMotherAccount?: SortOrder
-    groomFatherAccount?: SortOrder
-    wedding?: WeddingOrderByWithRelationInput
-  }
-
-  export type GroomWhereUniqueInput = Prisma.AtLeast<{
-    id?: string
-    weddingId?: string
-    AND?: GroomWhereInput | GroomWhereInput[]
-    OR?: GroomWhereInput[]
-    NOT?: GroomWhereInput | GroomWhereInput[]
-    groom?: StringFilter<"Groom"> | string
-    groomMother?: StringFilter<"Groom"> | string
-    groomFather?: StringFilter<"Groom"> | string
-    groomBank?: StringFilter<"Groom"> | string
-    groomMotherBank?: StringFilter<"Groom"> | string
-    groomFatherBank?: StringFilter<"Groom"> | string
-    groomAccount?: StringFilter<"Groom"> | string
-    groomMotherAccount?: StringFilter<"Groom"> | string
-    groomFatherAccount?: StringFilter<"Groom"> | string
-    wedding?: XOR<WeddingRelationFilter, WeddingWhereInput>
-  }, "id" | "weddingId">
-
-  export type GroomOrderByWithAggregationInput = {
-    id?: SortOrder
-    weddingId?: SortOrder
-    groom?: SortOrder
-    groomMother?: SortOrder
-    groomFather?: SortOrder
-    groomBank?: SortOrder
-    groomMotherBank?: SortOrder
-    groomFatherBank?: SortOrder
-    groomAccount?: SortOrder
-    groomMotherAccount?: SortOrder
-    groomFatherAccount?: SortOrder
-    _count?: GroomCountOrderByAggregateInput
-    _max?: GroomMaxOrderByAggregateInput
-    _min?: GroomMinOrderByAggregateInput
-  }
-
-  export type GroomScalarWhereWithAggregatesInput = {
-    AND?: GroomScalarWhereWithAggregatesInput | GroomScalarWhereWithAggregatesInput[]
-    OR?: GroomScalarWhereWithAggregatesInput[]
-    NOT?: GroomScalarWhereWithAggregatesInput | GroomScalarWhereWithAggregatesInput[]
-    id?: StringWithAggregatesFilter<"Groom"> | string
-    weddingId?: StringWithAggregatesFilter<"Groom"> | string
-    groom?: StringWithAggregatesFilter<"Groom"> | string
-    groomMother?: StringWithAggregatesFilter<"Groom"> | string
-    groomFather?: StringWithAggregatesFilter<"Groom"> | string
-    groomBank?: StringWithAggregatesFilter<"Groom"> | string
-    groomMotherBank?: StringWithAggregatesFilter<"Groom"> | string
-    groomFatherBank?: StringWithAggregatesFilter<"Groom"> | string
-    groomAccount?: StringWithAggregatesFilter<"Groom"> | string
-    groomMotherAccount?: StringWithAggregatesFilter<"Groom"> | string
-    groomFatherAccount?: StringWithAggregatesFilter<"Groom"> | string
-  }
-
-  export type BridgeWhereInput = {
-    AND?: BridgeWhereInput | BridgeWhereInput[]
-    OR?: BridgeWhereInput[]
-    NOT?: BridgeWhereInput | BridgeWhereInput[]
-    id?: StringFilter<"Bridge"> | string
-    weddingId?: StringFilter<"Bridge"> | string
-    Bridge?: StringFilter<"Bridge"> | string
-    BridgeMother?: StringFilter<"Bridge"> | string
-    BridgeFather?: StringFilter<"Bridge"> | string
-    BridgeBank?: StringFilter<"Bridge"> | string
-    BridgeMotherBank?: StringFilter<"Bridge"> | string
-    BridgeFatherBank?: StringFilter<"Bridge"> | string
-    BridgeAccount?: StringFilter<"Bridge"> | string
-    BridgeMotherAccount?: StringFilter<"Bridge"> | string
-    BridgeFatherAccount?: StringFilter<"Bridge"> | string
-    wedding?: XOR<WeddingRelationFilter, WeddingWhereInput>
-  }
-
-  export type BridgeOrderByWithRelationInput = {
-    id?: SortOrder
-    weddingId?: SortOrder
-    Bridge?: SortOrder
-    BridgeMother?: SortOrder
-    BridgeFather?: SortOrder
-    BridgeBank?: SortOrder
-    BridgeMotherBank?: SortOrder
-    BridgeFatherBank?: SortOrder
-    BridgeAccount?: SortOrder
-    BridgeMotherAccount?: SortOrder
-    BridgeFatherAccount?: SortOrder
-    wedding?: WeddingOrderByWithRelationInput
-  }
-
-  export type BridgeWhereUniqueInput = Prisma.AtLeast<{
-    id?: string
-    weddingId?: string
-    AND?: BridgeWhereInput | BridgeWhereInput[]
-    OR?: BridgeWhereInput[]
-    NOT?: BridgeWhereInput | BridgeWhereInput[]
-    Bridge?: StringFilter<"Bridge"> | string
-    BridgeMother?: StringFilter<"Bridge"> | string
-    BridgeFather?: StringFilter<"Bridge"> | string
-    BridgeBank?: StringFilter<"Bridge"> | string
-    BridgeMotherBank?: StringFilter<"Bridge"> | string
-    BridgeFatherBank?: StringFilter<"Bridge"> | string
-    BridgeAccount?: StringFilter<"Bridge"> | string
-    BridgeMotherAccount?: StringFilter<"Bridge"> | string
-    BridgeFatherAccount?: StringFilter<"Bridge"> | string
-    wedding?: XOR<WeddingRelationFilter, WeddingWhereInput>
-  }, "id" | "weddingId">
-
-  export type BridgeOrderByWithAggregationInput = {
-    id?: SortOrder
-    weddingId?: SortOrder
-    Bridge?: SortOrder
-    BridgeMother?: SortOrder
-    BridgeFather?: SortOrder
-    BridgeBank?: SortOrder
-    BridgeMotherBank?: SortOrder
-    BridgeFatherBank?: SortOrder
-    BridgeAccount?: SortOrder
-    BridgeMotherAccount?: SortOrder
-    BridgeFatherAccount?: SortOrder
-    _count?: BridgeCountOrderByAggregateInput
-    _max?: BridgeMaxOrderByAggregateInput
-    _min?: BridgeMinOrderByAggregateInput
-  }
-
-  export type BridgeScalarWhereWithAggregatesInput = {
-    AND?: BridgeScalarWhereWithAggregatesInput | BridgeScalarWhereWithAggregatesInput[]
-    OR?: BridgeScalarWhereWithAggregatesInput[]
-    NOT?: BridgeScalarWhereWithAggregatesInput | BridgeScalarWhereWithAggregatesInput[]
-    id?: StringWithAggregatesFilter<"Bridge"> | string
-    weddingId?: StringWithAggregatesFilter<"Bridge"> | string
-    Bridge?: StringWithAggregatesFilter<"Bridge"> | string
-    BridgeMother?: StringWithAggregatesFilter<"Bridge"> | string
-    BridgeFather?: StringWithAggregatesFilter<"Bridge"> | string
-    BridgeBank?: StringWithAggregatesFilter<"Bridge"> | string
-    BridgeMotherBank?: StringWithAggregatesFilter<"Bridge"> | string
-    BridgeFatherBank?: StringWithAggregatesFilter<"Bridge"> | string
-    BridgeAccount?: StringWithAggregatesFilter<"Bridge"> | string
-    BridgeMotherAccount?: StringWithAggregatesFilter<"Bridge"> | string
-    BridgeFatherAccount?: StringWithAggregatesFilter<"Bridge"> | string
-  }
-
-  export type MetaTagWhereInput = {
-    AND?: MetaTagWhereInput | MetaTagWhereInput[]
-    OR?: MetaTagWhereInput[]
-    NOT?: MetaTagWhereInput | MetaTagWhereInput[]
-    id?: StringFilter<"MetaTag"> | string
-    weddingId?: StringFilter<"MetaTag"> | string
-    title?: StringFilter<"MetaTag"> | string
-    ogUrl?: StringFilter<"MetaTag"> | string
-    ogTitle?: StringFilter<"MetaTag"> | string
-    ogImage?: StringFilter<"MetaTag"> | string
-    ogDescription?: StringFilter<"MetaTag"> | string
-    wedding?: XOR<WeddingRelationFilter, WeddingWhereInput>
-  }
-
-  export type MetaTagOrderByWithRelationInput = {
-    id?: SortOrder
-    weddingId?: SortOrder
+    invitationId?: SortOrder
     title?: SortOrder
     ogUrl?: SortOrder
     ogTitle?: SortOrder
     ogImage?: SortOrder
     ogDescription?: SortOrder
-    wedding?: WeddingOrderByWithRelationInput
+    invitation?: InvitationOrderByWithRelationInput
   }
 
-  export type MetaTagWhereUniqueInput = Prisma.AtLeast<{
+  export type MetaWhereUniqueInput = Prisma.AtLeast<{
     id?: string
-    weddingId?: string
-    AND?: MetaTagWhereInput | MetaTagWhereInput[]
-    OR?: MetaTagWhereInput[]
-    NOT?: MetaTagWhereInput | MetaTagWhereInput[]
-    title?: StringFilter<"MetaTag"> | string
-    ogUrl?: StringFilter<"MetaTag"> | string
-    ogTitle?: StringFilter<"MetaTag"> | string
-    ogImage?: StringFilter<"MetaTag"> | string
-    ogDescription?: StringFilter<"MetaTag"> | string
-    wedding?: XOR<WeddingRelationFilter, WeddingWhereInput>
-  }, "id" | "weddingId">
+    invitationId?: string
+    AND?: MetaWhereInput | MetaWhereInput[]
+    OR?: MetaWhereInput[]
+    NOT?: MetaWhereInput | MetaWhereInput[]
+    title?: StringFilter<"Meta"> | string
+    ogUrl?: StringFilter<"Meta"> | string
+    ogTitle?: StringFilter<"Meta"> | string
+    ogImage?: StringFilter<"Meta"> | string
+    ogDescription?: StringFilter<"Meta"> | string
+    invitation?: XOR<InvitationRelationFilter, InvitationWhereInput>
+  }, "id" | "invitationId">
 
-  export type MetaTagOrderByWithAggregationInput = {
+  export type MetaOrderByWithAggregationInput = {
     id?: SortOrder
-    weddingId?: SortOrder
+    invitationId?: SortOrder
     title?: SortOrder
     ogUrl?: SortOrder
     ogTitle?: SortOrder
     ogImage?: SortOrder
     ogDescription?: SortOrder
-    _count?: MetaTagCountOrderByAggregateInput
-    _max?: MetaTagMaxOrderByAggregateInput
-    _min?: MetaTagMinOrderByAggregateInput
+    _count?: MetaCountOrderByAggregateInput
+    _max?: MetaMaxOrderByAggregateInput
+    _min?: MetaMinOrderByAggregateInput
   }
 
-  export type MetaTagScalarWhereWithAggregatesInput = {
-    AND?: MetaTagScalarWhereWithAggregatesInput | MetaTagScalarWhereWithAggregatesInput[]
-    OR?: MetaTagScalarWhereWithAggregatesInput[]
-    NOT?: MetaTagScalarWhereWithAggregatesInput | MetaTagScalarWhereWithAggregatesInput[]
-    id?: StringWithAggregatesFilter<"MetaTag"> | string
-    weddingId?: StringWithAggregatesFilter<"MetaTag"> | string
-    title?: StringWithAggregatesFilter<"MetaTag"> | string
-    ogUrl?: StringWithAggregatesFilter<"MetaTag"> | string
-    ogTitle?: StringWithAggregatesFilter<"MetaTag"> | string
-    ogImage?: StringWithAggregatesFilter<"MetaTag"> | string
-    ogDescription?: StringWithAggregatesFilter<"MetaTag"> | string
+  export type MetaScalarWhereWithAggregatesInput = {
+    AND?: MetaScalarWhereWithAggregatesInput | MetaScalarWhereWithAggregatesInput[]
+    OR?: MetaScalarWhereWithAggregatesInput[]
+    NOT?: MetaScalarWhereWithAggregatesInput | MetaScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"Meta"> | string
+    invitationId?: StringWithAggregatesFilter<"Meta"> | string
+    title?: StringWithAggregatesFilter<"Meta"> | string
+    ogUrl?: StringWithAggregatesFilter<"Meta"> | string
+    ogTitle?: StringWithAggregatesFilter<"Meta"> | string
+    ogImage?: StringWithAggregatesFilter<"Meta"> | string
+    ogDescription?: StringWithAggregatesFilter<"Meta"> | string
   }
 
-  export type WeddingCreateInput = {
+  export type InvitationCreateInput = {
     id?: string
     weddingHouse: string
     weddingHouseAddress: string
@@ -5681,13 +3475,29 @@ export namespace Prisma {
     subway?: string | null
     description: string
     date: Date | string
+    groom: string
+    groomMother?: string | null
+    groomFather?: string | null
+    groomBank?: string | null
+    groomMotherBank?: string | null
+    groomFatherBank?: string | null
+    groomAccount?: string | null
+    groomMotherAccount?: string | null
+    groomFatherAccount?: string | null
+    bridge: string
+    bridgeMother?: string | null
+    bridgeFather?: string | null
+    bridgeBank?: string | null
+    bridgeMotherBank?: string | null
+    bridgeFatherBank?: string | null
+    bridgeAccount?: string | null
+    bridgeMotherAccount?: string | null
+    bridgeFatherAccount?: string | null
     createdAt?: Date | string
-    Groom?: GroomCreateNestedOneWithoutWeddingInput
-    Bridge?: BridgeCreateNestedOneWithoutWeddingInput
-    MetaTag?: MetaTagCreateNestedOneWithoutWeddingInput
+    meta?: MetaCreateNestedOneWithoutInvitationInput
   }
 
-  export type WeddingUncheckedCreateInput = {
+  export type InvitationUncheckedCreateInput = {
     id?: string
     weddingHouse: string
     weddingHouseAddress: string
@@ -5695,39 +3505,87 @@ export namespace Prisma {
     subway?: string | null
     description: string
     date: Date | string
+    groom: string
+    groomMother?: string | null
+    groomFather?: string | null
+    groomBank?: string | null
+    groomMotherBank?: string | null
+    groomFatherBank?: string | null
+    groomAccount?: string | null
+    groomMotherAccount?: string | null
+    groomFatherAccount?: string | null
+    bridge: string
+    bridgeMother?: string | null
+    bridgeFather?: string | null
+    bridgeBank?: string | null
+    bridgeMotherBank?: string | null
+    bridgeFatherBank?: string | null
+    bridgeAccount?: string | null
+    bridgeMotherAccount?: string | null
+    bridgeFatherAccount?: string | null
     createdAt?: Date | string
-    Groom?: GroomUncheckedCreateNestedOneWithoutWeddingInput
-    Bridge?: BridgeUncheckedCreateNestedOneWithoutWeddingInput
-    MetaTag?: MetaTagUncheckedCreateNestedOneWithoutWeddingInput
+    meta?: MetaUncheckedCreateNestedOneWithoutInvitationInput
   }
 
-  export type WeddingUpdateInput = {
+  export type InvitationUpdateInput = {
     weddingHouse?: StringFieldUpdateOperationsInput | string
     weddingHouseAddress?: StringFieldUpdateOperationsInput | string
     bus?: NullableStringFieldUpdateOperationsInput | string | null
     subway?: NullableStringFieldUpdateOperationsInput | string | null
     description?: StringFieldUpdateOperationsInput | string
     date?: DateTimeFieldUpdateOperationsInput | Date | string
+    groom?: StringFieldUpdateOperationsInput | string
+    groomMother?: NullableStringFieldUpdateOperationsInput | string | null
+    groomFather?: NullableStringFieldUpdateOperationsInput | string | null
+    groomBank?: NullableStringFieldUpdateOperationsInput | string | null
+    groomMotherBank?: NullableStringFieldUpdateOperationsInput | string | null
+    groomFatherBank?: NullableStringFieldUpdateOperationsInput | string | null
+    groomAccount?: NullableStringFieldUpdateOperationsInput | string | null
+    groomMotherAccount?: NullableStringFieldUpdateOperationsInput | string | null
+    groomFatherAccount?: NullableStringFieldUpdateOperationsInput | string | null
+    bridge?: StringFieldUpdateOperationsInput | string
+    bridgeMother?: NullableStringFieldUpdateOperationsInput | string | null
+    bridgeFather?: NullableStringFieldUpdateOperationsInput | string | null
+    bridgeBank?: NullableStringFieldUpdateOperationsInput | string | null
+    bridgeMotherBank?: NullableStringFieldUpdateOperationsInput | string | null
+    bridgeFatherBank?: NullableStringFieldUpdateOperationsInput | string | null
+    bridgeAccount?: NullableStringFieldUpdateOperationsInput | string | null
+    bridgeMotherAccount?: NullableStringFieldUpdateOperationsInput | string | null
+    bridgeFatherAccount?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    Groom?: GroomUpdateOneWithoutWeddingNestedInput
-    Bridge?: BridgeUpdateOneWithoutWeddingNestedInput
-    MetaTag?: MetaTagUpdateOneWithoutWeddingNestedInput
+    meta?: MetaUpdateOneWithoutInvitationNestedInput
   }
 
-  export type WeddingUncheckedUpdateInput = {
+  export type InvitationUncheckedUpdateInput = {
     weddingHouse?: StringFieldUpdateOperationsInput | string
     weddingHouseAddress?: StringFieldUpdateOperationsInput | string
     bus?: NullableStringFieldUpdateOperationsInput | string | null
     subway?: NullableStringFieldUpdateOperationsInput | string | null
     description?: StringFieldUpdateOperationsInput | string
     date?: DateTimeFieldUpdateOperationsInput | Date | string
+    groom?: StringFieldUpdateOperationsInput | string
+    groomMother?: NullableStringFieldUpdateOperationsInput | string | null
+    groomFather?: NullableStringFieldUpdateOperationsInput | string | null
+    groomBank?: NullableStringFieldUpdateOperationsInput | string | null
+    groomMotherBank?: NullableStringFieldUpdateOperationsInput | string | null
+    groomFatherBank?: NullableStringFieldUpdateOperationsInput | string | null
+    groomAccount?: NullableStringFieldUpdateOperationsInput | string | null
+    groomMotherAccount?: NullableStringFieldUpdateOperationsInput | string | null
+    groomFatherAccount?: NullableStringFieldUpdateOperationsInput | string | null
+    bridge?: StringFieldUpdateOperationsInput | string
+    bridgeMother?: NullableStringFieldUpdateOperationsInput | string | null
+    bridgeFather?: NullableStringFieldUpdateOperationsInput | string | null
+    bridgeBank?: NullableStringFieldUpdateOperationsInput | string | null
+    bridgeMotherBank?: NullableStringFieldUpdateOperationsInput | string | null
+    bridgeFatherBank?: NullableStringFieldUpdateOperationsInput | string | null
+    bridgeAccount?: NullableStringFieldUpdateOperationsInput | string | null
+    bridgeMotherAccount?: NullableStringFieldUpdateOperationsInput | string | null
+    bridgeFatherAccount?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    Groom?: GroomUncheckedUpdateOneWithoutWeddingNestedInput
-    Bridge?: BridgeUncheckedUpdateOneWithoutWeddingNestedInput
-    MetaTag?: MetaTagUncheckedUpdateOneWithoutWeddingNestedInput
+    meta?: MetaUncheckedUpdateOneWithoutInvitationNestedInput
   }
 
-  export type WeddingCreateManyInput = {
+  export type InvitationCreateManyInput = {
     id?: string
     weddingHouse: string
     weddingHouseAddress: string
@@ -5735,228 +3593,96 @@ export namespace Prisma {
     subway?: string | null
     description: string
     date: Date | string
+    groom: string
+    groomMother?: string | null
+    groomFather?: string | null
+    groomBank?: string | null
+    groomMotherBank?: string | null
+    groomFatherBank?: string | null
+    groomAccount?: string | null
+    groomMotherAccount?: string | null
+    groomFatherAccount?: string | null
+    bridge: string
+    bridgeMother?: string | null
+    bridgeFather?: string | null
+    bridgeBank?: string | null
+    bridgeMotherBank?: string | null
+    bridgeFatherBank?: string | null
+    bridgeAccount?: string | null
+    bridgeMotherAccount?: string | null
+    bridgeFatherAccount?: string | null
     createdAt?: Date | string
   }
 
-  export type WeddingUpdateManyMutationInput = {
+  export type InvitationUpdateManyMutationInput = {
     weddingHouse?: StringFieldUpdateOperationsInput | string
     weddingHouseAddress?: StringFieldUpdateOperationsInput | string
     bus?: NullableStringFieldUpdateOperationsInput | string | null
     subway?: NullableStringFieldUpdateOperationsInput | string | null
     description?: StringFieldUpdateOperationsInput | string
     date?: DateTimeFieldUpdateOperationsInput | Date | string
+    groom?: StringFieldUpdateOperationsInput | string
+    groomMother?: NullableStringFieldUpdateOperationsInput | string | null
+    groomFather?: NullableStringFieldUpdateOperationsInput | string | null
+    groomBank?: NullableStringFieldUpdateOperationsInput | string | null
+    groomMotherBank?: NullableStringFieldUpdateOperationsInput | string | null
+    groomFatherBank?: NullableStringFieldUpdateOperationsInput | string | null
+    groomAccount?: NullableStringFieldUpdateOperationsInput | string | null
+    groomMotherAccount?: NullableStringFieldUpdateOperationsInput | string | null
+    groomFatherAccount?: NullableStringFieldUpdateOperationsInput | string | null
+    bridge?: StringFieldUpdateOperationsInput | string
+    bridgeMother?: NullableStringFieldUpdateOperationsInput | string | null
+    bridgeFather?: NullableStringFieldUpdateOperationsInput | string | null
+    bridgeBank?: NullableStringFieldUpdateOperationsInput | string | null
+    bridgeMotherBank?: NullableStringFieldUpdateOperationsInput | string | null
+    bridgeFatherBank?: NullableStringFieldUpdateOperationsInput | string | null
+    bridgeAccount?: NullableStringFieldUpdateOperationsInput | string | null
+    bridgeMotherAccount?: NullableStringFieldUpdateOperationsInput | string | null
+    bridgeFatherAccount?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type WeddingUncheckedUpdateManyInput = {
+  export type InvitationUncheckedUpdateManyInput = {
     weddingHouse?: StringFieldUpdateOperationsInput | string
     weddingHouseAddress?: StringFieldUpdateOperationsInput | string
     bus?: NullableStringFieldUpdateOperationsInput | string | null
     subway?: NullableStringFieldUpdateOperationsInput | string | null
     description?: StringFieldUpdateOperationsInput | string
     date?: DateTimeFieldUpdateOperationsInput | Date | string
+    groom?: StringFieldUpdateOperationsInput | string
+    groomMother?: NullableStringFieldUpdateOperationsInput | string | null
+    groomFather?: NullableStringFieldUpdateOperationsInput | string | null
+    groomBank?: NullableStringFieldUpdateOperationsInput | string | null
+    groomMotherBank?: NullableStringFieldUpdateOperationsInput | string | null
+    groomFatherBank?: NullableStringFieldUpdateOperationsInput | string | null
+    groomAccount?: NullableStringFieldUpdateOperationsInput | string | null
+    groomMotherAccount?: NullableStringFieldUpdateOperationsInput | string | null
+    groomFatherAccount?: NullableStringFieldUpdateOperationsInput | string | null
+    bridge?: StringFieldUpdateOperationsInput | string
+    bridgeMother?: NullableStringFieldUpdateOperationsInput | string | null
+    bridgeFather?: NullableStringFieldUpdateOperationsInput | string | null
+    bridgeBank?: NullableStringFieldUpdateOperationsInput | string | null
+    bridgeMotherBank?: NullableStringFieldUpdateOperationsInput | string | null
+    bridgeFatherBank?: NullableStringFieldUpdateOperationsInput | string | null
+    bridgeAccount?: NullableStringFieldUpdateOperationsInput | string | null
+    bridgeMotherAccount?: NullableStringFieldUpdateOperationsInput | string | null
+    bridgeFatherAccount?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type GroomCreateInput = {
-    id?: string
-    groom: string
-    groomMother: string
-    groomFather: string
-    groomBank: string
-    groomMotherBank: string
-    groomFatherBank: string
-    groomAccount: string
-    groomMotherAccount: string
-    groomFatherAccount: string
-    wedding: WeddingCreateNestedOneWithoutGroomInput
-  }
-
-  export type GroomUncheckedCreateInput = {
-    id?: string
-    weddingId: string
-    groom: string
-    groomMother: string
-    groomFather: string
-    groomBank: string
-    groomMotherBank: string
-    groomFatherBank: string
-    groomAccount: string
-    groomMotherAccount: string
-    groomFatherAccount: string
-  }
-
-  export type GroomUpdateInput = {
-    groom?: StringFieldUpdateOperationsInput | string
-    groomMother?: StringFieldUpdateOperationsInput | string
-    groomFather?: StringFieldUpdateOperationsInput | string
-    groomBank?: StringFieldUpdateOperationsInput | string
-    groomMotherBank?: StringFieldUpdateOperationsInput | string
-    groomFatherBank?: StringFieldUpdateOperationsInput | string
-    groomAccount?: StringFieldUpdateOperationsInput | string
-    groomMotherAccount?: StringFieldUpdateOperationsInput | string
-    groomFatherAccount?: StringFieldUpdateOperationsInput | string
-    wedding?: WeddingUpdateOneRequiredWithoutGroomNestedInput
-  }
-
-  export type GroomUncheckedUpdateInput = {
-    weddingId?: StringFieldUpdateOperationsInput | string
-    groom?: StringFieldUpdateOperationsInput | string
-    groomMother?: StringFieldUpdateOperationsInput | string
-    groomFather?: StringFieldUpdateOperationsInput | string
-    groomBank?: StringFieldUpdateOperationsInput | string
-    groomMotherBank?: StringFieldUpdateOperationsInput | string
-    groomFatherBank?: StringFieldUpdateOperationsInput | string
-    groomAccount?: StringFieldUpdateOperationsInput | string
-    groomMotherAccount?: StringFieldUpdateOperationsInput | string
-    groomFatherAccount?: StringFieldUpdateOperationsInput | string
-  }
-
-  export type GroomCreateManyInput = {
-    id?: string
-    weddingId: string
-    groom: string
-    groomMother: string
-    groomFather: string
-    groomBank: string
-    groomMotherBank: string
-    groomFatherBank: string
-    groomAccount: string
-    groomMotherAccount: string
-    groomFatherAccount: string
-  }
-
-  export type GroomUpdateManyMutationInput = {
-    groom?: StringFieldUpdateOperationsInput | string
-    groomMother?: StringFieldUpdateOperationsInput | string
-    groomFather?: StringFieldUpdateOperationsInput | string
-    groomBank?: StringFieldUpdateOperationsInput | string
-    groomMotherBank?: StringFieldUpdateOperationsInput | string
-    groomFatherBank?: StringFieldUpdateOperationsInput | string
-    groomAccount?: StringFieldUpdateOperationsInput | string
-    groomMotherAccount?: StringFieldUpdateOperationsInput | string
-    groomFatherAccount?: StringFieldUpdateOperationsInput | string
-  }
-
-  export type GroomUncheckedUpdateManyInput = {
-    weddingId?: StringFieldUpdateOperationsInput | string
-    groom?: StringFieldUpdateOperationsInput | string
-    groomMother?: StringFieldUpdateOperationsInput | string
-    groomFather?: StringFieldUpdateOperationsInput | string
-    groomBank?: StringFieldUpdateOperationsInput | string
-    groomMotherBank?: StringFieldUpdateOperationsInput | string
-    groomFatherBank?: StringFieldUpdateOperationsInput | string
-    groomAccount?: StringFieldUpdateOperationsInput | string
-    groomMotherAccount?: StringFieldUpdateOperationsInput | string
-    groomFatherAccount?: StringFieldUpdateOperationsInput | string
-  }
-
-  export type BridgeCreateInput = {
-    id?: string
-    Bridge: string
-    BridgeMother: string
-    BridgeFather: string
-    BridgeBank: string
-    BridgeMotherBank: string
-    BridgeFatherBank: string
-    BridgeAccount: string
-    BridgeMotherAccount: string
-    BridgeFatherAccount: string
-    wedding: WeddingCreateNestedOneWithoutBridgeInput
-  }
-
-  export type BridgeUncheckedCreateInput = {
-    id?: string
-    weddingId: string
-    Bridge: string
-    BridgeMother: string
-    BridgeFather: string
-    BridgeBank: string
-    BridgeMotherBank: string
-    BridgeFatherBank: string
-    BridgeAccount: string
-    BridgeMotherAccount: string
-    BridgeFatherAccount: string
-  }
-
-  export type BridgeUpdateInput = {
-    Bridge?: StringFieldUpdateOperationsInput | string
-    BridgeMother?: StringFieldUpdateOperationsInput | string
-    BridgeFather?: StringFieldUpdateOperationsInput | string
-    BridgeBank?: StringFieldUpdateOperationsInput | string
-    BridgeMotherBank?: StringFieldUpdateOperationsInput | string
-    BridgeFatherBank?: StringFieldUpdateOperationsInput | string
-    BridgeAccount?: StringFieldUpdateOperationsInput | string
-    BridgeMotherAccount?: StringFieldUpdateOperationsInput | string
-    BridgeFatherAccount?: StringFieldUpdateOperationsInput | string
-    wedding?: WeddingUpdateOneRequiredWithoutBridgeNestedInput
-  }
-
-  export type BridgeUncheckedUpdateInput = {
-    weddingId?: StringFieldUpdateOperationsInput | string
-    Bridge?: StringFieldUpdateOperationsInput | string
-    BridgeMother?: StringFieldUpdateOperationsInput | string
-    BridgeFather?: StringFieldUpdateOperationsInput | string
-    BridgeBank?: StringFieldUpdateOperationsInput | string
-    BridgeMotherBank?: StringFieldUpdateOperationsInput | string
-    BridgeFatherBank?: StringFieldUpdateOperationsInput | string
-    BridgeAccount?: StringFieldUpdateOperationsInput | string
-    BridgeMotherAccount?: StringFieldUpdateOperationsInput | string
-    BridgeFatherAccount?: StringFieldUpdateOperationsInput | string
-  }
-
-  export type BridgeCreateManyInput = {
-    id?: string
-    weddingId: string
-    Bridge: string
-    BridgeMother: string
-    BridgeFather: string
-    BridgeBank: string
-    BridgeMotherBank: string
-    BridgeFatherBank: string
-    BridgeAccount: string
-    BridgeMotherAccount: string
-    BridgeFatherAccount: string
-  }
-
-  export type BridgeUpdateManyMutationInput = {
-    Bridge?: StringFieldUpdateOperationsInput | string
-    BridgeMother?: StringFieldUpdateOperationsInput | string
-    BridgeFather?: StringFieldUpdateOperationsInput | string
-    BridgeBank?: StringFieldUpdateOperationsInput | string
-    BridgeMotherBank?: StringFieldUpdateOperationsInput | string
-    BridgeFatherBank?: StringFieldUpdateOperationsInput | string
-    BridgeAccount?: StringFieldUpdateOperationsInput | string
-    BridgeMotherAccount?: StringFieldUpdateOperationsInput | string
-    BridgeFatherAccount?: StringFieldUpdateOperationsInput | string
-  }
-
-  export type BridgeUncheckedUpdateManyInput = {
-    weddingId?: StringFieldUpdateOperationsInput | string
-    Bridge?: StringFieldUpdateOperationsInput | string
-    BridgeMother?: StringFieldUpdateOperationsInput | string
-    BridgeFather?: StringFieldUpdateOperationsInput | string
-    BridgeBank?: StringFieldUpdateOperationsInput | string
-    BridgeMotherBank?: StringFieldUpdateOperationsInput | string
-    BridgeFatherBank?: StringFieldUpdateOperationsInput | string
-    BridgeAccount?: StringFieldUpdateOperationsInput | string
-    BridgeMotherAccount?: StringFieldUpdateOperationsInput | string
-    BridgeFatherAccount?: StringFieldUpdateOperationsInput | string
-  }
-
-  export type MetaTagCreateInput = {
+  export type MetaCreateInput = {
     id?: string
     title: string
     ogUrl: string
     ogTitle: string
     ogImage: string
     ogDescription: string
-    wedding: WeddingCreateNestedOneWithoutMetaTagInput
+    invitation: InvitationCreateNestedOneWithoutMetaInput
   }
 
-  export type MetaTagUncheckedCreateInput = {
+  export type MetaUncheckedCreateInput = {
     id?: string
-    weddingId: string
+    invitationId: string
     title: string
     ogUrl: string
     ogTitle: string
@@ -5964,17 +3690,17 @@ export namespace Prisma {
     ogDescription: string
   }
 
-  export type MetaTagUpdateInput = {
+  export type MetaUpdateInput = {
     title?: StringFieldUpdateOperationsInput | string
     ogUrl?: StringFieldUpdateOperationsInput | string
     ogTitle?: StringFieldUpdateOperationsInput | string
     ogImage?: StringFieldUpdateOperationsInput | string
     ogDescription?: StringFieldUpdateOperationsInput | string
-    wedding?: WeddingUpdateOneRequiredWithoutMetaTagNestedInput
+    invitation?: InvitationUpdateOneRequiredWithoutMetaNestedInput
   }
 
-  export type MetaTagUncheckedUpdateInput = {
-    weddingId?: StringFieldUpdateOperationsInput | string
+  export type MetaUncheckedUpdateInput = {
+    invitationId?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
     ogUrl?: StringFieldUpdateOperationsInput | string
     ogTitle?: StringFieldUpdateOperationsInput | string
@@ -5982,9 +3708,9 @@ export namespace Prisma {
     ogDescription?: StringFieldUpdateOperationsInput | string
   }
 
-  export type MetaTagCreateManyInput = {
+  export type MetaCreateManyInput = {
     id?: string
-    weddingId: string
+    invitationId: string
     title: string
     ogUrl: string
     ogTitle: string
@@ -5992,7 +3718,7 @@ export namespace Prisma {
     ogDescription: string
   }
 
-  export type MetaTagUpdateManyMutationInput = {
+  export type MetaUpdateManyMutationInput = {
     title?: StringFieldUpdateOperationsInput | string
     ogUrl?: StringFieldUpdateOperationsInput | string
     ogTitle?: StringFieldUpdateOperationsInput | string
@@ -6000,8 +3726,8 @@ export namespace Prisma {
     ogDescription?: StringFieldUpdateOperationsInput | string
   }
 
-  export type MetaTagUncheckedUpdateManyInput = {
-    weddingId?: StringFieldUpdateOperationsInput | string
+  export type MetaUncheckedUpdateManyInput = {
+    invitationId?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
     ogUrl?: StringFieldUpdateOperationsInput | string
     ogTitle?: StringFieldUpdateOperationsInput | string
@@ -6051,22 +3777,12 @@ export namespace Prisma {
     not?: NestedDateTimeFilter<$PrismaModel> | Date | string
   }
 
-  export type GroomNullableRelationFilter = {
-    is?: GroomWhereInput | null
-    isNot?: GroomWhereInput | null
+  export type MetaNullableRelationFilter = {
+    is?: MetaWhereInput | null
+    isNot?: MetaWhereInput | null
   }
 
-  export type BridgeNullableRelationFilter = {
-    is?: BridgeWhereInput | null
-    isNot?: BridgeWhereInput | null
-  }
-
-  export type MetaTagNullableRelationFilter = {
-    is?: MetaTagWhereInput | null
-    isNot?: MetaTagWhereInput | null
-  }
-
-  export type WeddingCountOrderByAggregateInput = {
+  export type InvitationCountOrderByAggregateInput = {
     id?: SortOrder
     weddingHouse?: SortOrder
     weddingHouseAddress?: SortOrder
@@ -6074,10 +3790,28 @@ export namespace Prisma {
     subway?: SortOrder
     description?: SortOrder
     date?: SortOrder
+    groom?: SortOrder
+    groomMother?: SortOrder
+    groomFather?: SortOrder
+    groomBank?: SortOrder
+    groomMotherBank?: SortOrder
+    groomFatherBank?: SortOrder
+    groomAccount?: SortOrder
+    groomMotherAccount?: SortOrder
+    groomFatherAccount?: SortOrder
+    bridge?: SortOrder
+    bridgeMother?: SortOrder
+    bridgeFather?: SortOrder
+    bridgeBank?: SortOrder
+    bridgeMotherBank?: SortOrder
+    bridgeFatherBank?: SortOrder
+    bridgeAccount?: SortOrder
+    bridgeMotherAccount?: SortOrder
+    bridgeFatherAccount?: SortOrder
     createdAt?: SortOrder
   }
 
-  export type WeddingMaxOrderByAggregateInput = {
+  export type InvitationMaxOrderByAggregateInput = {
     id?: SortOrder
     weddingHouse?: SortOrder
     weddingHouseAddress?: SortOrder
@@ -6085,10 +3819,28 @@ export namespace Prisma {
     subway?: SortOrder
     description?: SortOrder
     date?: SortOrder
+    groom?: SortOrder
+    groomMother?: SortOrder
+    groomFather?: SortOrder
+    groomBank?: SortOrder
+    groomMotherBank?: SortOrder
+    groomFatherBank?: SortOrder
+    groomAccount?: SortOrder
+    groomMotherAccount?: SortOrder
+    groomFatherAccount?: SortOrder
+    bridge?: SortOrder
+    bridgeMother?: SortOrder
+    bridgeFather?: SortOrder
+    bridgeBank?: SortOrder
+    bridgeMotherBank?: SortOrder
+    bridgeFatherBank?: SortOrder
+    bridgeAccount?: SortOrder
+    bridgeMotherAccount?: SortOrder
+    bridgeFatherAccount?: SortOrder
     createdAt?: SortOrder
   }
 
-  export type WeddingMinOrderByAggregateInput = {
+  export type InvitationMinOrderByAggregateInput = {
     id?: SortOrder
     weddingHouse?: SortOrder
     weddingHouseAddress?: SortOrder
@@ -6096,6 +3848,24 @@ export namespace Prisma {
     subway?: SortOrder
     description?: SortOrder
     date?: SortOrder
+    groom?: SortOrder
+    groomMother?: SortOrder
+    groomFather?: SortOrder
+    groomBank?: SortOrder
+    groomMotherBank?: SortOrder
+    groomFatherBank?: SortOrder
+    groomAccount?: SortOrder
+    groomMotherAccount?: SortOrder
+    groomFatherAccount?: SortOrder
+    bridge?: SortOrder
+    bridgeMother?: SortOrder
+    bridgeFather?: SortOrder
+    bridgeBank?: SortOrder
+    bridgeMotherBank?: SortOrder
+    bridgeFatherBank?: SortOrder
+    bridgeAccount?: SortOrder
+    bridgeMotherAccount?: SortOrder
+    bridgeFatherAccount?: SortOrder
     createdAt?: SortOrder
   }
 
@@ -6150,98 +3920,14 @@ export namespace Prisma {
     _max?: NestedDateTimeFilter<$PrismaModel>
   }
 
-  export type WeddingRelationFilter = {
-    is?: WeddingWhereInput
-    isNot?: WeddingWhereInput
+  export type InvitationRelationFilter = {
+    is?: InvitationWhereInput
+    isNot?: InvitationWhereInput
   }
 
-  export type GroomCountOrderByAggregateInput = {
+  export type MetaCountOrderByAggregateInput = {
     id?: SortOrder
-    weddingId?: SortOrder
-    groom?: SortOrder
-    groomMother?: SortOrder
-    groomFather?: SortOrder
-    groomBank?: SortOrder
-    groomMotherBank?: SortOrder
-    groomFatherBank?: SortOrder
-    groomAccount?: SortOrder
-    groomMotherAccount?: SortOrder
-    groomFatherAccount?: SortOrder
-  }
-
-  export type GroomMaxOrderByAggregateInput = {
-    id?: SortOrder
-    weddingId?: SortOrder
-    groom?: SortOrder
-    groomMother?: SortOrder
-    groomFather?: SortOrder
-    groomBank?: SortOrder
-    groomMotherBank?: SortOrder
-    groomFatherBank?: SortOrder
-    groomAccount?: SortOrder
-    groomMotherAccount?: SortOrder
-    groomFatherAccount?: SortOrder
-  }
-
-  export type GroomMinOrderByAggregateInput = {
-    id?: SortOrder
-    weddingId?: SortOrder
-    groom?: SortOrder
-    groomMother?: SortOrder
-    groomFather?: SortOrder
-    groomBank?: SortOrder
-    groomMotherBank?: SortOrder
-    groomFatherBank?: SortOrder
-    groomAccount?: SortOrder
-    groomMotherAccount?: SortOrder
-    groomFatherAccount?: SortOrder
-  }
-
-  export type BridgeCountOrderByAggregateInput = {
-    id?: SortOrder
-    weddingId?: SortOrder
-    Bridge?: SortOrder
-    BridgeMother?: SortOrder
-    BridgeFather?: SortOrder
-    BridgeBank?: SortOrder
-    BridgeMotherBank?: SortOrder
-    BridgeFatherBank?: SortOrder
-    BridgeAccount?: SortOrder
-    BridgeMotherAccount?: SortOrder
-    BridgeFatherAccount?: SortOrder
-  }
-
-  export type BridgeMaxOrderByAggregateInput = {
-    id?: SortOrder
-    weddingId?: SortOrder
-    Bridge?: SortOrder
-    BridgeMother?: SortOrder
-    BridgeFather?: SortOrder
-    BridgeBank?: SortOrder
-    BridgeMotherBank?: SortOrder
-    BridgeFatherBank?: SortOrder
-    BridgeAccount?: SortOrder
-    BridgeMotherAccount?: SortOrder
-    BridgeFatherAccount?: SortOrder
-  }
-
-  export type BridgeMinOrderByAggregateInput = {
-    id?: SortOrder
-    weddingId?: SortOrder
-    Bridge?: SortOrder
-    BridgeMother?: SortOrder
-    BridgeFather?: SortOrder
-    BridgeBank?: SortOrder
-    BridgeMotherBank?: SortOrder
-    BridgeFatherBank?: SortOrder
-    BridgeAccount?: SortOrder
-    BridgeMotherAccount?: SortOrder
-    BridgeFatherAccount?: SortOrder
-  }
-
-  export type MetaTagCountOrderByAggregateInput = {
-    id?: SortOrder
-    weddingId?: SortOrder
+    invitationId?: SortOrder
     title?: SortOrder
     ogUrl?: SortOrder
     ogTitle?: SortOrder
@@ -6249,9 +3935,9 @@ export namespace Prisma {
     ogDescription?: SortOrder
   }
 
-  export type MetaTagMaxOrderByAggregateInput = {
+  export type MetaMaxOrderByAggregateInput = {
     id?: SortOrder
-    weddingId?: SortOrder
+    invitationId?: SortOrder
     title?: SortOrder
     ogUrl?: SortOrder
     ogTitle?: SortOrder
@@ -6259,9 +3945,9 @@ export namespace Prisma {
     ogDescription?: SortOrder
   }
 
-  export type MetaTagMinOrderByAggregateInput = {
+  export type MetaMinOrderByAggregateInput = {
     id?: SortOrder
-    weddingId?: SortOrder
+    invitationId?: SortOrder
     title?: SortOrder
     ogUrl?: SortOrder
     ogTitle?: SortOrder
@@ -6269,40 +3955,16 @@ export namespace Prisma {
     ogDescription?: SortOrder
   }
 
-  export type GroomCreateNestedOneWithoutWeddingInput = {
-    create?: XOR<GroomCreateWithoutWeddingInput, GroomUncheckedCreateWithoutWeddingInput>
-    connectOrCreate?: GroomCreateOrConnectWithoutWeddingInput
-    connect?: GroomWhereUniqueInput
+  export type MetaCreateNestedOneWithoutInvitationInput = {
+    create?: XOR<MetaCreateWithoutInvitationInput, MetaUncheckedCreateWithoutInvitationInput>
+    connectOrCreate?: MetaCreateOrConnectWithoutInvitationInput
+    connect?: MetaWhereUniqueInput
   }
 
-  export type BridgeCreateNestedOneWithoutWeddingInput = {
-    create?: XOR<BridgeCreateWithoutWeddingInput, BridgeUncheckedCreateWithoutWeddingInput>
-    connectOrCreate?: BridgeCreateOrConnectWithoutWeddingInput
-    connect?: BridgeWhereUniqueInput
-  }
-
-  export type MetaTagCreateNestedOneWithoutWeddingInput = {
-    create?: XOR<MetaTagCreateWithoutWeddingInput, MetaTagUncheckedCreateWithoutWeddingInput>
-    connectOrCreate?: MetaTagCreateOrConnectWithoutWeddingInput
-    connect?: MetaTagWhereUniqueInput
-  }
-
-  export type GroomUncheckedCreateNestedOneWithoutWeddingInput = {
-    create?: XOR<GroomCreateWithoutWeddingInput, GroomUncheckedCreateWithoutWeddingInput>
-    connectOrCreate?: GroomCreateOrConnectWithoutWeddingInput
-    connect?: GroomWhereUniqueInput
-  }
-
-  export type BridgeUncheckedCreateNestedOneWithoutWeddingInput = {
-    create?: XOR<BridgeCreateWithoutWeddingInput, BridgeUncheckedCreateWithoutWeddingInput>
-    connectOrCreate?: BridgeCreateOrConnectWithoutWeddingInput
-    connect?: BridgeWhereUniqueInput
-  }
-
-  export type MetaTagUncheckedCreateNestedOneWithoutWeddingInput = {
-    create?: XOR<MetaTagCreateWithoutWeddingInput, MetaTagUncheckedCreateWithoutWeddingInput>
-    connectOrCreate?: MetaTagCreateOrConnectWithoutWeddingInput
-    connect?: MetaTagWhereUniqueInput
+  export type MetaUncheckedCreateNestedOneWithoutInvitationInput = {
+    create?: XOR<MetaCreateWithoutInvitationInput, MetaUncheckedCreateWithoutInvitationInput>
+    connectOrCreate?: MetaCreateOrConnectWithoutInvitationInput
+    connect?: MetaWhereUniqueInput
   }
 
   export type StringFieldUpdateOperationsInput = {
@@ -6318,106 +3980,38 @@ export namespace Prisma {
     set?: Date | string
   }
 
-  export type GroomUpdateOneWithoutWeddingNestedInput = {
-    create?: XOR<GroomCreateWithoutWeddingInput, GroomUncheckedCreateWithoutWeddingInput>
-    connectOrCreate?: GroomCreateOrConnectWithoutWeddingInput
-    upsert?: GroomUpsertWithoutWeddingInput
-    disconnect?: GroomWhereInput | boolean
-    delete?: GroomWhereInput | boolean
-    connect?: GroomWhereUniqueInput
-    update?: XOR<XOR<GroomUpdateToOneWithWhereWithoutWeddingInput, GroomUpdateWithoutWeddingInput>, GroomUncheckedUpdateWithoutWeddingInput>
+  export type MetaUpdateOneWithoutInvitationNestedInput = {
+    create?: XOR<MetaCreateWithoutInvitationInput, MetaUncheckedCreateWithoutInvitationInput>
+    connectOrCreate?: MetaCreateOrConnectWithoutInvitationInput
+    upsert?: MetaUpsertWithoutInvitationInput
+    disconnect?: MetaWhereInput | boolean
+    delete?: MetaWhereInput | boolean
+    connect?: MetaWhereUniqueInput
+    update?: XOR<XOR<MetaUpdateToOneWithWhereWithoutInvitationInput, MetaUpdateWithoutInvitationInput>, MetaUncheckedUpdateWithoutInvitationInput>
   }
 
-  export type BridgeUpdateOneWithoutWeddingNestedInput = {
-    create?: XOR<BridgeCreateWithoutWeddingInput, BridgeUncheckedCreateWithoutWeddingInput>
-    connectOrCreate?: BridgeCreateOrConnectWithoutWeddingInput
-    upsert?: BridgeUpsertWithoutWeddingInput
-    disconnect?: BridgeWhereInput | boolean
-    delete?: BridgeWhereInput | boolean
-    connect?: BridgeWhereUniqueInput
-    update?: XOR<XOR<BridgeUpdateToOneWithWhereWithoutWeddingInput, BridgeUpdateWithoutWeddingInput>, BridgeUncheckedUpdateWithoutWeddingInput>
+  export type MetaUncheckedUpdateOneWithoutInvitationNestedInput = {
+    create?: XOR<MetaCreateWithoutInvitationInput, MetaUncheckedCreateWithoutInvitationInput>
+    connectOrCreate?: MetaCreateOrConnectWithoutInvitationInput
+    upsert?: MetaUpsertWithoutInvitationInput
+    disconnect?: MetaWhereInput | boolean
+    delete?: MetaWhereInput | boolean
+    connect?: MetaWhereUniqueInput
+    update?: XOR<XOR<MetaUpdateToOneWithWhereWithoutInvitationInput, MetaUpdateWithoutInvitationInput>, MetaUncheckedUpdateWithoutInvitationInput>
   }
 
-  export type MetaTagUpdateOneWithoutWeddingNestedInput = {
-    create?: XOR<MetaTagCreateWithoutWeddingInput, MetaTagUncheckedCreateWithoutWeddingInput>
-    connectOrCreate?: MetaTagCreateOrConnectWithoutWeddingInput
-    upsert?: MetaTagUpsertWithoutWeddingInput
-    disconnect?: MetaTagWhereInput | boolean
-    delete?: MetaTagWhereInput | boolean
-    connect?: MetaTagWhereUniqueInput
-    update?: XOR<XOR<MetaTagUpdateToOneWithWhereWithoutWeddingInput, MetaTagUpdateWithoutWeddingInput>, MetaTagUncheckedUpdateWithoutWeddingInput>
+  export type InvitationCreateNestedOneWithoutMetaInput = {
+    create?: XOR<InvitationCreateWithoutMetaInput, InvitationUncheckedCreateWithoutMetaInput>
+    connectOrCreate?: InvitationCreateOrConnectWithoutMetaInput
+    connect?: InvitationWhereUniqueInput
   }
 
-  export type GroomUncheckedUpdateOneWithoutWeddingNestedInput = {
-    create?: XOR<GroomCreateWithoutWeddingInput, GroomUncheckedCreateWithoutWeddingInput>
-    connectOrCreate?: GroomCreateOrConnectWithoutWeddingInput
-    upsert?: GroomUpsertWithoutWeddingInput
-    disconnect?: GroomWhereInput | boolean
-    delete?: GroomWhereInput | boolean
-    connect?: GroomWhereUniqueInput
-    update?: XOR<XOR<GroomUpdateToOneWithWhereWithoutWeddingInput, GroomUpdateWithoutWeddingInput>, GroomUncheckedUpdateWithoutWeddingInput>
-  }
-
-  export type BridgeUncheckedUpdateOneWithoutWeddingNestedInput = {
-    create?: XOR<BridgeCreateWithoutWeddingInput, BridgeUncheckedCreateWithoutWeddingInput>
-    connectOrCreate?: BridgeCreateOrConnectWithoutWeddingInput
-    upsert?: BridgeUpsertWithoutWeddingInput
-    disconnect?: BridgeWhereInput | boolean
-    delete?: BridgeWhereInput | boolean
-    connect?: BridgeWhereUniqueInput
-    update?: XOR<XOR<BridgeUpdateToOneWithWhereWithoutWeddingInput, BridgeUpdateWithoutWeddingInput>, BridgeUncheckedUpdateWithoutWeddingInput>
-  }
-
-  export type MetaTagUncheckedUpdateOneWithoutWeddingNestedInput = {
-    create?: XOR<MetaTagCreateWithoutWeddingInput, MetaTagUncheckedCreateWithoutWeddingInput>
-    connectOrCreate?: MetaTagCreateOrConnectWithoutWeddingInput
-    upsert?: MetaTagUpsertWithoutWeddingInput
-    disconnect?: MetaTagWhereInput | boolean
-    delete?: MetaTagWhereInput | boolean
-    connect?: MetaTagWhereUniqueInput
-    update?: XOR<XOR<MetaTagUpdateToOneWithWhereWithoutWeddingInput, MetaTagUpdateWithoutWeddingInput>, MetaTagUncheckedUpdateWithoutWeddingInput>
-  }
-
-  export type WeddingCreateNestedOneWithoutGroomInput = {
-    create?: XOR<WeddingCreateWithoutGroomInput, WeddingUncheckedCreateWithoutGroomInput>
-    connectOrCreate?: WeddingCreateOrConnectWithoutGroomInput
-    connect?: WeddingWhereUniqueInput
-  }
-
-  export type WeddingUpdateOneRequiredWithoutGroomNestedInput = {
-    create?: XOR<WeddingCreateWithoutGroomInput, WeddingUncheckedCreateWithoutGroomInput>
-    connectOrCreate?: WeddingCreateOrConnectWithoutGroomInput
-    upsert?: WeddingUpsertWithoutGroomInput
-    connect?: WeddingWhereUniqueInput
-    update?: XOR<XOR<WeddingUpdateToOneWithWhereWithoutGroomInput, WeddingUpdateWithoutGroomInput>, WeddingUncheckedUpdateWithoutGroomInput>
-  }
-
-  export type WeddingCreateNestedOneWithoutBridgeInput = {
-    create?: XOR<WeddingCreateWithoutBridgeInput, WeddingUncheckedCreateWithoutBridgeInput>
-    connectOrCreate?: WeddingCreateOrConnectWithoutBridgeInput
-    connect?: WeddingWhereUniqueInput
-  }
-
-  export type WeddingUpdateOneRequiredWithoutBridgeNestedInput = {
-    create?: XOR<WeddingCreateWithoutBridgeInput, WeddingUncheckedCreateWithoutBridgeInput>
-    connectOrCreate?: WeddingCreateOrConnectWithoutBridgeInput
-    upsert?: WeddingUpsertWithoutBridgeInput
-    connect?: WeddingWhereUniqueInput
-    update?: XOR<XOR<WeddingUpdateToOneWithWhereWithoutBridgeInput, WeddingUpdateWithoutBridgeInput>, WeddingUncheckedUpdateWithoutBridgeInput>
-  }
-
-  export type WeddingCreateNestedOneWithoutMetaTagInput = {
-    create?: XOR<WeddingCreateWithoutMetaTagInput, WeddingUncheckedCreateWithoutMetaTagInput>
-    connectOrCreate?: WeddingCreateOrConnectWithoutMetaTagInput
-    connect?: WeddingWhereUniqueInput
-  }
-
-  export type WeddingUpdateOneRequiredWithoutMetaTagNestedInput = {
-    create?: XOR<WeddingCreateWithoutMetaTagInput, WeddingUncheckedCreateWithoutMetaTagInput>
-    connectOrCreate?: WeddingCreateOrConnectWithoutMetaTagInput
-    upsert?: WeddingUpsertWithoutMetaTagInput
-    connect?: WeddingWhereUniqueInput
-    update?: XOR<XOR<WeddingUpdateToOneWithWhereWithoutMetaTagInput, WeddingUpdateWithoutMetaTagInput>, WeddingUncheckedUpdateWithoutMetaTagInput>
+  export type InvitationUpdateOneRequiredWithoutMetaNestedInput = {
+    create?: XOR<InvitationCreateWithoutMetaInput, InvitationUncheckedCreateWithoutMetaInput>
+    connectOrCreate?: InvitationCreateOrConnectWithoutMetaInput
+    upsert?: InvitationUpsertWithoutMetaInput
+    connect?: InvitationWhereUniqueInput
+    update?: XOR<XOR<InvitationUpdateToOneWithWhereWithoutMetaInput, InvitationUpdateWithoutMetaInput>, InvitationUncheckedUpdateWithoutMetaInput>
   }
 
   export type NestedStringFilter<$PrismaModel = never> = {
@@ -6532,69 +4126,7 @@ export namespace Prisma {
     _max?: NestedDateTimeFilter<$PrismaModel>
   }
 
-  export type GroomCreateWithoutWeddingInput = {
-    id?: string
-    groom: string
-    groomMother: string
-    groomFather: string
-    groomBank: string
-    groomMotherBank: string
-    groomFatherBank: string
-    groomAccount: string
-    groomMotherAccount: string
-    groomFatherAccount: string
-  }
-
-  export type GroomUncheckedCreateWithoutWeddingInput = {
-    id?: string
-    groom: string
-    groomMother: string
-    groomFather: string
-    groomBank: string
-    groomMotherBank: string
-    groomFatherBank: string
-    groomAccount: string
-    groomMotherAccount: string
-    groomFatherAccount: string
-  }
-
-  export type GroomCreateOrConnectWithoutWeddingInput = {
-    where: GroomWhereUniqueInput
-    create: XOR<GroomCreateWithoutWeddingInput, GroomUncheckedCreateWithoutWeddingInput>
-  }
-
-  export type BridgeCreateWithoutWeddingInput = {
-    id?: string
-    Bridge: string
-    BridgeMother: string
-    BridgeFather: string
-    BridgeBank: string
-    BridgeMotherBank: string
-    BridgeFatherBank: string
-    BridgeAccount: string
-    BridgeMotherAccount: string
-    BridgeFatherAccount: string
-  }
-
-  export type BridgeUncheckedCreateWithoutWeddingInput = {
-    id?: string
-    Bridge: string
-    BridgeMother: string
-    BridgeFather: string
-    BridgeBank: string
-    BridgeMotherBank: string
-    BridgeFatherBank: string
-    BridgeAccount: string
-    BridgeMotherAccount: string
-    BridgeFatherAccount: string
-  }
-
-  export type BridgeCreateOrConnectWithoutWeddingInput = {
-    where: BridgeWhereUniqueInput
-    create: XOR<BridgeCreateWithoutWeddingInput, BridgeUncheckedCreateWithoutWeddingInput>
-  }
-
-  export type MetaTagCreateWithoutWeddingInput = {
+  export type MetaCreateWithoutInvitationInput = {
     id?: string
     title: string
     ogUrl: string
@@ -6603,7 +4135,7 @@ export namespace Prisma {
     ogDescription: string
   }
 
-  export type MetaTagUncheckedCreateWithoutWeddingInput = {
+  export type MetaUncheckedCreateWithoutInvitationInput = {
     id?: string
     title: string
     ogUrl: string
@@ -6612,93 +4144,23 @@ export namespace Prisma {
     ogDescription: string
   }
 
-  export type MetaTagCreateOrConnectWithoutWeddingInput = {
-    where: MetaTagWhereUniqueInput
-    create: XOR<MetaTagCreateWithoutWeddingInput, MetaTagUncheckedCreateWithoutWeddingInput>
+  export type MetaCreateOrConnectWithoutInvitationInput = {
+    where: MetaWhereUniqueInput
+    create: XOR<MetaCreateWithoutInvitationInput, MetaUncheckedCreateWithoutInvitationInput>
   }
 
-  export type GroomUpsertWithoutWeddingInput = {
-    update: XOR<GroomUpdateWithoutWeddingInput, GroomUncheckedUpdateWithoutWeddingInput>
-    create: XOR<GroomCreateWithoutWeddingInput, GroomUncheckedCreateWithoutWeddingInput>
-    where?: GroomWhereInput
+  export type MetaUpsertWithoutInvitationInput = {
+    update: XOR<MetaUpdateWithoutInvitationInput, MetaUncheckedUpdateWithoutInvitationInput>
+    create: XOR<MetaCreateWithoutInvitationInput, MetaUncheckedCreateWithoutInvitationInput>
+    where?: MetaWhereInput
   }
 
-  export type GroomUpdateToOneWithWhereWithoutWeddingInput = {
-    where?: GroomWhereInput
-    data: XOR<GroomUpdateWithoutWeddingInput, GroomUncheckedUpdateWithoutWeddingInput>
+  export type MetaUpdateToOneWithWhereWithoutInvitationInput = {
+    where?: MetaWhereInput
+    data: XOR<MetaUpdateWithoutInvitationInput, MetaUncheckedUpdateWithoutInvitationInput>
   }
 
-  export type GroomUpdateWithoutWeddingInput = {
-    groom?: StringFieldUpdateOperationsInput | string
-    groomMother?: StringFieldUpdateOperationsInput | string
-    groomFather?: StringFieldUpdateOperationsInput | string
-    groomBank?: StringFieldUpdateOperationsInput | string
-    groomMotherBank?: StringFieldUpdateOperationsInput | string
-    groomFatherBank?: StringFieldUpdateOperationsInput | string
-    groomAccount?: StringFieldUpdateOperationsInput | string
-    groomMotherAccount?: StringFieldUpdateOperationsInput | string
-    groomFatherAccount?: StringFieldUpdateOperationsInput | string
-  }
-
-  export type GroomUncheckedUpdateWithoutWeddingInput = {
-    groom?: StringFieldUpdateOperationsInput | string
-    groomMother?: StringFieldUpdateOperationsInput | string
-    groomFather?: StringFieldUpdateOperationsInput | string
-    groomBank?: StringFieldUpdateOperationsInput | string
-    groomMotherBank?: StringFieldUpdateOperationsInput | string
-    groomFatherBank?: StringFieldUpdateOperationsInput | string
-    groomAccount?: StringFieldUpdateOperationsInput | string
-    groomMotherAccount?: StringFieldUpdateOperationsInput | string
-    groomFatherAccount?: StringFieldUpdateOperationsInput | string
-  }
-
-  export type BridgeUpsertWithoutWeddingInput = {
-    update: XOR<BridgeUpdateWithoutWeddingInput, BridgeUncheckedUpdateWithoutWeddingInput>
-    create: XOR<BridgeCreateWithoutWeddingInput, BridgeUncheckedCreateWithoutWeddingInput>
-    where?: BridgeWhereInput
-  }
-
-  export type BridgeUpdateToOneWithWhereWithoutWeddingInput = {
-    where?: BridgeWhereInput
-    data: XOR<BridgeUpdateWithoutWeddingInput, BridgeUncheckedUpdateWithoutWeddingInput>
-  }
-
-  export type BridgeUpdateWithoutWeddingInput = {
-    Bridge?: StringFieldUpdateOperationsInput | string
-    BridgeMother?: StringFieldUpdateOperationsInput | string
-    BridgeFather?: StringFieldUpdateOperationsInput | string
-    BridgeBank?: StringFieldUpdateOperationsInput | string
-    BridgeMotherBank?: StringFieldUpdateOperationsInput | string
-    BridgeFatherBank?: StringFieldUpdateOperationsInput | string
-    BridgeAccount?: StringFieldUpdateOperationsInput | string
-    BridgeMotherAccount?: StringFieldUpdateOperationsInput | string
-    BridgeFatherAccount?: StringFieldUpdateOperationsInput | string
-  }
-
-  export type BridgeUncheckedUpdateWithoutWeddingInput = {
-    Bridge?: StringFieldUpdateOperationsInput | string
-    BridgeMother?: StringFieldUpdateOperationsInput | string
-    BridgeFather?: StringFieldUpdateOperationsInput | string
-    BridgeBank?: StringFieldUpdateOperationsInput | string
-    BridgeMotherBank?: StringFieldUpdateOperationsInput | string
-    BridgeFatherBank?: StringFieldUpdateOperationsInput | string
-    BridgeAccount?: StringFieldUpdateOperationsInput | string
-    BridgeMotherAccount?: StringFieldUpdateOperationsInput | string
-    BridgeFatherAccount?: StringFieldUpdateOperationsInput | string
-  }
-
-  export type MetaTagUpsertWithoutWeddingInput = {
-    update: XOR<MetaTagUpdateWithoutWeddingInput, MetaTagUncheckedUpdateWithoutWeddingInput>
-    create: XOR<MetaTagCreateWithoutWeddingInput, MetaTagUncheckedCreateWithoutWeddingInput>
-    where?: MetaTagWhereInput
-  }
-
-  export type MetaTagUpdateToOneWithWhereWithoutWeddingInput = {
-    where?: MetaTagWhereInput
-    data: XOR<MetaTagUpdateWithoutWeddingInput, MetaTagUncheckedUpdateWithoutWeddingInput>
-  }
-
-  export type MetaTagUpdateWithoutWeddingInput = {
+  export type MetaUpdateWithoutInvitationInput = {
     title?: StringFieldUpdateOperationsInput | string
     ogUrl?: StringFieldUpdateOperationsInput | string
     ogTitle?: StringFieldUpdateOperationsInput | string
@@ -6706,7 +4168,7 @@ export namespace Prisma {
     ogDescription?: StringFieldUpdateOperationsInput | string
   }
 
-  export type MetaTagUncheckedUpdateWithoutWeddingInput = {
+  export type MetaUncheckedUpdateWithoutInvitationInput = {
     title?: StringFieldUpdateOperationsInput | string
     ogUrl?: StringFieldUpdateOperationsInput | string
     ogTitle?: StringFieldUpdateOperationsInput | string
@@ -6714,7 +4176,7 @@ export namespace Prisma {
     ogDescription?: StringFieldUpdateOperationsInput | string
   }
 
-  export type WeddingCreateWithoutGroomInput = {
+  export type InvitationCreateWithoutMetaInput = {
     id?: string
     weddingHouse: string
     weddingHouseAddress: string
@@ -6722,12 +4184,28 @@ export namespace Prisma {
     subway?: string | null
     description: string
     date: Date | string
+    groom: string
+    groomMother?: string | null
+    groomFather?: string | null
+    groomBank?: string | null
+    groomMotherBank?: string | null
+    groomFatherBank?: string | null
+    groomAccount?: string | null
+    groomMotherAccount?: string | null
+    groomFatherAccount?: string | null
+    bridge: string
+    bridgeMother?: string | null
+    bridgeFather?: string | null
+    bridgeBank?: string | null
+    bridgeMotherBank?: string | null
+    bridgeFatherBank?: string | null
+    bridgeAccount?: string | null
+    bridgeMotherAccount?: string | null
+    bridgeFatherAccount?: string | null
     createdAt?: Date | string
-    Bridge?: BridgeCreateNestedOneWithoutWeddingInput
-    MetaTag?: MetaTagCreateNestedOneWithoutWeddingInput
   }
 
-  export type WeddingUncheckedCreateWithoutGroomInput = {
+  export type InvitationUncheckedCreateWithoutMetaInput = {
     id?: string
     weddingHouse: string
     weddingHouseAddress: string
@@ -6735,181 +4213,97 @@ export namespace Prisma {
     subway?: string | null
     description: string
     date: Date | string
+    groom: string
+    groomMother?: string | null
+    groomFather?: string | null
+    groomBank?: string | null
+    groomMotherBank?: string | null
+    groomFatherBank?: string | null
+    groomAccount?: string | null
+    groomMotherAccount?: string | null
+    groomFatherAccount?: string | null
+    bridge: string
+    bridgeMother?: string | null
+    bridgeFather?: string | null
+    bridgeBank?: string | null
+    bridgeMotherBank?: string | null
+    bridgeFatherBank?: string | null
+    bridgeAccount?: string | null
+    bridgeMotherAccount?: string | null
+    bridgeFatherAccount?: string | null
     createdAt?: Date | string
-    Bridge?: BridgeUncheckedCreateNestedOneWithoutWeddingInput
-    MetaTag?: MetaTagUncheckedCreateNestedOneWithoutWeddingInput
   }
 
-  export type WeddingCreateOrConnectWithoutGroomInput = {
-    where: WeddingWhereUniqueInput
-    create: XOR<WeddingCreateWithoutGroomInput, WeddingUncheckedCreateWithoutGroomInput>
+  export type InvitationCreateOrConnectWithoutMetaInput = {
+    where: InvitationWhereUniqueInput
+    create: XOR<InvitationCreateWithoutMetaInput, InvitationUncheckedCreateWithoutMetaInput>
   }
 
-  export type WeddingUpsertWithoutGroomInput = {
-    update: XOR<WeddingUpdateWithoutGroomInput, WeddingUncheckedUpdateWithoutGroomInput>
-    create: XOR<WeddingCreateWithoutGroomInput, WeddingUncheckedCreateWithoutGroomInput>
-    where?: WeddingWhereInput
+  export type InvitationUpsertWithoutMetaInput = {
+    update: XOR<InvitationUpdateWithoutMetaInput, InvitationUncheckedUpdateWithoutMetaInput>
+    create: XOR<InvitationCreateWithoutMetaInput, InvitationUncheckedCreateWithoutMetaInput>
+    where?: InvitationWhereInput
   }
 
-  export type WeddingUpdateToOneWithWhereWithoutGroomInput = {
-    where?: WeddingWhereInput
-    data: XOR<WeddingUpdateWithoutGroomInput, WeddingUncheckedUpdateWithoutGroomInput>
+  export type InvitationUpdateToOneWithWhereWithoutMetaInput = {
+    where?: InvitationWhereInput
+    data: XOR<InvitationUpdateWithoutMetaInput, InvitationUncheckedUpdateWithoutMetaInput>
   }
 
-  export type WeddingUpdateWithoutGroomInput = {
+  export type InvitationUpdateWithoutMetaInput = {
     weddingHouse?: StringFieldUpdateOperationsInput | string
     weddingHouseAddress?: StringFieldUpdateOperationsInput | string
     bus?: NullableStringFieldUpdateOperationsInput | string | null
     subway?: NullableStringFieldUpdateOperationsInput | string | null
     description?: StringFieldUpdateOperationsInput | string
     date?: DateTimeFieldUpdateOperationsInput | Date | string
+    groom?: StringFieldUpdateOperationsInput | string
+    groomMother?: NullableStringFieldUpdateOperationsInput | string | null
+    groomFather?: NullableStringFieldUpdateOperationsInput | string | null
+    groomBank?: NullableStringFieldUpdateOperationsInput | string | null
+    groomMotherBank?: NullableStringFieldUpdateOperationsInput | string | null
+    groomFatherBank?: NullableStringFieldUpdateOperationsInput | string | null
+    groomAccount?: NullableStringFieldUpdateOperationsInput | string | null
+    groomMotherAccount?: NullableStringFieldUpdateOperationsInput | string | null
+    groomFatherAccount?: NullableStringFieldUpdateOperationsInput | string | null
+    bridge?: StringFieldUpdateOperationsInput | string
+    bridgeMother?: NullableStringFieldUpdateOperationsInput | string | null
+    bridgeFather?: NullableStringFieldUpdateOperationsInput | string | null
+    bridgeBank?: NullableStringFieldUpdateOperationsInput | string | null
+    bridgeMotherBank?: NullableStringFieldUpdateOperationsInput | string | null
+    bridgeFatherBank?: NullableStringFieldUpdateOperationsInput | string | null
+    bridgeAccount?: NullableStringFieldUpdateOperationsInput | string | null
+    bridgeMotherAccount?: NullableStringFieldUpdateOperationsInput | string | null
+    bridgeFatherAccount?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    Bridge?: BridgeUpdateOneWithoutWeddingNestedInput
-    MetaTag?: MetaTagUpdateOneWithoutWeddingNestedInput
   }
 
-  export type WeddingUncheckedUpdateWithoutGroomInput = {
+  export type InvitationUncheckedUpdateWithoutMetaInput = {
     weddingHouse?: StringFieldUpdateOperationsInput | string
     weddingHouseAddress?: StringFieldUpdateOperationsInput | string
     bus?: NullableStringFieldUpdateOperationsInput | string | null
     subway?: NullableStringFieldUpdateOperationsInput | string | null
     description?: StringFieldUpdateOperationsInput | string
     date?: DateTimeFieldUpdateOperationsInput | Date | string
+    groom?: StringFieldUpdateOperationsInput | string
+    groomMother?: NullableStringFieldUpdateOperationsInput | string | null
+    groomFather?: NullableStringFieldUpdateOperationsInput | string | null
+    groomBank?: NullableStringFieldUpdateOperationsInput | string | null
+    groomMotherBank?: NullableStringFieldUpdateOperationsInput | string | null
+    groomFatherBank?: NullableStringFieldUpdateOperationsInput | string | null
+    groomAccount?: NullableStringFieldUpdateOperationsInput | string | null
+    groomMotherAccount?: NullableStringFieldUpdateOperationsInput | string | null
+    groomFatherAccount?: NullableStringFieldUpdateOperationsInput | string | null
+    bridge?: StringFieldUpdateOperationsInput | string
+    bridgeMother?: NullableStringFieldUpdateOperationsInput | string | null
+    bridgeFather?: NullableStringFieldUpdateOperationsInput | string | null
+    bridgeBank?: NullableStringFieldUpdateOperationsInput | string | null
+    bridgeMotherBank?: NullableStringFieldUpdateOperationsInput | string | null
+    bridgeFatherBank?: NullableStringFieldUpdateOperationsInput | string | null
+    bridgeAccount?: NullableStringFieldUpdateOperationsInput | string | null
+    bridgeMotherAccount?: NullableStringFieldUpdateOperationsInput | string | null
+    bridgeFatherAccount?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    Bridge?: BridgeUncheckedUpdateOneWithoutWeddingNestedInput
-    MetaTag?: MetaTagUncheckedUpdateOneWithoutWeddingNestedInput
-  }
-
-  export type WeddingCreateWithoutBridgeInput = {
-    id?: string
-    weddingHouse: string
-    weddingHouseAddress: string
-    bus?: string | null
-    subway?: string | null
-    description: string
-    date: Date | string
-    createdAt?: Date | string
-    Groom?: GroomCreateNestedOneWithoutWeddingInput
-    MetaTag?: MetaTagCreateNestedOneWithoutWeddingInput
-  }
-
-  export type WeddingUncheckedCreateWithoutBridgeInput = {
-    id?: string
-    weddingHouse: string
-    weddingHouseAddress: string
-    bus?: string | null
-    subway?: string | null
-    description: string
-    date: Date | string
-    createdAt?: Date | string
-    Groom?: GroomUncheckedCreateNestedOneWithoutWeddingInput
-    MetaTag?: MetaTagUncheckedCreateNestedOneWithoutWeddingInput
-  }
-
-  export type WeddingCreateOrConnectWithoutBridgeInput = {
-    where: WeddingWhereUniqueInput
-    create: XOR<WeddingCreateWithoutBridgeInput, WeddingUncheckedCreateWithoutBridgeInput>
-  }
-
-  export type WeddingUpsertWithoutBridgeInput = {
-    update: XOR<WeddingUpdateWithoutBridgeInput, WeddingUncheckedUpdateWithoutBridgeInput>
-    create: XOR<WeddingCreateWithoutBridgeInput, WeddingUncheckedCreateWithoutBridgeInput>
-    where?: WeddingWhereInput
-  }
-
-  export type WeddingUpdateToOneWithWhereWithoutBridgeInput = {
-    where?: WeddingWhereInput
-    data: XOR<WeddingUpdateWithoutBridgeInput, WeddingUncheckedUpdateWithoutBridgeInput>
-  }
-
-  export type WeddingUpdateWithoutBridgeInput = {
-    weddingHouse?: StringFieldUpdateOperationsInput | string
-    weddingHouseAddress?: StringFieldUpdateOperationsInput | string
-    bus?: NullableStringFieldUpdateOperationsInput | string | null
-    subway?: NullableStringFieldUpdateOperationsInput | string | null
-    description?: StringFieldUpdateOperationsInput | string
-    date?: DateTimeFieldUpdateOperationsInput | Date | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    Groom?: GroomUpdateOneWithoutWeddingNestedInput
-    MetaTag?: MetaTagUpdateOneWithoutWeddingNestedInput
-  }
-
-  export type WeddingUncheckedUpdateWithoutBridgeInput = {
-    weddingHouse?: StringFieldUpdateOperationsInput | string
-    weddingHouseAddress?: StringFieldUpdateOperationsInput | string
-    bus?: NullableStringFieldUpdateOperationsInput | string | null
-    subway?: NullableStringFieldUpdateOperationsInput | string | null
-    description?: StringFieldUpdateOperationsInput | string
-    date?: DateTimeFieldUpdateOperationsInput | Date | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    Groom?: GroomUncheckedUpdateOneWithoutWeddingNestedInput
-    MetaTag?: MetaTagUncheckedUpdateOneWithoutWeddingNestedInput
-  }
-
-  export type WeddingCreateWithoutMetaTagInput = {
-    id?: string
-    weddingHouse: string
-    weddingHouseAddress: string
-    bus?: string | null
-    subway?: string | null
-    description: string
-    date: Date | string
-    createdAt?: Date | string
-    Groom?: GroomCreateNestedOneWithoutWeddingInput
-    Bridge?: BridgeCreateNestedOneWithoutWeddingInput
-  }
-
-  export type WeddingUncheckedCreateWithoutMetaTagInput = {
-    id?: string
-    weddingHouse: string
-    weddingHouseAddress: string
-    bus?: string | null
-    subway?: string | null
-    description: string
-    date: Date | string
-    createdAt?: Date | string
-    Groom?: GroomUncheckedCreateNestedOneWithoutWeddingInput
-    Bridge?: BridgeUncheckedCreateNestedOneWithoutWeddingInput
-  }
-
-  export type WeddingCreateOrConnectWithoutMetaTagInput = {
-    where: WeddingWhereUniqueInput
-    create: XOR<WeddingCreateWithoutMetaTagInput, WeddingUncheckedCreateWithoutMetaTagInput>
-  }
-
-  export type WeddingUpsertWithoutMetaTagInput = {
-    update: XOR<WeddingUpdateWithoutMetaTagInput, WeddingUncheckedUpdateWithoutMetaTagInput>
-    create: XOR<WeddingCreateWithoutMetaTagInput, WeddingUncheckedCreateWithoutMetaTagInput>
-    where?: WeddingWhereInput
-  }
-
-  export type WeddingUpdateToOneWithWhereWithoutMetaTagInput = {
-    where?: WeddingWhereInput
-    data: XOR<WeddingUpdateWithoutMetaTagInput, WeddingUncheckedUpdateWithoutMetaTagInput>
-  }
-
-  export type WeddingUpdateWithoutMetaTagInput = {
-    weddingHouse?: StringFieldUpdateOperationsInput | string
-    weddingHouseAddress?: StringFieldUpdateOperationsInput | string
-    bus?: NullableStringFieldUpdateOperationsInput | string | null
-    subway?: NullableStringFieldUpdateOperationsInput | string | null
-    description?: StringFieldUpdateOperationsInput | string
-    date?: DateTimeFieldUpdateOperationsInput | Date | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    Groom?: GroomUpdateOneWithoutWeddingNestedInput
-    Bridge?: BridgeUpdateOneWithoutWeddingNestedInput
-  }
-
-  export type WeddingUncheckedUpdateWithoutMetaTagInput = {
-    weddingHouse?: StringFieldUpdateOperationsInput | string
-    weddingHouseAddress?: StringFieldUpdateOperationsInput | string
-    bus?: NullableStringFieldUpdateOperationsInput | string | null
-    subway?: NullableStringFieldUpdateOperationsInput | string | null
-    description?: StringFieldUpdateOperationsInput | string
-    date?: DateTimeFieldUpdateOperationsInput | Date | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    Groom?: GroomUncheckedUpdateOneWithoutWeddingNestedInput
-    Bridge?: BridgeUncheckedUpdateOneWithoutWeddingNestedInput
   }
 
 
@@ -6918,21 +4312,13 @@ export namespace Prisma {
    * Aliases for legacy arg types
    */
     /**
-     * @deprecated Use WeddingDefaultArgs instead
+     * @deprecated Use InvitationDefaultArgs instead
      */
-    export type WeddingArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = WeddingDefaultArgs<ExtArgs>
+    export type InvitationArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = InvitationDefaultArgs<ExtArgs>
     /**
-     * @deprecated Use GroomDefaultArgs instead
+     * @deprecated Use MetaDefaultArgs instead
      */
-    export type GroomArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = GroomDefaultArgs<ExtArgs>
-    /**
-     * @deprecated Use BridgeDefaultArgs instead
-     */
-    export type BridgeArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = BridgeDefaultArgs<ExtArgs>
-    /**
-     * @deprecated Use MetaTagDefaultArgs instead
-     */
-    export type MetaTagArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = MetaTagDefaultArgs<ExtArgs>
+    export type MetaArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = MetaDefaultArgs<ExtArgs>
 
   /**
    * Batch Payload for updateMany & deleteMany & createMany

@@ -1,6 +1,3 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
 generator client {
   provider = "prisma-client-js"
   output = "./"
@@ -11,7 +8,7 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Wedding {
+model Invitation {
   id                  String   @id @default(auto()) @map("_id") @db.ObjectId
   weddingHouse        String
   weddingHouseAddress String
@@ -19,46 +16,32 @@ model Wedding {
   subway              String?
   description         String
   date                DateTime
+  groom               String
+  groomMother         String?
+  groomFather         String?
+  groomBank           String?
+  groomMotherBank     String?
+  groomFatherBank     String?
+  groomAccount        String?
+  groomMotherAccount  String?
+  groomFatherAccount  String?
+  bridge              String
+  bridgeMother        String?
+  bridgeFather        String?
+  bridgeBank          String?
+  bridgeMotherBank    String?
+  bridgeFatherBank    String?
+  bridgeAccount       String?
+  bridgeMotherAccount String?
+  bridgeFatherAccount String?
+  meta                Meta?
   createdAt           DateTime @default(now())
-  Groom               Groom?
-  Bridge              Bridge?
-  MetaTag             MetaTag?
 }
 
-model Groom {
-  id                 String  @id @default(auto()) @map("_id") @db.ObjectId
-  wedding            Wedding @relation(fields: [weddingId], references: [id])
-  weddingId          String  @unique @db.ObjectId
-  groom              String
-  groomMother        String
-  groomFather        String
-  groomBank          String
-  groomMotherBank    String
-  groomFatherBank    String
-  groomAccount       String
-  groomMotherAccount String
-  groomFatherAccount String
-}
-
-model Bridge {
-  id                  String  @id @default(auto()) @map("_id") @db.ObjectId
-  wedding             Wedding @relation(fields: [weddingId], references: [id])
-  weddingId           String  @unique @db.ObjectId
-  Bridge              String
-  BridgeMother        String
-  BridgeFather        String
-  BridgeBank          String
-  BridgeMotherBank    String
-  BridgeFatherBank    String
-  BridgeAccount       String
-  BridgeMotherAccount String
-  BridgeFatherAccount String
-}
-
-model MetaTag {
+model Meta {
   id            String  @id @default(auto()) @map("_id") @db.ObjectId
-  wedding       Wedding @relation(fields: [weddingId], references: [id])
-  weddingId     String  @unique @db.ObjectId
+  invitation    Invitation @relation(fields: [invitationId], references: [id])
+  invitationId  String  @unique @db.ObjectId
   title         String
   ogUrl         String
   ogTitle       String
