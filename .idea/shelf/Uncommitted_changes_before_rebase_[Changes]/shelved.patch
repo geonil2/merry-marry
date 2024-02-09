@@ -1,0 +1,331 @@
+Index: src/helper/getMetadata.ts
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import { Metadata } from 'next';\n\nexport default function getMetadata({ title, ...rest }: Metadata): Metadata {\n  return {\n    title: `${title} | KStadium Partner Service`,\n    ...rest,\n  };\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/helper/getMetadata.ts b/src/helper/getMetadata.ts
+--- a/src/helper/getMetadata.ts	(revision 6983c07658b17fc48eb41b108ff460d2accf1129)
++++ b/src/helper/getMetadata.ts	(date 1707285083736)
+@@ -2,7 +2,7 @@
+ 
+ export default function getMetadata({ title, ...rest }: Metadata): Metadata {
+   return {
+-    title: `${title} | KStadium Partner Service`,
++    title: title || `Merry-Merry`,
+     ...rest,
+   };
+ }
+Index: src/apis/prismaErrorHandler.ts
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/apis/prismaErrorHandler.ts b/src/apis/prismaErrorHandler.ts
+new file mode 100644
+--- /dev/null	(date 1707289566518)
++++ b/src/apis/prismaErrorHandler.ts	(date 1707289566518)
+@@ -0,0 +1,84 @@
++//
++// const handlePrismaError = (err) => {
++//   switch (err.code) {
++//     case 'P2002':
++//       // handling duplicate key errors
++//       return new CustomError(`Duplicate field value: ${err.meta.target}`, 400);
++//     case 'P2014':
++//       // handling invalid id errors
++//       return new CustomError(`Invalid ID: ${err.meta.target}`, 400);
++//     case 'P2003':
++//       // handling invalid data errors
++//       return new CustomError(`Invalid input data: ${err.meta.target}`, 400);
++//     default:
++//       // handling all other errors
++//       return new CustomError(`Something went wrong: ${err.message}`, 500);
++//   }
++// };
++//
++// const handleJWTError = () => new CustomError('Invalid token please login again', 400);
++//
++// const handleJWTExpiredError = () => new CustomError('Token has expired please login again', 400);
++//
++// const sendErrorDev = (err, req, res) => {
++//   if (req.originalUrl.startsWith('/api')) {
++//     res.status(err.statusCode).json({
++//       status: err.status,
++//       errors: err,
++//       message: err.message,
++//       stack: err.stack,
++//     });
++//   } else {
++//     //rendered website
++//     res.status(err.statusCode).render('error', { title: 'Something went wrong!', msg: err.message });
++//   }
++// };
++//
++// const sendErrorProd = (err, req, res) => {
++//
++//
++//   if (req.originalUrl.startsWith('/api')) {
++//     if (err.isOperational)
++//       return res.status(err.statusCode).json({ status: err.status, message: err.message });
++//
++//     //programming errors dont leak details
++//     console.error('ERROR 💥', err);
++//
++//     return res.status(400).json({ status: ' error', message: 'Please try again later' });
++//   }
++//
++//   //for rendered website
++//   if (err.isOperational)
++//     return res.status(err.statusCode).json({
++//       status: err.status,
++//       message: err.message,
++//     });
++//   //programming errors should not leak details to client
++//
++//   return res.status(500).json({ status: ' error', message: 'Sommething went wrong' });
++// };
++//
++// const errorHandler = (err, req, res, next) => {
++//
++//   err.statusCode = err.statusCode || 500; //default status code for an error
++//   err.status = err.status || 'error'; //default status
++//   if (process.env.NODE_ENV === 'development') {
++//     sendErrorDev(err, req, res);
++//   } else if (process.env.NODE_ENV === 'production') {
++//     let error = { ...err };
++//
++//     error.message = err.message;
++//     if (err instanceof Prisma.PrismaClientKnownRequestError) {
++//       console.log("handlePrismaError")
++//       error = handlePrismaError(err);
++//
++//     } else if (error.name === 'JsonWebTokenError') {
++//       error = handleJWTError();
++//     } else if (error.name === 'TokenExpiredError') {
++//       error = handleJWTExpiredError();
++//     }
++//     sendErrorProd(error, req, res);
++//   }
++// };
++//
++// export default errorHandler
+Index: src/apis/types.ts
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/apis/types.ts b/src/apis/types.ts
+new file mode 100644
+--- /dev/null	(date 1707283036489)
++++ b/src/apis/types.ts	(date 1707283036489)
+@@ -0,0 +1,7 @@
++export type MerryResponse<T> = {
++  statusCode: string;
++  message: string;
++  data: T;
++};
++
++export type MerryResponseFailed = MerryResponse<string>;
+Index: src/app/api/v1/invitation/meta/route.ts
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/app/api/v1/invitation/meta/route.ts b/src/app/api/v1/invitation/meta/route.ts
+new file mode 100644
+--- /dev/null	(date 1707290622208)
++++ b/src/app/api/v1/invitation/meta/route.ts	(date 1707290622208)
+@@ -0,0 +1,68 @@
++import { NextRequest, NextResponse } from 'next/server';
++
++import prisma from '@/lib/prisma';
++import { MerryResponse, MerryResponseFailed } from '@/apis/types';
++import { Meta } from '@/apis/invitation/types';
++
++export async function GET(req: NextRequest) {
++  const { searchParams } = new URL(req.url);
++  const id = searchParams.get(`accessKey`) || ``;
++
++  try {
++    const meta = await prisma.meta.findUnique({
++      where: {
++        invitationId: id,
++      },
++    });
++
++    return NextResponse.json<MerryResponse<Meta | null>>(
++      {
++        statusCode: `200`,
++        message: `Success`,
++        data: meta,
++      },
++      { status: 200 },
++    );
++  } catch (error) {
++    console.error(error);
++
++    return NextResponse.json(
++      {
++        statusCode: `404`,
++        message: `Failed`,
++        data: `Not Found Meta Data`,
++      },
++      { status: 404 },
++    );
++  }
++}
++
++export async function POST(request: Request) {
++  const body = await request.json();
++
++  try {
++    const newMeta = await prisma.meta.create({
++      data: body,
++    });
++
++    return NextResponse.json<MerryResponse<Meta>>(
++      {
++        statusCode: `201`,
++        message: `Success`,
++        data: newMeta,
++      },
++      { status: 201 },
++    );
++  } catch (error) {
++    console.error(error);
++
++    return NextResponse.json<MerryResponseFailed>(
++      {
++        statusCode: `500`,
++        message: `Failed`,
++        data: `Internal Server Error`,
++      },
++      { status: 500 },
++    );
++  }
++}
+Index: src/apis/invitation/types.ts
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/apis/invitation/types.ts b/src/apis/invitation/types.ts
+new file mode 100644
+--- /dev/null	(date 1707285453602)
++++ b/src/apis/invitation/types.ts	(date 1707285453602)
+@@ -0,0 +1,38 @@
++export interface Invitation {
++  id: string;
++  weddingHouse: string;
++  weddingHouseAddress: string;
++  bus: string | null;
++  subway: string | null;
++  description: string;
++  date: Date | string;
++  groom: string;
++  groomMother: string | null;
++  groomFather: string | null;
++  groomBank: string | null;
++  groomMotherBank: string | null;
++  groomFatherBank: string | null;
++  groomAccount: string | null;
++  groomMotherAccount: string | null;
++  groomFatherAccount: string | null;
++  bridge: string;
++  bridgeMother: string | null;
++  bridgeFather: string | null;
++  bridgeBank: string | null;
++  bridgeMotherBank: string | null;
++  bridgeFatherBank: string | null;
++  bridgeAccount: string | null;
++  bridgeMotherAccount: string | null;
++  bridgeFatherAccount: string | null;
++  createdAt: Date | string;
++}
++
++export interface Meta {
++  id: string;
++  invitationId: string;
++  title: string;
++  ogUrl: string;
++  ogTitle: string;
++  ogImage: string;
++  ogDescription: string;
++}
+Index: src/app/api/v1/invitation/route.ts
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/app/api/v1/invitation/route.ts b/src/app/api/v1/invitation/route.ts
+new file mode 100644
+--- /dev/null	(date 1707290487351)
++++ b/src/app/api/v1/invitation/route.ts	(date 1707290487351)
+@@ -0,0 +1,65 @@
++import { NextResponse } from 'next/server';
++
++import prisma from '@/lib/prisma';
++import { MerryResponse, MerryResponseFailed } from '@/apis/types';
++import { Invitation } from '@/apis/invitation/types';
++
++export async function GET(request: Request) {
++  const { searchParams } = new URL(request.url);
++  const id = searchParams.get(`accessKey`) || ``;
++
++  try {
++    const invitation = await prisma.invitation.findFirstOrThrow({
++      where: {
++        id,
++      },
++    });
++
++    return NextResponse.json<MerryResponse<Invitation>>({
++      statusCode: `200`,
++      message: `Success`,
++      data: invitation,
++    });
++  } catch (error) {
++    console.error(error);
++
++    return NextResponse.json<MerryResponseFailed>(
++      {
++        statusCode: `404`,
++        message: `Failed`,
++        data: `Not Found Wedding Data`,
++      },
++      { status: 404 },
++    );
++  }
++}
++
++export async function POST(request: Request) {
++  const body = await request.json();
++
++  try {
++    const newInvitation = await prisma.invitation.create({
++      data: { ...body, date: new Date(body.date) },
++    });
++
++    return NextResponse.json<MerryResponse<Invitation>>(
++      {
++        statusCode: `201`,
++        message: `Success`,
++        data: newInvitation,
++      },
++      { status: 201 },
++    );
++  } catch (error) {
++    console.error(error);
++
++    return NextResponse.json<MerryResponseFailed>(
++      {
++        statusCode: `500`,
++        message: `Failed`,
++        data: `Internal Server Error`,
++      },
++      { status: 500 },
++    );
++  }
++}

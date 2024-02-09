@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="21356dcf-2204-42c7-92a2-715815edd92a" name="Changes" comment="feat: add metadata default setting">
-      <change afterPath="$PROJECT_DIR$/src/lib/prisma.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="21356dcf-2204-42c7-92a2-715815edd92a" name="Changes" comment="feat: image upload 관련 API 개발">
+      <change afterPath="$PROJECT_DIR$/src/app/api/auth/[...nextauth].ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.pnp.cjs" beforeDir="false" afterPath="$PROJECT_DIR$/.pnp.cjs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
@@ -26,12 +25,22 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitRewordedCommitMessages">
+    <option name="commitMessagesMapping">
+      <RewordedCommitMessageMapping>
+        <option name="originalMessage" value="feat: schema 변경" />
+        <option name="rewordedMessage" value="feat: db schema 변경" />
+      </RewordedCommitMessageMapping>
+    </option>
+    <option name="currentCommit" value="1" />
+    <option name="onto" value="6983c07658b17fc48eb41b108ff460d2accf1129" />
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 5
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 5
+}</component>
   <component name="ProjectId" id="2bd1l96yeaMJRzr1VekVty3isPG" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -45,7 +54,7 @@
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "main",
     "js.linters.configure.manually.selectedeslint": "true",
-    "last_opened_file_path": "/Users/kimgeonil/Desktop/project/merry-merry",
+    "last_opened_file_path": "/Users/kimgeonil/Desktop/project/merry-merry/src/app/api/v1/invitation/wedding",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.standard": "true",
     "node.js.detected.package.tslint": "true",
@@ -60,6 +69,20 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/app/api/v1/invitation/wedding" />
+      <recent name="$PROJECT_DIR$/src/app/api/v1/invitation/meta" />
+      <recent name="$PROJECT_DIR$/src/app/api/v1/invitation/groom" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/app/api" />
+      <recent name="$PROJECT_DIR$/src/app" />
+      <recent name="$PROJECT_DIR$/src/api/v1/invitation/bridge" />
+      <recent name="$PROJECT_DIR$/src/api" />
+      <recent name="$PROJECT_DIR$/src/apis/v1/invitation" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -71,6 +94,7 @@
       <workItem from="1706530293266" duration="8688000" />
       <workItem from="1707185270107" duration="123000" />
       <workItem from="1707185916022" duration="7741000" />
+      <workItem from="1707203166693" duration="39907000" />
     </task>
     <task id="LOCAL-00001" summary="feat: add metadata default setting">
       <created>1706619032384</created>
@@ -79,11 +103,54 @@
       <option name="project" value="LOCAL" />
       <updated>1706619032384</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="feat: prisma &amp; db schema setting">
+      <option name="closed" value="true" />
+      <created>1707210167354</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1707210167354</updated>
+    </task>
+    <task id="LOCAL-00003" summary="feat: schema 변경">
+      <option name="closed" value="true" />
+      <created>1707292910697</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1707292910697</updated>
+    </task>
+    <task id="LOCAL-00004" summary="feat: schema 변경">
+      <option name="closed" value="true" />
+      <created>1707292924518</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1707292924518</updated>
+    </task>
+    <task id="LOCAL-00005" summary="feat: invitation get post API 생">
+      <option name="closed" value="true" />
+      <created>1707395270982</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1707395270982</updated>
+    </task>
+    <task id="LOCAL-00006" summary="feat: image upload 관련 API 개발">
+      <option name="closed" value="true" />
+      <created>1707396936681</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1707396936681</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName=".env" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -110,7 +177,11 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="feat: add metadata default setting" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: add metadata default setting" />
+    <MESSAGE value="feat: prisma &amp; db schema setting" />
+    <MESSAGE value="feat: schema 변경" />
+    <MESSAGE value="feat: invitation get post API 생성" />
+    <MESSAGE value="feat: image upload 관련 API 개발" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: image upload 관련 API 개발" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

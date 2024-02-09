@@ -16,7 +16,7 @@ export async function GET(request: Request) {
     });
 
     return NextResponse.json<MerryResponse<Invitation>>({
-      statusCode: `200`,
+      statusCode: 200,
       message: `Success`,
       data: invitation,
     });
@@ -25,7 +25,7 @@ export async function GET(request: Request) {
 
     return NextResponse.json<MerryResponseFailed>(
       {
-        statusCode: `404`,
+        statusCode: 404,
         message: `Failed`,
         data: `Not Found Wedding Data`,
       },
@@ -44,7 +44,7 @@ export async function POST(request: Request) {
 
     return NextResponse.json<MerryResponse<Invitation>>(
       {
-        statusCode: `201`,
+        statusCode: 201,
         message: `Success`,
         data: newInvitation,
       },
@@ -55,7 +55,7 @@ export async function POST(request: Request) {
 
     return NextResponse.json<MerryResponseFailed>(
       {
-        statusCode: `500`,
+        statusCode: 500,
         message: `Failed`,
         data: `Internal Server Error`,
       },

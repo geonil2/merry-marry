@@ -139,6 +139,13 @@ exports.Prisma.MetaScalarFieldEnum = {
   ogDescription: 'ogDescription'
 };
 
+exports.Prisma.AdminScalarFieldEnum = {
+  id: 'id',
+  email: 'email',
+  password: 'password',
+  name: 'name'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -152,7 +159,8 @@ exports.Prisma.QueryMode = {
 
 exports.Prisma.ModelName = {
   Invitation: 'Invitation',
-  Meta: 'Meta'
+  Meta: 'Meta',
+  Admin: 'Admin'
 };
 
 /**

@@ -28,7 +28,7 @@ export async function GET(request: Request) {
       .filter((image) => image !== undefined) as string[];
 
     return NextResponse.json<MerryResponse<string[]>>({
-      statusCode: `200`,
+      statusCode: 200,
       message: `Success`,
       data: images,
     });
@@ -37,7 +37,7 @@ export async function GET(request: Request) {
 
     return NextResponse.json<MerryResponseFailed>(
       {
-        statusCode: `404`,
+        statusCode: 404,
         message: `Failed`,
         data: `Not Found images`,
       },
@@ -69,7 +69,7 @@ export async function POST(request: Request) {
     );
 
     return NextResponse.json<MerryResponse<boolean>>({
-      statusCode: `201`,
+      statusCode: 201,
       message: `Success`,
       data: true,
     });
@@ -78,7 +78,7 @@ export async function POST(request: Request) {
 
     return NextResponse.json<MerryResponseFailed>(
       {
-        statusCode: `500`,
+        statusCode: 500,
         message: `Failed`,
         data: `Internal Server Error`,
       },
@@ -100,7 +100,7 @@ export async function DELETE(request: Request) {
     );
 
     return NextResponse.json<MerryResponse<boolean>>({
-      statusCode: `200`,
+      statusCode: 200,
       message: `Success`,
       data: true,
     });
@@ -109,7 +109,7 @@ export async function DELETE(request: Request) {
 
     return NextResponse.json<MerryResponseFailed>(
       {
-        statusCode: `500`,
+        statusCode: 500,
         message: `Failed`,
         data: `Internal Server Error`,
       },

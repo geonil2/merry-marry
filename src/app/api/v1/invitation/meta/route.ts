@@ -17,7 +17,7 @@ export async function GET(req: NextRequest) {
 
     return NextResponse.json<MerryResponse<Meta | null>>(
       {
-        statusCode: `200`,
+        statusCode: 200,
         message: `Success`,
         data: meta,
       },
@@ -28,7 +28,7 @@ export async function GET(req: NextRequest) {
 
     return NextResponse.json(
       {
-        statusCode: `404`,
+        statusCode: 404,
         message: `Failed`,
         data: `Not Found Meta Data`,
       },
@@ -47,7 +47,7 @@ export async function POST(request: Request) {
 
     return NextResponse.json<MerryResponse<Meta>>(
       {
-        statusCode: `201`,
+        statusCode: 201,
         message: `Success`,
         data: newMeta,
       },
@@ -58,7 +58,7 @@ export async function POST(request: Request) {
 
     return NextResponse.json<MerryResponseFailed>(
       {
-        statusCode: `500`,
+        statusCode: 500,
         message: `Failed`,
         data: `Internal Server Error`,
       },
