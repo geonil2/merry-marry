@@ -56,5 +56,8 @@ export default NextAuth({
       return session;
     },
   },
-  secret: process.env.SECRET,
+  secret: process.env.AUTH_SECRET,
+  pages: {
+    signIn: `auth/signin`,
+  },
 });

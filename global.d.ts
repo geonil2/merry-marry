@@ -6,6 +6,7 @@ declare global {
       AWS_SECRET_ACCESS_KEY: string;
       AWS_REGION: string;
       AWS_BUCKET_NAME: string;
+      AUTH_SECRET: string;
     }
   }
   interface Window {}

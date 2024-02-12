@@ -6,9 +6,23 @@ import { MerryResponse, MerryResponseFailed } from '@/apis/types';
 export async function POST(request: Request) {
   try {
     const body = await request.json();
-    const hashPassword = await bcrypt.hash(body.password, 6);
+    const hashPassword = await bcrypt.hash(body.password, 8);
 
-    const createdUser = await prisma.admin.create({
+    const existingAdmin = await prisma.admin.findUnique({
+      where: { email: body.email },
+    });
+
+    if (existingAdmin)
+      return NextResponse.json<MerryResponse<string>>(
+        {
+          statusCode: 422,
+          message: `Failed`,
+          data: `Admin Email already exists.`,
+        },
+        { status: 422 },
+      );
+
+    const createdAdmin = await prisma.admin.create({
       data: { ...body, password: hashPassword },
     });
 
