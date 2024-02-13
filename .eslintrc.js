@@ -31,6 +31,7 @@ module.exports = {
   ],
   rules: {
     'no-param-reassign': ['error', { props: false }],
+    'no-nested-ternary': 'off', // NOTE : tailwind 삼항 연산자 중첩해서 사용하기 위해
     'unused-imports/no-unused-imports': 'error',
     'react/jsx-props-no-spreading': 'off',
     'react/function-component-definition': 'off',

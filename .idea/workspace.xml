@@ -5,9 +5,27 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="21356dcf-2204-42c7-92a2-715815edd92a" name="Changes" comment="feat: image upload 관련 API 개발">
-      <change afterPath="$PROJECT_DIR$/src/app/api/auth/[...nextauth].ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/admin/page.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/images/auth/eye-open.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/images/auth/eye-slash.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/auth/PassowordIcon/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/auth/SignInForm/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/common/Button/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/common/FormProvider/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/common/LoadingSpinner/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/common/RHFTextField/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/common/TextField/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/common/TextField/styles.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/config/navbar.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/helper/classNames.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/hooks/common/useFocusInput.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/routes/paths.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.eslintrc.js" beforeDir="false" afterPath="$PROJECT_DIR$/.eslintrc.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.pnp.cjs" beforeDir="false" afterPath="$PROJECT_DIR$/.pnp.cjs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/globals.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/globals.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tailwind.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/tailwind.config.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -35,6 +53,9 @@
     <option name="currentCommit" value="1" />
     <option name="onto" value="6983c07658b17fc48eb41b108ff460d2accf1129" />
   </component>
+  <component name="GitToolBoxStore">
+    <option name="projectConfigVersion" value="5" />
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -54,7 +75,7 @@
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "main",
     "js.linters.configure.manually.selectedeslint": "true",
-    "last_opened_file_path": "/Users/kimgeonil/Desktop/project/merry-merry/src/app/api/v1/invitation/wedding",
+    "last_opened_file_path": "/Users/kimgeonil/Desktop/project/merry-merry/src/assets/images/auth",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.standard": "true",
     "node.js.detected.package.tslint": "true",
@@ -71,16 +92,17 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/assets/images/auth" />
       <recent name="$PROJECT_DIR$/src/app/api/v1/invitation/wedding" />
       <recent name="$PROJECT_DIR$/src/app/api/v1/invitation/meta" />
       <recent name="$PROJECT_DIR$/src/app/api/v1/invitation/groom" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/components/auth/SignInForm" />
+      <recent name="$PROJECT_DIR$/src/app/admin" />
       <recent name="$PROJECT_DIR$/src/app/api" />
       <recent name="$PROJECT_DIR$/src/app" />
       <recent name="$PROJECT_DIR$/src/api/v1/invitation/bridge" />
-      <recent name="$PROJECT_DIR$/src/api" />
-      <recent name="$PROJECT_DIR$/src/apis/v1/invitation" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -95,6 +117,7 @@
       <workItem from="1707185270107" duration="123000" />
       <workItem from="1707185916022" duration="7741000" />
       <workItem from="1707203166693" duration="39907000" />
+      <workItem from="1707806456473" duration="12336000" />
     </task>
     <task id="LOCAL-00001" summary="feat: add metadata default setting">
       <created>1706619032384</created>
