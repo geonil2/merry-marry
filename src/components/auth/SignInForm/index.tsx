@@ -15,7 +15,7 @@ export type SignupFormValues = {
   password: string;
 };
 
-const Index = () => {
+const SignInForm = () => {
   const [showPassword, setShowPassword] = useState(false);
 
   const RegisterSchema = Yup.object().shape({
@@ -35,19 +35,10 @@ const Index = () => {
     defaultValues,
   });
 
-  const { reset, handleSubmit } = methods;
+  const { handleSubmit } = methods;
 
   const onSubmit = (data: SignupFormValues) => {
     console.log(data);
-  };
-
-  const resetForm = () => {
-    setShowPassword(false);
-    reset();
-  };
-
-  const onClickRoleButton = () => () => {
-    resetForm();
   };
 
   const onClickPasswordIcon = () => setShowPassword(!showPassword);
@@ -72,4 +63,4 @@ const Index = () => {
   );
 };
 
-export default Index;
+export default SignInForm;
