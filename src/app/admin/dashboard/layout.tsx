@@ -20,7 +20,14 @@ export default function DashboardLayout({
     <div className="flex">
       <DashboardHeader isCollapse={isCollapse} />
       <Navbar isOpenSidebar={open} onCloseSidebar={onCloseSidebar} />
-      {/* <S.MainStyle $collapseClick={collapseClick}>{children}</S.MainStyle> */}
+
+      <div
+        className={`grow lg:transition-all lg:px-4 py-[88px] lg:w-[calc(100%-280px)] lg:py-[106px] ${
+          isCollapse ? `lg:ml-[88px]` : ``
+        }`}
+      >
+        {children}
+      </div>
     </div>
   );
 }

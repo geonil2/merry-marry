@@ -1,8 +1,7 @@
 import { PATH_DASHBOARD } from '@/routes/paths';
 import DashboardImage from '@/assets/images/dashboard/dashboard.svg';
-import CompanyImage from '@/assets/images/dashboard/company.svg';
-import DeveloperImage from '@/assets/images/dashboard/developer.svg';
-import ProjectImage from '@/assets/images/dashboard/project.svg';
+import InvitationImage from '@/assets/images/dashboard/invitation.svg';
+import AdminImage from '@/assets/images/dashboard/admin.svg';
 
 export type NavListProps = {
   title: string;
@@ -22,9 +21,8 @@ export interface NavProps {
 
 const ICONS = {
   dashboard: DashboardImage,
-  company: CompanyImage,
-  developer: DeveloperImage,
-  project: ProjectImage,
+  invitation: InvitationImage,
+  admin: AdminImage,
 };
 
 const navbar = [
@@ -33,19 +31,14 @@ const navbar = [
     items: [
       { title: `dashboard`, path: PATH_DASHBOARD.app, icon: ICONS.dashboard },
       {
-        title: `company`,
+        title: `invitation`,
         path: PATH_DASHBOARD.company,
-        icon: ICONS.company,
+        icon: ICONS.invitation,
       },
       {
-        title: `developer`,
+        title: `admin`,
         path: PATH_DASHBOARD.developer,
-        icon: ICONS.developer,
-      },
-      {
-        title: `project`,
-        path: PATH_DASHBOARD.project,
-        icon: ICONS.project,
+        icon: ICONS.admin,
       },
     ],
   },
