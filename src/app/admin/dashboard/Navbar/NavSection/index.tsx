@@ -24,9 +24,9 @@ const NavSection: React.FC<NavProps> = ({ navConfig, isCollapse }) => {
           key={subheader}
         >
           <p
-            className={`transition-all pt-6 pb-2 pl-4 ${
-              isCollapse ? `opacity-0` : `opacity-100`
-            }`}
+            className={`transition-all pt-6 pb-2 pl-4 
+              ${isCollapse ? `opacity-0` : `opacity-100`}
+            `}
           >
             {subheader}
           </p>
@@ -75,22 +75,20 @@ const NavList: React.FC<NavListRootProps> = ({
     <>
       <Link href={data.path}>
         <div
-          className={`flex justify-start items-center font-semibold text-gray_950 rounded-lg transition-all mb-1 py-2 px-3 cursor-pointer hover:bg-gray_50 h-12
-           ${isCollapse && `justify-center p-0`} ${
-            active && `text-main bg-main bg-opacity-[08]`
-          } ${active && depth !== 1 && `text-gray_950 bg-transparent`} ${
-            depth &&
-            depth > 1 &&
-            `h-10 ${depth && depth > 2 && `pl-${3 * depth}`}`
-          }`}
+          style={{ paddingLeft: depth && depth > 2 ? `${8 * depth}px` : `` }}
+          className={`flex items-center font-semibold rounded-lg transition-all mb-1 cursor-pointer hover:bg-gray_50 
+            ${isCollapse ? `justify-center p-0` : `justify-start py-2 px-3`} 
+            ${active ? `text-main` : `text-gray_950`}
+            ${depth === 1 ? `h-12` : `h-10`}
+            `}
           onClick={handleClickItem}
         >
           {depth !== 1 && (
             <div className="flex justify-center items-center w-8 h-8">
               <span
-                className={`w-1 h-1 rounded-[50%] bg-gray_950 transition-all ${
-                  active && `scale-[2] bg-main`
-                }`}
+                className={`w-1 h-1 rounded-[50%] bg-gray_950 transition-all 
+                  ${active && `scale-[2] bg-main`}
+                `}
               />
             </div>
           )}
@@ -105,9 +103,9 @@ const NavList: React.FC<NavListRootProps> = ({
             className={`transition-all ${isCollapse ? `w-0 ml-0` : `ml-2.5`}`}
           >
             <p
-              className={`flex-[1_1_auto] transition-all ${
-                isCollapse ? `opacity-0` : `opacity-100`
-              }`}
+              className={`flex-[1_1_auto] transition-all 
+                ${isCollapse ? `opacity-0` : `opacity-100`}
+              `}
             >
               {data.title}
             </p>
@@ -115,7 +113,7 @@ const NavList: React.FC<NavListRootProps> = ({
 
           {/* NOTE: sub page accordion nav 추가 개발 예정 */}
           {hasChildren && (
-            <div className="relative w-4 h-4">
+            <div className="relative w-4 h-4 ml-2">
               <Image
                 src={open ? ArrowLeftIcon : ArrowBottomIcon}
                 alt="Accordion nav arrow icon"
@@ -128,7 +126,7 @@ const NavList: React.FC<NavListRootProps> = ({
 
       {/* NOTE: sub page accordion nav 추가 개발 예정 */}
       {!isCollapse && hasChildren && (
-        // <Collapse in={open} >
+        // <Collapse in={open}>
         <NavSubList data={data.children} depth={depth} />
         // </Collapse>
       )}

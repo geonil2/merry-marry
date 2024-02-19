@@ -6,7 +6,7 @@ import AdminImage from '@/assets/images/dashboard/admin.svg';
 export type NavListProps = {
   title: string;
   path: string;
-  icon?: string; // NOTE: 확인 필요
+  icon?: string;
   disabled?: boolean;
   children?: any;
 };
@@ -27,17 +27,21 @@ const ICONS = {
 
 const navbar = [
   {
-    subheader: `general`,
+    subheader: `GENERAL`,
     items: [
-      { title: `dashboard`, path: PATH_DASHBOARD.app, icon: ICONS.dashboard },
+      {
+        title: `dashboard`,
+        path: PATH_DASHBOARD.root,
+        icon: ICONS.dashboard,
+      },
       {
         title: `invitation`,
-        path: PATH_DASHBOARD.company,
+        path: PATH_DASHBOARD.invitation,
         icon: ICONS.invitation,
       },
       {
         title: `admin`,
-        path: PATH_DASHBOARD.developer,
+        path: PATH_DASHBOARD.admin,
         icon: ICONS.admin,
       },
     ],

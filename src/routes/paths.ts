@@ -15,9 +15,6 @@ export const PATH_ADMIN = {
 
 export const PATH_DASHBOARD = {
   root: ROOTS_DASHBOARD,
-  app: path(ROOTS_DASHBOARD, `/app`),
-  company: path(ROOTS_DASHBOARD, `/company`),
-  developer: path(ROOTS_DASHBOARD, `/developer`),
-  project: path(ROOTS_DASHBOARD, `/project`),
-  createProject: path(ROOTS_DASHBOARD, `/project/create`),
+  invitation: path(ROOTS_DASHBOARD, `/invitation`),
+  admin: path(ROOTS_DASHBOARD, `/admin`),
 };
