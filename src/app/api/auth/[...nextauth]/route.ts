@@ -1,10 +1,10 @@
-import NextAuth from 'next-auth';
+import NextAuth from 'next-auth/next';
 import bcrypt from 'bcrypt';
 
 import prisma from '@/lib/prisma';
 import CredentialsProvider from 'next-auth/providers/credentials';
 
-export default NextAuth({
+const handler = NextAuth({
   providers: [
     CredentialsProvider({
       name: `Credentials`,
@@ -20,8 +20,8 @@ export default NextAuth({
           placeholder: `비밀번호를 입력해주세요.`,
         },
       },
-
       async authorize(credentials, req) {
+        console.log(credentials, `credentials`);
         if (!credentials) throw new Error(`Authorization Failed`);
 
         const { email, password } = credentials;
@@ -61,3 +61,5 @@ export default NextAuth({
     signIn: `auth/signin`,
   },
 });
+
+export { handler as GET, handler as POST };

@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
+import { signIn } from 'next-auth/react';
 import * as Yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 
@@ -37,8 +38,14 @@ const SignInForm = () => {
 
   const { handleSubmit } = methods;
 
-  const onSubmit = (data: SignupFormValues) => {
+  const onSubmit = async (data: SignupFormValues) => {
     console.log(data);
+    const result = await signIn(`credentials`, {
+      redirect: false,
+      ...data,
+    });
+
+    console.log(result, `result`);
   };
 
   const onClickPasswordIcon = () => setShowPassword(!showPassword);
