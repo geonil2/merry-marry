@@ -2,6 +2,10 @@ import type { Metadata } from 'next';
 import { Poppins } from 'next/font/google';
 import './globals.css';
 import { CollapseDrawerProvider } from '@/contexts/CollapseDrawerContext';
+import { SessionContextProvider } from '@/contexts/SessionContext';
+import { ToastMessageProvider } from '@/contexts/ToastMessageContext';
+import QueryProvider from '@/components/common/QueryProvider';
+import ToastMessage from '@/components/common/ToastMessage';
 
 const poppins = Poppins({
   // eslint-disable-next-line @typescript-eslint/quotes
@@ -10,7 +14,7 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: `Merry-Merry`,
+  title: `Merry-Marry`,
   description: ``,
 };
 
@@ -21,9 +25,18 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <CollapseDrawerProvider>
-        <body className={poppins.className}>{children}</body>
-      </CollapseDrawerProvider>
+      <body className={poppins.className}>
+        <QueryProvider>
+          <SessionContextProvider>
+            <ToastMessageProvider>
+              <CollapseDrawerProvider>
+                {children}
+                <ToastMessage />
+              </CollapseDrawerProvider>
+            </ToastMessageProvider>
+          </SessionContextProvider>
+        </QueryProvider>
+      </body>
     </html>
   );
 }

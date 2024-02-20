@@ -11,10 +11,10 @@ import CollapseButton from './CollapseButton';
 import NavbarAccount from './NavbarAccount';
 import NavSection from './NavSection';
 
-interface Props {
+type Props = {
   isOpenSidebar: boolean;
   onCloseSidebar: VoidFunction;
-}
+};
 
 const Navbar: React.FC<Props> = ({ isOpenSidebar, onCloseSidebar }) => {
   const pathname = usePathname();
@@ -35,16 +35,17 @@ const Navbar: React.FC<Props> = ({ isOpenSidebar, onCloseSidebar }) => {
 
   return (
     <div
-      className={`flex flex-col min-h-screen overflow-y-auto bg-gray_50 bg-opacity-80 backdrop-blur border-r-[1px] border-dashed border-gray_200 duration-300 transition-all pt-6 pb-4 px-5 ${
-        collapseClick && `absolute z-10`
-      } ${isCollapse ? `w-[88px]` : `w-[280px]`}`}
+      className={`flex flex-col min-h-screen overflow-y-auto bg-gray_50 bg-opacity-80 backdrop-blur border-r-[1px] border-dashed border-gray_200 duration-300 transition-all pt-6 pb-4 px-5 
+        ${collapseClick && `absolute z-10`} 
+        ${isCollapse ? `w-[88px]` : `w-[280px]`}
+      `}
       onMouseEnter={onHoverEnter}
       onMouseLeave={onHoverLeave}
     >
       <div
-        className={`flex items-center ${
-          isCollapse ? `justify-center` : `justify-between`
-        }`}
+        className={`flex items-center 
+          ${isCollapse ? `justify-center` : `justify-between`}
+        `}
       >
         <div className="relative w-[44.25px] h-[30.75px]">
           {/* TODO : 디자인 작업 후 추가 */}

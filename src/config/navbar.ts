@@ -1,4 +1,4 @@
-import { PATH_DASHBOARD } from '@/routes/paths';
+import { PATH_ADMIN } from '@/routes/paths';
 import DashboardImage from '@/assets/images/dashboard/dashboard.svg';
 import InvitationImage from '@/assets/images/dashboard/invitation.svg';
 import AdminImage from '@/assets/images/dashboard/admin.svg';
@@ -31,17 +31,17 @@ const navbar = [
     items: [
       {
         title: `dashboard`,
-        path: PATH_DASHBOARD.root,
+        path: PATH_ADMIN.root,
         icon: ICONS.dashboard,
       },
       {
         title: `invitation`,
-        path: PATH_DASHBOARD.invitation,
+        path: PATH_ADMIN.invitation,
         icon: ICONS.invitation,
       },
       {
         title: `admin`,
-        path: PATH_DASHBOARD.admin,
+        path: PATH_ADMIN.admin,
         icon: ICONS.admin,
       },
     ],

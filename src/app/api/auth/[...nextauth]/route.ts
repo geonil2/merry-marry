@@ -1,10 +1,11 @@
+import { AuthOptions } from 'next-auth';
 import NextAuth from 'next-auth/next';
-import bcrypt from 'bcrypt';
+import CredentialsProvider from 'next-auth/providers/credentials';
+import bcrypt from 'bcryptjs';
 
 import prisma from '@/lib/prisma';
-import CredentialsProvider from 'next-auth/providers/credentials';
 
-const handler = NextAuth({
+export const authOptions: AuthOptions = {
   providers: [
     CredentialsProvider({
       name: `Credentials`,
@@ -46,7 +47,7 @@ const handler = NextAuth({
       const admin = await prisma.admin.findUnique({
         where: { email: session.user?.email as string },
         select: {
-          id: true,
+          email: true,
           name: true,
         },
       });
@@ -58,8 +59,10 @@ const handler = NextAuth({
   },
   secret: process.env.AUTH_SECRET,
   pages: {
-    signIn: `auth/signin`,
+    signIn: `admin`,
   },
-});
+};
+
+const handler = NextAuth(authOptions);
 
 export { handler as GET, handler as POST };

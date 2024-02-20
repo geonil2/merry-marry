@@ -2,10 +2,10 @@
 
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { signIn } from 'next-auth/react';
 import * as Yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 
+import { useSignIn } from '@/hooks/mutates';
 import FormProvider from '@/components/common/FormProvider';
 import RHFTextField from '@/components/common/RHFTextField';
 import PasswordIcon from '@/components/auth/PassowordIcon';
@@ -17,6 +17,7 @@ export type SignupFormValues = {
 };
 
 const SignInForm = () => {
+  const { mutate: signIn } = useSignIn();
   const [showPassword, setShowPassword] = useState(false);
 
   const RegisterSchema = Yup.object().shape({
@@ -38,15 +39,7 @@ const SignInForm = () => {
 
   const { handleSubmit } = methods;
 
-  const onSubmit = async (data: SignupFormValues) => {
-    console.log(data);
-    const result = await signIn(`credentials`, {
-      redirect: false,
-      ...data,
-    });
-
-    console.log(result, `result`);
-  };
+  const onSubmit = (data: SignupFormValues) => signIn(data);
 
   const onClickPasswordIcon = () => setShowPassword(!showPassword);
 

@@ -4,10 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="21356dcf-2204-42c7-92a2-715815edd92a" name="Changes" comment="feat: admin signin page UI 개발&#10;&#10;- tailwind default setting&#10;- react hook form, yup install">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/auth/SignInForm/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/auth/SignInForm/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/common/Button/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/common/Button/index.tsx" afterDir="false" />
+    <list default="true" id="21356dcf-2204-42c7-92a2-715815edd92a" name="Changes" comment="feat: toast UI 추가">
+      <change afterPath="$PROJECT_DIR$/../merry-marry/src/components/common/QueryProvider/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../merry-marry/src/hooks/mutates/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../merry-marry/src/hooks/mutates/useSignIn.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../merry-marry/src/query/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../merry-marry/src/query/keys.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../merry-marry/.pnp.cjs" beforeDir="false" afterPath="$PROJECT_DIR$/../merry-marry/.pnp.cjs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../merry-marry/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../merry-marry/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../merry-marry/src/app/admin/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../merry-marry/src/app/admin/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../merry-marry/src/app/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../merry-marry/src/app/layout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../merry-marry/src/components/auth/SignInForm/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../merry-marry/src/components/auth/SignInForm/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../merry-marry/src/helper/getMetadata.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../merry-marry/src/helper/getMetadata.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../merry-marry/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../merry-marry/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,7 +31,7 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../merry-marry" />
   </component>
   <component name="GitRewordedCommitMessages">
     <option name="commitMessagesMapping">
@@ -49,41 +58,42 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;js.linters.configure.manually.selectedeslint&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/kimgeonil/Desktop/project/merry-merry/src/assets/images/auth&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.standard&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;yarn:package.json:eslint&quot;,
-    &quot;node.js.selected.package.standard&quot;: &quot;&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_interpreter_path&quot;: &quot;/Users/kimgeonil/.nvm/versions/node/v18.12.1/bin/node&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;/Users/kimgeonil/Desktop/project/merry-merry/.yarn/releases/yarn-4.0.2.cjs&quot;,
-    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;yarn:package.json:prettier&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;settings.javascript.linters.eslint&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;yarn:package.json:typescript&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "main",
+    "js.linters.configure.manually.selectedeslint": "true",
+    "last_opened_file_path": "/Users/kimgeonil/Desktop/project/merry-merry/src/components/common",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.standard": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "yarn:package.json:eslint",
+    "node.js.selected.package.standard": "",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_interpreter_path": "/Users/kimgeonil/.nvm/versions/node/v18.12.1/bin/node",
+    "nodejs_package_manager_path": "/Users/kimgeonil/Desktop/project/merry-merry/.yarn/releases/yarn-4.0.2.cjs",
+    "prettierjs.PrettierConfiguration.Package": "yarn:package.json:prettier",
+    "settings.editor.selected.configurable": "settings.javascript.linters.eslint",
+    "ts.external.directory.path": "/Applications/WebStorm.app/Contents/plugins/javascript-impl/jsLanguageServicesImpl/external",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/components/common" />
+      <recent name="$PROJECT_DIR$/src" />
+      <recent name="$PROJECT_DIR$/src/assets/images/common" />
       <recent name="$PROJECT_DIR$/src/assets/images/auth" />
-      <recent name="$PROJECT_DIR$/src/app/api/v1/invitation/wedding" />
-      <recent name="$PROJECT_DIR$/src/app/api/v1/invitation/meta" />
-      <recent name="$PROJECT_DIR$/src/app/api/v1/invitation/groom" />
+      <recent name="$PROJECT_DIR$/src/hooks" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/components/auth/SignInForm" />
-      <recent name="$PROJECT_DIR$/src/app/admin" />
-      <recent name="$PROJECT_DIR$/src/app/api" />
-      <recent name="$PROJECT_DIR$/src/app" />
-      <recent name="$PROJECT_DIR$/src/api/v1/invitation/bridge" />
+      <recent name="$PROJECT_DIR$/src/hooks/mutates" />
+      <recent name="$PROJECT_DIR$/src/assets/images" />
+      <recent name="$PROJECT_DIR$/src/app/admin/dashboard/DashboardHeader" />
+      <recent name="$PROJECT_DIR$/src/hooks/common" />
+      <recent name="$PROJECT_DIR$/src/components/auth" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -98,7 +108,7 @@
       <workItem from="1707185270107" duration="123000" />
       <workItem from="1707185916022" duration="7741000" />
       <workItem from="1707203166693" duration="39907000" />
-      <workItem from="1707806456473" duration="14401000" />
+      <workItem from="1707806456473" duration="48082000" />
     </task>
     <task id="LOCAL-00001" summary="feat: add metadata default setting">
       <created>1706619032384</created>
@@ -155,7 +165,47 @@
       <option name="project" value="LOCAL" />
       <updated>1707827742931</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="feat: admin dashboard page 생성&#10;&#10;- admin dashboard page 생성&#10;- admin dashboard header component 개발">
+      <option name="closed" value="true" />
+      <created>1707912621622</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1707912621622</updated>
+    </task>
+    <task id="LOCAL-00009" summary="feat: admin navbar 개발">
+      <option name="closed" value="true" />
+      <created>1708249609670</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1708249609670</updated>
+    </task>
+    <task id="LOCAL-00010" summary="feat: admin navbar UI 반영">
+      <option name="closed" value="true" />
+      <created>1708325324799</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1708325324799</updated>
+    </task>
+    <task id="LOCAL-00011" summary="feat: admin sign in 개발&#10;&#10;- next-auth 경로 변경&#10;- session provider 추가">
+      <option name="closed" value="true" />
+      <created>1708334108231</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1708334108231</updated>
+    </task>
+    <task id="LOCAL-00012" summary="feat: toast UI 추가">
+      <option name="closed" value="true" />
+      <created>1708334142999</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1708334142999</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -195,7 +245,23 @@
     <MESSAGE value="feat: image upload 관련 API 개발" />
     <MESSAGE value="feat: admin signin page UI 개발&#10;&#10;- tailwind default setting&#10;- react hook form, yup install" />
     <MESSAGE value="feat: invitation get post API 개발" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: admin signin page UI 개발&#10;&#10;- tailwind default setting&#10;- react hook form, yup install" />
+    <MESSAGE value="feat: admin dashboard page 생성&#10;&#10;- admin dashboard page 생성&#10;- admin dashboard header component 개발" />
+    <MESSAGE value="feat: admin navbar 개발" />
+    <MESSAGE value="feat: admin navbar UI 반영" />
+    <MESSAGE value="feat: admin sign in 개발&#10;&#10;- next-auth 경로 변경&#10;- session provider 추가" />
+    <MESSAGE value="feat: toast UI 추가" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: toast UI 추가" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/../merry-marry/src/app/admin/page.tsx</url>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
