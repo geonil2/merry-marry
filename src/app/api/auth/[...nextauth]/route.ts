@@ -4,6 +4,7 @@ import CredentialsProvider from 'next-auth/providers/credentials';
 import bcrypt from 'bcryptjs';
 
 import prisma from '@/lib/prisma';
+import { signJwtAccessToken } from '@/helper/jwt';
 
 export const authOptions: AuthOptions = {
   providers: [
@@ -22,7 +23,6 @@ export const authOptions: AuthOptions = {
         },
       },
       async authorize(credentials, req) {
-        console.log(credentials, `credentials`);
         if (!credentials) throw new Error(`Authorization Failed`);
 
         const { email, password } = credentials;
@@ -30,20 +30,25 @@ export const authOptions: AuthOptions = {
         const user = await prisma.admin.findUnique({
           where: { email },
         });
+
         if (!user) throw new Error(`This user does not exist.`);
 
-        const result = await bcrypt.compare(password, user.password);
+        const { password: hashedPassword, ...rest } = user;
+        const result = await bcrypt.compare(password, hashedPassword);
+
         if (!result) throw new Error(`Password mismatch.`);
 
-        return user;
+        const accessToken = signJwtAccessToken(rest);
+
+        return { ...rest, accessToken };
       },
     }),
   ],
   callbacks: {
-    async jwt({ token }) {
-      return token;
+    async jwt({ token, user }) {
+      return { ...token, ...user };
     },
-    async session({ session }) {
+    async session({ session, token }) {
       const admin = await prisma.admin.findUnique({
         where: { email: session.user?.email as string },
         select: {
@@ -52,7 +57,8 @@ export const authOptions: AuthOptions = {
         },
       });
 
-      if (admin) session.user = admin;
+      if (admin)
+        session.user = { ...admin, accessToken: token.accessToken as string };
 
       return session;
     },
